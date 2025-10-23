@@ -1,0 +1,31 @@
+# Robots.txt para Nandi Dev
+# Permite que todos os buscadores indexem todo o site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nandidev.com/sitemap.xml
+
+# Configurações específicas para buscadores populares
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
