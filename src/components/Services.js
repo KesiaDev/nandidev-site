@@ -7,7 +7,6 @@ import {
   ShoppingCart, 
   Smartphone, 
   Settings, 
-  Wrench,
   ArrowRight,
   CheckCircle,
   Palette,

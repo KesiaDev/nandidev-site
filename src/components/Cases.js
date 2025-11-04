@@ -89,13 +89,6 @@ const Cases = () => {
     }
   ];
 
-  const handleViewMore = () => {
-    const element = document.querySelector('#portfolio');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleExternalLink = (url) => {
     window.open(url, '_blank');
   };

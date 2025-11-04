@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Eye, Filter } from 'lucide-react';
+import { ExternalLink, Github, Filter } from 'lucide-react';
 
 const Portfolio = () => {
   const ref = useRef(null);
