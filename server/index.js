@@ -496,6 +496,22 @@ function getAvailableSlots(date) {
   return slots;
 }
 
+// Rota raiz para verificar se está funcionando
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'online',
+    message: 'Backend do Chatbot Nandi Dev está funcionando!',
+    endpoints: {
+      chat: 'POST /api/chat',
+      leads: 'GET /api/leads',
+      stats: 'GET /api/stats',
+      diagnostic: 'POST /api/diagnostic',
+      proposal: 'POST /api/proposal',
+      appointments: 'GET /api/appointments'
+    }
+  });
+});
+
 // Rota para chat
 app.post('/api/chat', async (req, res) => {
   try {
