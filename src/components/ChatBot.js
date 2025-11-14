@@ -178,9 +178,8 @@ const ChatBot = () => {
     
     setIsLoading(true);
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || '/api';
       const leadDataWithId = { ...data, id: data.id || Date.now() };
-      const response = await fetch(`${apiUrl}/diagnostic`, {
+      const response = await fetch(`${API_BASE_URL}/api/diagnostic`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ leadData: leadDataWithId })
@@ -257,10 +256,9 @@ const ChatBot = () => {
 
     setIsLoading(true);
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || '/api';
       const dateTime = `${selectedDate}T${selectedTime}:00`;
       const leadDataWithId = { ...leadData, id: leadData.id || Date.now() };
-      const response = await fetch(`${apiUrl}/appointments`, {
+      const response = await fetch(`${API_BASE_URL}/api/appointments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
