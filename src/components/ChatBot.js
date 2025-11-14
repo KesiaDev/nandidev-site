@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User, Loader, FileText, DollarSign, Calendar, CheckCircle, Clock, Building, Target, AlertCircle } from 'lucide-react';
 
+// URL da API do backend - prioridade: variável de ambiente > constante
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://friendly-exploration-production.up.railway.app';
+
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -69,8 +72,8 @@ const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || '/api';
-      const response = await fetch(`${apiUrl}/chat`, {
+      const apiUrl = API_BASE_URL;
+      const response = await fetch(`${apiUrl}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -141,7 +144,7 @@ const ChatBot = () => {
 
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
-      console.error('API URL:', process.env.REACT_APP_API_URL || '/api');
+      console.error('API URL:', API_BASE_URL);
       console.error('Erro completo:', error.message, error.stack);
       
       let errorText = "Desculpe, ocorreu um erro. Por favor, tente novamente ou entre em contato pelo WhatsApp.";
@@ -208,8 +211,7 @@ const ChatBot = () => {
     
     setIsLoading(true);
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || '/api';
-      const response = await fetch(`${apiUrl}/proposal`, {
+      const response = await fetch(`${API_BASE_URL}/api/proposal`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ diagnostic, leadData })
@@ -239,8 +241,7 @@ const ChatBot = () => {
     setSelectedDate(targetDate);
     
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || '/api';
-      const response = await fetch(`${apiUrl}/appointments/available?date=${targetDate}`);
+      const response = await fetch(`${API_BASE_URL}/api/appointments/available?date=${targetDate}`);
       const data = await response.json();
       setAvailableSlots(data.slots || []);
     } catch (error) {
@@ -303,8 +304,7 @@ const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || '/api';
-      const response = await fetch(`${apiUrl}/leads`, {
+      const response = await fetch(`${API_BASE_URL}/api/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
