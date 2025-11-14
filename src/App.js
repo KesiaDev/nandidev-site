@@ -7,6 +7,7 @@ import Cases from './components/Cases';
 import Portfolio from './components/Portfolio';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Portfolio />
       <CTA />
       <Footer />
+      <ChatBot />
     </div>
   );
 }
