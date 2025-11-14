@@ -11,7 +11,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Olá! 👋 Sou o assistente inteligente da NandiDev.\n\nPara te ajudar da melhor forma, posso entender qual tipo de solução você está buscando hoje?",
+      text: "Olá! 👋 Sou o Assistente Inteligente da NandiDev.\n\nVou te ajudar a entender a melhor solução para o que você precisa.\n\nPara começarmos, qual é o objetivo principal do projeto que você quer criar ou melhorar?",
       sender: 'bot',
       timestamp: new Date()
     }
