@@ -84,7 +84,7 @@ const Hero = () => {
           {/* Main heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
           >
             Implementamos soluções digitais inteligentes usando{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
@@ -96,7 +96,7 @@ const Hero = () => {
           {/* Slogan */}
           <motion.p
             variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 max-w-4xl mx-auto leading-relaxed italic"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 max-w-4xl mx-auto leading-relaxed italic mb-8"
           >
             NandiDev — criatividade, tecnologia e inteligência para impulsionar seu negócio.
           </motion.p>
@@ -106,7 +106,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
-            Desenvolvimento de sites profissionais, e-commerce, aplicativos mobile e sistemas web personalizados em Caxias do Sul RS.
+            Desenvolvimento de sites profissionais, e-commerce, aplicativos mobile e sistemas web.
           </motion.p>
 
           {/* Feature highlights */}
