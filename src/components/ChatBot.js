@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User, Loader, FileText, DollarSign, Calendar, CheckCircle, Clock, Building, Target, AlertCircle } from 'lucide-react';
+import SmartForm from './SmartForm';
 
 // URL da API do backend - prioridade: variável de ambiente > constante
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://friendly-exploration-production.up.railway.app';
@@ -33,6 +34,7 @@ const ChatBot = () => {
     challenges: ''
   });
   const [showLeadForm, setShowLeadForm] = useState(false);
+  const [showSmartForm, setShowSmartForm] = useState(false);
   const [diagnostic, setDiagnostic] = useState(null);
   const [proposal, setProposal] = useState(null);
   const [showAppointment, setShowAppointment] = useState(false);
@@ -114,9 +116,14 @@ const ChatBot = () => {
       }
 
       // Se o bot identificou que precisa coletar dados do lead
-      if (data.needsLeadInfo && !showLeadForm) {
+      if (data.needsLeadInfo && !showLeadForm && !showSmartForm) {
         setTimeout(() => {
-          setShowLeadForm(true);
+          // Usar formulário inteligente se tiver poucas informações
+          if (!leadData.name || !leadData.phone || !leadData.needs || leadData.needs.length === 0) {
+            setShowSmartForm(true);
+          } else {
+            setShowLeadForm(true);
+          }
         }, 1000);
       }
 
@@ -338,6 +345,106 @@ const ChatBot = () => {
     }
   };
 
+  const handleSmartFormSubmit = async (formData) => {
+    setIsLoading(true);
+    
+    try {
+      // Atualizar leadData com dados do formulário
+      const updatedLeadData = { ...leadData, ...formData };
+      setLeadData(updatedLeadData);
+
+      // Salvar lead
+      const response = await fetch(`${API_BASE_URL}/api/leads`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...updatedLeadData,
+          conversationHistory: messages,
+          timestamp: new Date()
+        }),
+      });
+
+      if (response.ok) {
+        const botMessage = {
+          id: Date.now(),
+          text: `Perfeito, ${formData.name}! ✅ Recebi todas suas informações. Vou preparar uma proposta personalizada e nossa equipe entrará em contato em breve pelo WhatsApp (${formData.phone}).`,
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+        setShowSmartForm(false);
+        
+        // Gerar diagnóstico e proposta automaticamente
+        setTimeout(() => {
+          handleGenerateDiagnostic(updatedLeadData);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Erro ao salvar lead:', error);
+      alert('Erro ao salvar informações. Por favor, entre em contato pelo WhatsApp.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSmartFormSchedule = async (formData) => {
+    setIsLoading(true);
+    
+    try {
+      // Atualizar leadData
+      const updatedLeadData = { ...leadData, ...formData };
+      setLeadData(updatedLeadData);
+
+      // Criar agendamento
+      const dateTime = `${formData.appointmentDate}T${formData.appointmentTime}:00`;
+      const response = await fetch(`${API_BASE_URL}/api/appointments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          leadData: { ...updatedLeadData, id: Date.now() },
+          dateTime,
+          type: 'video'
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        // Salvar lead também
+        await fetch(`${API_BASE_URL}/api/leads`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...updatedLeadData,
+            conversationHistory: messages,
+            timestamp: new Date()
+          })
+        });
+
+        const botMessage = {
+          id: Date.now(),
+          text: `✅ Agendamento Confirmado!\n\n📅 Data: ${new Date(result.appointment.dateTime).toLocaleDateString('pt-BR')}\n🕐 Horário: ${new Date(result.appointment.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}\n\n${result.appointment.meetingLink ? `🔗 Link: ${result.appointment.meetingLink}` : ''}\n\nEnviarei um lembrete por WhatsApp!`,
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+        setShowSmartForm(false);
+        
+        // Enviar confirmação por WhatsApp
+        const whatsappMessage = encodeURIComponent(
+          `✅ Agendamento Confirmado!\n\nOlá ${formData.name}!\n\nConfirmamos seu agendamento:\n📅 ${new Date(result.appointment.dateTime).toLocaleDateString('pt-BR')}\n🕐 ${new Date(result.appointment.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}\n\n${result.appointment.meetingLink ? `Link: ${result.appointment.meetingLink}` : 'Aguardamos você!'}`
+        );
+        window.open(`https://wa.me/${formData.phone.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
+      }
+    } catch (error) {
+      console.error('Erro ao agendar:', error);
+      alert('Erro ao agendar. Tente novamente.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       {/* Botão flutuante */}
@@ -368,7 +475,11 @@ const ChatBot = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className={`fixed bottom-6 right-6 z-50 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ${
+              showSmartForm 
+                ? 'w-[600px] h-[700px]' 
+                : 'w-96 h-[600px]'
+            }`}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
@@ -438,8 +549,26 @@ const ChatBot = () => {
                 </div>
               )}
 
-              {/* Formulário de Lead */}
-              {showLeadForm && (
+              {/* Formulário Inteligente */}
+              {showSmartForm && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="w-full -mx-4"
+                >
+                  <div className="px-4">
+                    <SmartForm
+                      leadData={leadData}
+                      onSubmit={handleSmartFormSubmit}
+                      onSchedule={handleSmartFormSchedule}
+                      isLoading={isLoading}
+                    />
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Formulário de Lead (simples) */}
+              {showLeadForm && !showSmartForm && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
