@@ -86,11 +86,20 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
           >
-            Transformamos ideias em{' '}
+            Implementamos soluções digitais inteligentes usando{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
-              experiências digitais incríveis
+              IA para empresas crescerem
             </span>
+            , atrair clientes e automatizar processos.
           </motion.h1>
+
+          {/* Slogan */}
+          <motion.p
+            variants={itemVariants}
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 max-w-4xl mx-auto leading-relaxed italic"
+          >
+            NandiDev — criatividade, tecnologia e inteligência para impulsionar seu negócio.
+          </motion.p>
 
           {/* Subtitle */}
           <motion.p
