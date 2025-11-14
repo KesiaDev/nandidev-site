@@ -141,9 +141,19 @@ const ChatBot = () => {
 
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
+      console.error('API URL:', process.env.REACT_APP_API_URL || '/api');
+      console.error('Erro completo:', error.message, error.stack);
+      
+      let errorText = "Desculpe, ocorreu um erro. Por favor, tente novamente ou entre em contato pelo WhatsApp.";
+      
+      // Mensagem mais específica para debug
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        errorText = "Erro de conexão. Verificando configuração do servidor...";
+      }
+      
       const errorMessage = {
         id: Date.now() + 1,
-        text: "Desculpe, ocorreu um erro. Por favor, tente novamente ou entre em contato pelo WhatsApp.",
+        text: errorText,
         sender: 'bot',
         timestamp: new Date()
       };

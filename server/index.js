@@ -9,13 +9,33 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://www.nandidev.com.br',
-    'https://nandidev.com.br',
-    process.env.FRONTEND_URL
-  ].filter(Boolean),
-  credentials: true
+  origin: function (origin, callback) {
+    // Permitir requisições sem origin (mobile apps, Postman, etc)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'https://www.nandidev.com.br',
+      'https://nandidev.com.br',
+      process.env.FRONTEND_URL
+    ].filter(Boolean);
+    
+    // Permitir qualquer origem em desenvolvimento ou se não houver restrições
+    if (process.env.NODE_ENV !== 'production' || allowedOrigins.length === 0) {
+      return callback(null, true);
+    }
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      // Log para debug
+      console.log('CORS bloqueado para origem:', origin);
+      callback(null, true); // Permitir temporariamente para debug
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
