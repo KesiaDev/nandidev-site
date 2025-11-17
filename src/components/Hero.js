@@ -98,7 +98,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 max-w-4xl mx-auto leading-relaxed italic mb-8"
           >
-            NandiDev — criatividade, tecnologia e inteligência para impulsionar seu negócio.
+            Chatbots vendedores, SDR Premium com IA, aplicativos e sites personalizados para acelerar suas vendas.
           </motion.p>
 
           {/* Subtitle */}
@@ -106,7 +106,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
-            Desenvolvimento de sites profissionais, e-commerce, aplicativos mobile e sistemas web.
+            Atendemos empresas do Rio Grande do Sul e de todo o Brasil com soluções digitais inteligentes: automação comercial, geração de leads, apps e portais feitos sob medida.
           </motion.p>
 
           {/* Feature highlights */}
