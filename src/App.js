@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import GrowthSolutions from './components/GrowthSolutions';
 import Cases from './components/Cases';
 import Portfolio from './components/Portfolio';
 import CTA from './components/CTA';
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <About />
       <Services />
+      <GrowthSolutions />
       <Cases />
       <Portfolio />
       <CTA />

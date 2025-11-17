@@ -127,3 +127,5 @@ git push heroku main
 ### Vercel / Netlify
 Configure como função serverless (requer ajustes no código).
 
+
+

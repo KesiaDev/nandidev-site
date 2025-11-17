@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://nandidev.com/sitemap.xml
+Sitemap: https://www.nandidev.com.br/sitemap.xml
 
 # Configurações específicas para buscadores populares
 User-agent: Googlebot
