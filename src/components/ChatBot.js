@@ -288,7 +288,8 @@ const ChatBot = () => {
 
     setIsLoading(true);
     try {
-      const dateTime = `${selectedDate}T${selectedTime}:00`;
+      // Criar agendamento com fuso horário do Brasil (UTC-3)
+      const dateTime = `${selectedDate}T${selectedTime}:00-03:00`;
       const leadDataWithId = { ...leadData, id: leadData.id || Date.now() };
       const response = await fetch(`${API_BASE_URL}/api/appointments`, {
         method: 'POST',
@@ -302,9 +303,18 @@ const ChatBot = () => {
 
       const result = await response.json();
       if (result.success) {
+        // Converter para horário de Brasília para exibição
+        const appointmentDate = new Date(result.appointment.dateTime);
+        const dateStr = appointmentDate.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+        const timeStr = appointmentDate.toLocaleTimeString('pt-BR', { 
+          hour: '2-digit', 
+          minute: '2-digit',
+          timeZone: 'America/Sao_Paulo'
+        });
+        
         const botMessage = {
           id: Date.now(),
-          text: `✅ Agendamento Confirmado!\n\n📅 Data: ${new Date(result.appointment.dateTime).toLocaleDateString('pt-BR')}\n🕐 Horário: ${new Date(result.appointment.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}\n\n${result.appointment.meetingLink ? `🔗 Link da reunião: ${result.appointment.meetingLink}` : ''}\n\nEnviarei um lembrete por WhatsApp!`,
+          text: `✅ Agendamento Confirmado!\n\n📅 Data: ${dateStr}\n🕐 Horário: ${timeStr}\n\n${result.appointment.meetingLink ? `🔗 Link da reunião: ${result.appointment.meetingLink}` : ''}\n\nEnviarei um lembrete por WhatsApp!`,
           sender: 'bot',
           timestamp: new Date()
         };
@@ -313,7 +323,7 @@ const ChatBot = () => {
         
         // Enviar confirmação por WhatsApp
         const whatsappMessage = encodeURIComponent(
-          `✅ Agendamento Confirmado!\n\nOlá ${leadData.name}!\n\nConfirmamos seu agendamento:\n📅 ${new Date(result.appointment.dateTime).toLocaleDateString('pt-BR')}\n🕐 ${new Date(result.appointment.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}\n\n${result.appointment.meetingLink ? `Link: ${result.appointment.meetingLink}` : 'Aguardamos você!'}`
+          `✅ Agendamento Confirmado!\n\nOlá ${leadData.name}!\n\nConfirmamos seu agendamento:\n📅 ${dateStr}\n🕐 ${timeStr}\n\n${result.appointment.meetingLink ? `Link: ${result.appointment.meetingLink}` : 'Aguardamos você!'}`
         );
         window.open(`https://wa.me/${leadData.phone.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
       }
@@ -422,8 +432,9 @@ const ChatBot = () => {
       const updatedLeadData = { ...leadData, ...formData };
       setLeadData(updatedLeadData);
 
-      // Criar agendamento
-      const dateTime = `${formData.appointmentDate}T${formData.appointmentTime}:00`;
+      // Criar agendamento com fuso horário do Brasil (UTC-3)
+      // O horário selecionado é no horário de Brasília, então adicionamos -03:00
+      const dateTime = `${formData.appointmentDate}T${formData.appointmentTime}:00-03:00`;
       const response = await fetch(`${API_BASE_URL}/api/appointments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -447,9 +458,18 @@ const ChatBot = () => {
           })
         });
 
+        // Converter para horário de Brasília para exibição
+        const appointmentDate = new Date(result.appointment.dateTime);
+        const dateStr = appointmentDate.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+        const timeStr = appointmentDate.toLocaleTimeString('pt-BR', { 
+          hour: '2-digit', 
+          minute: '2-digit',
+          timeZone: 'America/Sao_Paulo'
+        });
+        
         const botMessage = {
           id: Date.now(),
-          text: `✅ Agendamento Confirmado!\n\n📅 Data: ${new Date(result.appointment.dateTime).toLocaleDateString('pt-BR')}\n🕐 Horário: ${new Date(result.appointment.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}\n\n${result.appointment.meetingLink ? `🔗 Link: ${result.appointment.meetingLink}` : ''}\n\nEnviarei um lembrete por WhatsApp!`,
+          text: `✅ Agendamento Confirmado!\n\n📅 Data: ${dateStr}\n🕐 Horário: ${timeStr}\n\n${result.appointment.meetingLink ? `🔗 Link: ${result.appointment.meetingLink}` : ''}\n\nEnviarei um lembrete por WhatsApp!`,
           sender: 'bot',
           timestamp: new Date()
         };
@@ -458,7 +478,7 @@ const ChatBot = () => {
         
         // Enviar confirmação por WhatsApp
         const whatsappMessage = encodeURIComponent(
-          `✅ Agendamento Confirmado!\n\nOlá ${formData.name}!\n\nConfirmamos seu agendamento:\n📅 ${new Date(result.appointment.dateTime).toLocaleDateString('pt-BR')}\n🕐 ${new Date(result.appointment.dateTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}\n\n${result.appointment.meetingLink ? `Link: ${result.appointment.meetingLink}` : 'Aguardamos você!'}`
+          `✅ Agendamento Confirmado!\n\nOlá ${formData.name}!\n\nConfirmamos seu agendamento:\n📅 ${dateStr}\n🕐 ${timeStr}\n\n${result.appointment.meetingLink ? `Link: ${result.appointment.meetingLink}` : 'Aguardamos você!'}`
         );
         window.open(`https://wa.me/${formData.phone.replace(/\D/g, '')}?text=${whatsappMessage}`, '_blank');
       }

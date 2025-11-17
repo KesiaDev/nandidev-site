@@ -829,6 +829,19 @@ app.post('/api/appointments', async (req, res) => {
       return res.status(400).json({ error: 'Dados do lead e data/hora são obrigatórios' });
     }
 
+    // Garantir que a data/hora seja tratada corretamente com fuso horário
+    // Se a string já vier com fuso horário (ex: -03:00), o Date() interpreta corretamente
+    // Se não vier, assumimos que é horário de Brasília (UTC-3)
+    let parsedDateTime = new Date(dateTime);
+    
+    // Se a data não foi parseada corretamente, tentar adicionar o fuso horário
+    if (isNaN(parsedDateTime.getTime())) {
+      // Tentar adicionar fuso horário do Brasil se não estiver presente
+      if (!dateTime.includes('+') && !dateTime.includes('-', 10)) {
+        parsedDateTime = new Date(dateTime + '-03:00');
+      }
+    }
+    
     const appointment = {
       id: Date.now(),
       leadId: leadData.id || Date.now(),
@@ -836,11 +849,13 @@ app.post('/api/appointments', async (req, res) => {
       clientPhone: leadData.phone || '',
       clientEmail: leadData.email || '',
       company: leadData.company || '',
-      dateTime: new Date(dateTime).toISOString(),
+      dateTime: parsedDateTime.toISOString(),
       type: type, // 'video', 'presencial', 'phone'
       status: 'scheduled', // 'scheduled', 'completed', 'cancelled'
       createdAt: new Date().toISOString(),
-      meetingLink: type === 'video' ? `https://meet.google.com/${Math.random().toString(36).substring(7)}` : null
+      // Gerar link do Google Meet (formato: meet.google.com/xxx-xxxx-xxx)
+      // TODO: Integrar com Google Calendar API para criar reuniões reais
+      meetingLink: type === 'video' ? `https://meet.google.com/${Math.random().toString(36).substring(2, 6)}-${Math.random().toString(36).substring(2, 6)}-${Math.random().toString(36).substring(2, 6)}` : null
     };
 
     // Salvar agendamento
