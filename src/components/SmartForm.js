@@ -134,7 +134,7 @@ const SmartForm = ({ leadData, onSubmit, onSchedule, isLoading }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-blue-500 max-w-2xl mx-auto">
+    <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-blue-500 max-w-2xl w-full mx-auto">
       {/* Progress Bar */}
       <div className="mb-6">
         <div className="flex justify-between mb-2">
@@ -532,4 +532,5 @@ const SmartForm = ({ leadData, onSubmit, onSchedule, isLoading }) => {
 };
 
 export default SmartForm;
+
 

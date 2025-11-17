@@ -41,6 +41,10 @@ const ChatBot = () => {
   const [availableSlots, setAvailableSlots] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [viewportWidth, setViewportWidth] = useState(() => {
+    if (typeof window === 'undefined') return 1024;
+    return window.innerWidth;
+  });
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -58,6 +62,27 @@ const ChatBot = () => {
       loadAvailableSlots(today);
     }
   }, [showAppointment]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = viewportWidth < 640;
+  const isTablet = viewportWidth >= 640 && viewportWidth < 1024;
+
+  const widgetDimensionClass = isMobile
+    ? 'w-full h-full max-h-screen'
+    : isTablet
+    ? (showSmartForm ? 'w-[540px] h-[80vh]' : 'w-[420px] h-[640px]')
+    : (showSmartForm ? 'w-[600px] h-[700px]' : 'w-96 h-[600px]');
+
+  const widgetPositionClass = isMobile ? 'fixed inset-0' : 'fixed bottom-6 right-6';
+  const widgetRadiusClass = isMobile ? 'rounded-none' : 'rounded-2xl';
+  const widgetShadowClass = isMobile ? 'shadow-none' : 'shadow-2xl';
+  const floatingButtonPositionClass = isMobile ? 'bottom-4 right-4' : 'bottom-6 right-6';
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
@@ -457,7 +482,7 @@ const ChatBot = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300"
+            className={`fixed ${floatingButtonPositionClass} z-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300`}
             aria-label="Abrir chat"
           >
             <MessageCircle size={28} />
@@ -475,11 +500,7 @@ const ChatBot = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className={`fixed bottom-6 right-6 z-50 bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ${
-              showSmartForm 
-                ? 'w-[600px] h-[700px]' 
-                : 'w-96 h-[600px]'
-            }`}
+            className={`${widgetPositionClass} z-50 bg-white ${widgetRadiusClass} ${widgetShadowClass} flex flex-col overflow-hidden transition-all duration-300 ${widgetDimensionClass}`}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
@@ -554,7 +575,7 @@ const ChatBot = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="w-full -mx-4"
+                  className="w-full sm:-mx-4"
                 >
                   <div className="px-4">
                     <SmartForm
