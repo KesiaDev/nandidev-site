@@ -92,7 +92,7 @@ const Cases = () => {
       title: "ConectaQ – Plataforma para Igreja Quadrangular",
       category: "Plataforma Web",
       description: "Plataforma completa desenvolvida para a Igreja Quadrangular, oferecendo soluções digitais integradas para gestão, comunicação e engajamento da comunidade.",
-      image: "/logo/conectaq-hero.jpg", // Imagem principal do ConectaQ
+      image: "/logo/conectaq-hero.jpg", // Imagem da primeira página do PDF/Preview
       technologies: ["React", "Node.js", "Database", "API Integration"],
       features: [
         "Gestão de membros e comunidade",
@@ -151,16 +151,23 @@ const Cases = () => {
               >
                 {/* Case Header */}
                 <div className={`h-64 bg-gradient-to-r ${caseItem.color} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
                   {caseItem.image ? (
-                    <img
-                      src={caseItem.image}
-                      alt={caseItem.title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
+                    <>
+                      <img
+                        src={caseItem.image}
+                        alt={caseItem.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/10"></div>
+                      {/* Fallback se imagem não carregar */}
+                      <div className="hidden w-full h-full items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600">
+                        <caseItem.icon className="w-24 h-24 text-white/50" />
+                      </div>
+                    </>
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
                       <caseItem.icon className="w-24 h-24 text-white/50" />
