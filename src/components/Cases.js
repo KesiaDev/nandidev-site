@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Smartphone, Globe, Star, ArrowRight, X } from 'lucide-react';
+import { ExternalLink, Smartphone, Globe, Star, ArrowRight, X, FileText, Users } from 'lucide-react';
 
 const Cases = () => {
   const ref = useRef(null);
@@ -86,6 +86,32 @@ const Cases = () => {
         "/logo/conferencia-programacao.png",
         "/logo/conferencia-inscricoes.png"
       ]
+    },
+    {
+      id: 3,
+      title: "ConectaQ – Plataforma para Igreja Quadrangular",
+      category: "Plataforma Web",
+      description: "Plataforma completa desenvolvida para a Igreja Quadrangular, oferecendo soluções digitais integradas para gestão, comunicação e engajamento da comunidade.",
+      image: "/logo/conectaq-hero.jpg", // Imagem principal do ConectaQ
+      technologies: ["React", "Node.js", "Database", "API Integration"],
+      features: [
+        "Gestão de membros e comunidade",
+        "Sistema de comunicação integrado",
+        "Agenda de eventos e atividades",
+        "Portal de informações e notícias",
+        "Gestão de grupos e células",
+        "Sistema de doações e contribuições",
+        "Área administrativa completa",
+        "Interface responsiva e intuitiva"
+      ],
+      icon: Users,
+      color: "from-green-500 to-emerald-600",
+      pdfUrl: "/docs/ConectaQ.pdf",
+      screenshots: [
+        "/logo/conectaq-hero.jpg",
+        "/logo/conectaq-dashboard.jpg",
+        "/logo/conectaq-comunidade.jpg"
+      ]
     }
   ];
 
@@ -115,7 +141,7 @@ const Cases = () => {
           </motion.div>
 
           {/* Cases Grid */}
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {cases.map((caseItem) => (
               <motion.div
                 key={caseItem.id}
@@ -126,11 +152,20 @@ const Cases = () => {
                 {/* Case Header */}
                 <div className={`h-64 bg-gradient-to-r ${caseItem.color} relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/20"></div>
-                  <img
-                    src={caseItem.image}
-                    alt={caseItem.title}
-                    className="w-full h-full object-cover"
-                  />
+                  {caseItem.image ? (
+                    <img
+                      src={caseItem.image}
+                      alt={caseItem.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <caseItem.icon className="w-24 h-24 text-white/50" />
+                    </div>
+                  )}
                   <div className="absolute top-6 left-6">
                     <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2">
                       <caseItem.icon className="w-5 h-5 text-white" />
@@ -170,7 +205,7 @@ const Cases = () => {
 
 
                   {/* Action Buttons */}
-                  <div className="flex space-x-4">
+                  <div className="flex flex-col space-y-3">
                     {caseItem.liveUrl && (
                       <motion.button
                         whileHover={{ scale: 1.05 }}
@@ -180,6 +215,18 @@ const Cases = () => {
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span>Ver Online</span>
+                      </motion.button>
+                    )}
+                    
+                    {caseItem.pdfUrl && (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleExternalLink(caseItem.pdfUrl)}
+                        className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+                      >
+                        <FileText className="w-4 h-4" />
+                        <span>Ver Apresentação</span>
                       </motion.button>
                     )}
                     
@@ -284,7 +331,7 @@ const Cases = () => {
               </div>
 
               {/* Botões de Ação */}
-              <div className="flex space-x-4">
+              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                 {selectedCase.liveUrl && (
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -294,6 +341,18 @@ const Cases = () => {
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Ver Online</span>
+                  </motion.button>
+                )}
+                
+                {selectedCase.pdfUrl && (
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => window.open(selectedCase.pdfUrl, '_blank')}
+                    className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  >
+                    <FileText className="w-4 h-4" />
+                    <span>Ver Apresentação PDF</span>
                   </motion.button>
                 )}
                 
