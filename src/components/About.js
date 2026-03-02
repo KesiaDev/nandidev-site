@@ -25,7 +25,7 @@ const About = () => {
     {
       icon: Briefcase,
       title: "Gestão Comercial",
-      desc: "Coordenadora e gerente em Magazine Luiza e Cielo — domina processos, dores e estratégias."
+      desc: "Coordenação e gerência comercial em players nacionais. Experiência e prática para dominar processos, entender as dores e as estratégias."
     },
     {
       icon: GraduationCap,
