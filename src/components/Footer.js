@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/5492448888?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
+    window.open('https://wa.me/54996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   const handleInstagram = () => {
@@ -33,7 +33,7 @@ const Footer = () => {
   };
 
   const handlePhone = () => {
-    window.open('tel:+5492448888', '_blank');
+    window.open('tel:+54996246565', '_blank');
   };
 
   const quickLinks = [
@@ -181,7 +181,7 @@ const Footer = () => {
                   className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>+54 92448888</span>
+                  <span>+54 9 9962-46565</span>
                 </motion.button>
                 
                 <motion.button

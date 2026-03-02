@@ -62,10 +62,10 @@ const About = () => {
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Quem está por trás da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
+              A Inteligência por trás da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">IA</span>
             </h2>
             <p className="text-lg text-slate-600">
-              A Inteligência por trás da IA
+              Késia Nandi, CEO e Fundadora — une experiência em gestão comercial e tecnologia para levar automação e IA às empresas.
             </p>
           </motion.div>
 
@@ -89,18 +89,18 @@ const About = () => {
               </div>
               <p className="text-slate-600 leading-relaxed">
                 Mais de uma década em coordenação e gerência comercial em players como Magazine Luiza e Cielo. 
-                Especialização em Perfil Comportamental para recrutamento e seleção pois nada melhor do que 
+                Especializou-se em Perfil Comportamental para recrutamento e seleção, pois nada é melhor do que 
                 conhecer pessoas para potencializar talentos e reduzir custos com turnover.
               </p>
               <p className="text-slate-600 leading-relaxed">
                 Késia entendeu que o futuro passa pela tecnologia: cursou Engenharia de Software e se aprofundou 
                 em IA e prompts. Desde 2023 atua em empresas de tech que operam sistemas de gestão para 
-                empresas nacionais e em startups de retail e SDR automatizado.
+                empresas nacionais e em startups de retail e de SDR automatizado.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                A partir de 2025 empreendeu com a NandiDev, desenvolvendo soluções sob medida e atuando como 
+                A partir de 2025, empreendeu com a NandiDev, desenvolvendo soluções sob medida e atuando como 
                 consultora e mentora para capacitar times a usar IA no dia a dia. O foco: virada de chave na 
-                cultura organizacional de pequenas e médias empresas. Menos trabalho operacional e mais 
+                cultura organizacional de pequenas e médias empresas — menos trabalho operacional e mais 
                 produtividade para alavancar negócios.
               </p>
               <motion.button

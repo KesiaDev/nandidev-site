@@ -32,7 +32,7 @@ const CTA = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/5492448888?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
+    window.open('https://wa.me/54996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   const handleEmail = () => {

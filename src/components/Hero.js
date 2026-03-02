@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/5492448888?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
+    window.open('https://wa.me/54996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   return (
@@ -85,25 +85,22 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right - Photo */}
+          {/* Right - Photo em formato banner horizontal */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative order-1 lg:order-2 flex justify-center"
+            className="relative order-1 lg:order-2"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-2xl blur-2xl" />
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-                <img
-                  src="/logo/kesia-nandi.png"
-                  alt="Késia Nandi - CEO NandiDev"
-                  className="w-full max-w-sm xl:max-w-md aspect-[3/4] object-cover object-center"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <p className="text-white font-semibold text-lg">Késia Nandi</p>
-                  <p className="text-amber-400/90 text-sm">CEO & Fundadora</p>
-                </div>
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+              <img
+                src="/logo/kesia-nandi.png"
+                alt="Késia Nandi - CEO NandiDev"
+                className="w-full aspect-[16/9] lg:aspect-[2/1] object-cover object-[center_30%]"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6">
+                <p className="text-white font-semibold text-lg">Késia Nandi</p>
+                <p className="text-amber-400/90 text-sm">CEO & Fundadora</p>
               </div>
             </div>
           </motion.div>
