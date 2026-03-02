@@ -205,7 +205,7 @@ const Cases = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section id="cases" className="py-20 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -216,12 +216,11 @@ const Cases = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Cases de <span className="text-gradient">Sucesso</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Cases de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Sucesso</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Projetos que transformaram negócios e geraram resultados excepcionais 
-              para nossos clientes.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Soluções reais para empresas reais — automação, apps, sites e sistemas sob medida.
             </p>
           </motion.div>
 

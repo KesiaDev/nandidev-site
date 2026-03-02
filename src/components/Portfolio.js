@@ -170,7 +170,7 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -181,12 +181,11 @@ const Portfolio = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Nosso <span className="text-gradient">Portfólio</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Nosso <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Portfólio</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Conheça alguns dos projetos que desenvolvemos para nossos clientes. 
-              Cada projeto é único e desenvolvido com foco na experiência do usuário.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Projetos entregues para empresas de diversos segmentos — tecnologia sob medida e resultados reais.
             </p>
           </motion.div>
 

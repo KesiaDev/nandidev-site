@@ -32,7 +32,7 @@ const CTA = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de solicitar um orçamento para meu projeto.', '_blank');
+    window.open('https://wa.me/5492448888?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   const handleEmail = () => {
@@ -41,7 +41,7 @@ const CTA = () => {
 
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
@@ -60,25 +60,25 @@ const CTA = () => {
           {/* Main CTA */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Pronto para tirar sua{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
-                ideia do papel?
+              Pronto para a{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+                virada de chave?
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
-              Vamos transformar sua visão em uma solução digital incrível. 
-              Entre em contato conosco e vamos começar seu projeto hoje mesmo!
+            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
+              Agende uma apresentação comercial e descubra como a NandiDev pode 
+              automatizar seus processos e capacitar sua equipe com IA.
             </p>
 
             {/* Main CTA Button */}
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handleWhatsApp}
-              className="bg-gradient-to-r from-primary to-accent text-white font-bold py-6 px-12 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center space-x-3 mx-auto text-xl"
+              className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-6 px-12 rounded-2xl shadow-xl shadow-amber-500/25 hover:from-amber-400 hover:to-orange-400 transition-all flex items-center space-x-3 mx-auto text-xl"
             >
               <MessageCircle className="w-6 h-6" />
-              <span>Solicitar Projeto Agora</span>
+              <span>Agendar Apresentação</span>
               <ArrowRight className="w-6 h-6" />
             </motion.button>
           </motion.div>

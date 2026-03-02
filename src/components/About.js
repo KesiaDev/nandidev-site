@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code2, Target, Users, Award } from 'lucide-react';
+import { Briefcase, GraduationCap, Sparkles, Users, Zap } from 'lucide-react';
 
 const About = () => {
   const ref = useRef(null);
@@ -12,57 +12,45 @@ const About = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+    hidden: { y: 24, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  const features = [
+  const highlights = [
     {
-      icon: Code2,
-      title: "Tecnologia de Ponta",
-      description: "Utilizamos as mais modernas tecnologias e frameworks para garantir performance e qualidade."
+      icon: Briefcase,
+      title: "Gestão Comercial",
+      desc: "Coordenadora e gerente em Magazine Luiza e Cielo — domina processos, dores e estratégias."
     },
     {
-      icon: Target,
-      title: "Foco em Resultados",
-      description: "Cada projeto é desenvolvido com foco em atingir os objetivos do seu negócio."
+      icon: GraduationCap,
+      title: "Formação em Tech",
+      desc: "Bacharelado em Engenharia de Software + cursos em IA e engenharia de prompts."
     },
     {
       icon: Users,
-      title: "Atendimento Personalizado",
-      description: "Oferecemos suporte dedicado e acompanhamento durante todo o processo."
+      title: "Perfil Comportamental",
+      desc: "Especialização em recrutamento e seleção — potencializa talentos e reduz turnover."
     },
     {
-      icon: Award,
-      title: "Qualidade Garantida",
-      description: "Comprometimento com a excelência e entrega de soluções que superam expectativas."
+      icon: Zap,
+      title: "Diferencial",
+      desc: "Tecnologia sob medida + capacitação de times. Não adianta comprar ferramenta sem letramento digital."
     }
   ];
 
   const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.querySelector('#contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -71,87 +59,74 @@ const About = () => {
           animate={isInView ? "visible" : "hidden"}
           className="space-y-16"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Sobre a <span className="text-gradient">Nandi Dev</span>
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Quem está por trás da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Somos uma empresa especializada em desenvolvimento web e mobile, 
-              apaixonados por transformar ideias em soluções digitais inovadoras. 
-              Nossa missão é ajudar empresas a crescer através da tecnologia.
+            <p className="text-lg text-slate-600">
+              Késia Nandi une experiência em gestão comercial de grandes players e formação em tecnologia 
+              para entregar soluções que realmente resolvem.
             </p>
           </motion.div>
 
-          {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Text Content */}
+          {/* Main content - Photo + Story */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <motion.div variants={itemVariants} className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-2xl blur-xl" />
+                <img
+                  src="/logo/kesia-nandi.png"
+                  alt="Késia Nandi"
+                  className="relative w-full max-w-sm rounded-2xl shadow-xl object-cover aspect-[3/4] object-top"
+                />
+              </div>
+            </motion.div>
+
             <motion.div variants={itemVariants} className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                Experiência e Paixão por Tecnologia
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Com experiência no mercado, a Nandi Dev se destaca 
-                pela qualidade dos projetos entregues e pelo relacionamento próximo 
-                com nossos clientes. Acreditamos que cada projeto é único e merece 
-                atenção especial.
+              <div className="flex items-center gap-2 text-amber-600">
+                <Sparkles className="w-5 h-5" />
+                <span className="font-semibold">Trajetória</span>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                Mais de uma década em coordenação e gerência comercial em Magazine Luiza e Cielo. 
+                Especialização em Perfil Comportamental para recrutamento — conhece pessoas, potencializa 
+                talentos e reduz custos com turnover.
               </p>
-              <p className="text-gray-600 leading-relaxed">
-                Nossa equipe é formada por desenvolvedores apaixonados por tecnologia 
-                e sempre em busca das melhores práticas e inovações do mercado. 
-                Trabalhamos com metodologias ágeis para garantir entregas rápidas 
-                e de alta qualidade.
+              <p className="text-slate-600 leading-relaxed">
+                Entendeu que o futuro passa pela tecnologia: cursou Engenharia de Software e se aprofundou 
+                em IA e prompts. Desde 2023 atua em empresas de tech (gestão para restaurantes, medicamentos, 
+                varejo) e em startups de retail e SDR automatizado.
               </p>
-              
+              <p className="text-slate-600 leading-relaxed">
+                Desde 2025 lidera a NandiDev — desenvolvendo soluções sob medida e atuando como consultora 
+                e mentora para capacitar times a usar IA no dia a dia. O foco: virada de chave cultural, 
+                menos carga braçal e mais produtividade.
+              </p>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={scrollToContact}
                 className="btn-primary"
               >
-                Saiba Mais
+                Falar com a Késia
               </motion.button>
-            </motion.div>
-
-            {/* Visual Element */}
-            <motion.div 
-              variants={itemVariants}
-              className="relative"
-            >
-              <div className="relative bg-gradient-to-br from-primary to-accent rounded-2xl p-8 text-white">
-                <div className="absolute inset-0 bg-black/20 rounded-2xl"></div>
-                <div className="relative z-10">
-                  <h4 className="text-2xl font-bold mb-4">Nossa Missão</h4>
-                  <p className="text-lg leading-relaxed">
-                    Democratizar o acesso à tecnologia de qualidade, 
-                    oferecendo soluções digitais que impulsionam o 
-                    crescimento dos nossos clientes. Somos capazes de 
-                    criar qualquer coisa que o cliente imagine ou necessite, 
-                    com prazos rápidos e excelência na entrega. 
-                    Transformamos ideias em realidade em poucos dias.
-                  </p>
-                </div>
-              </div>
             </motion.div>
           </div>
 
-          {/* Features Grid */}
-          <motion.div variants={itemVariants} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
+          {/* Highlights grid */}
+          <motion.div variants={itemVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {highlights.map((h, i) => (
               <motion.div
-                key={index}
-                whileHover={{ y: -5 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                key={i}
+                whileHover={{ y: -4 }}
+                className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-4">
+                  <h.icon className="w-6 h-6 text-amber-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">
-                  {feature.description}
-                </p>
+                <h3 className="font-semibold text-slate-900 mb-2">{h.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{h.desc}</p>
               </motion.div>
             ))}
           </motion.div>

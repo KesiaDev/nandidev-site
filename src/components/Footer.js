@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de saber mais sobre os serviços da Nandi Dev.', '_blank');
+    window.open('https://wa.me/5492448888?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   const handleInstagram = () => {
@@ -33,23 +33,24 @@ const Footer = () => {
   };
 
   const handlePhone = () => {
-    window.open('tel:+54996246565', '_blank');
+    window.open('tel:+5492448888', '_blank');
   };
 
   const quickLinks = [
     { name: 'Início', href: '#home' },
     { name: 'Sobre', href: '#about' },
     { name: 'Serviços', href: '#services' },
+    { name: 'Cases', href: '#cases' },
     { name: 'Portfólio', href: '#portfolio' },
     { name: 'Contato', href: '#contact' }
   ];
 
   const services = [
-    'Desenvolvimento de Sites',
-    'Lojas Virtuais',
-    'Aplicativos Mobile',
-    'Sistemas Web',
-    'Manutenção'
+    'Automação e IA',
+    'Capacitação em IA',
+    'Sites e Aplicativos',
+    'Sistemas Sob Medida',
+    'Consultoria Tecnológica'
   ];
 
   const scrollToSection = (href) => {
@@ -181,7 +182,7 @@ const Footer = () => {
                   className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>+54 996246565</span>
+                  <span>+54 92448888</span>
                 </motion.button>
                 
                 <motion.button

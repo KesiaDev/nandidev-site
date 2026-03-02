@@ -19,6 +19,7 @@ const Header = () => {
     { name: 'Início', href: '#home' },
     { name: 'Sobre', href: '#about' },
     { name: 'Serviços', href: '#services' },
+    { name: 'Cases', href: '#cases' },
     { name: 'Portfólio', href: '#portfolio' },
     { name: 'Contato', href: '#contact' }
   ];
@@ -32,7 +33,7 @@ const Header = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de solicitar um orçamento.', '_blank');
+    window.open('https://wa.me/5492448888?text=Olá! Gostaria de solicitar um orçamento.', '_blank');
   };
 
   return (
@@ -50,25 +51,24 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             className="flex items-center space-x-3"
           >
             <img 
               src="/logo/logo.png" 
-              alt="Nandi Dev Logo" 
+              alt="NandiDev Logo" 
               className="h-12 w-auto"
               onError={(e) => {
-                // Fallback caso a logo não seja encontrada
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'flex';
               }}
             />
-            <div className="w-10 h-10 bg-gradient-to-r from-primary via-accent to-secondary rounded-lg flex items-center justify-center" style={{display: 'none'}}>
+            <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center justify-center" style={{display: 'none'}}>
               <span className="text-white font-bold text-lg">N</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Nandi Dev</h1>
-              <p className="text-xs text-gray-600">Web & App Developer</p>
+              <h1 className={`text-xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}>NandiDev</h1>
+              <p className={`text-xs ${isScrolled ? 'text-gray-600' : 'text-slate-400'}`}>Tecnologia sob medida + IA</p>
             </div>
           </motion.div>
 
@@ -78,7 +78,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+                className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-gray-700 hover:text-amber-600' : 'text-slate-300 hover:text-white'}`}
               >
                 {item.name}
               </button>
@@ -88,20 +88,24 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handleWhatsApp}
-              className="btn-primary flex items-center space-x-2"
+              className={`flex items-center space-x-2 font-semibold py-2.5 px-5 rounded-xl transition-all ${
+                isScrolled 
+                  ? 'bg-amber-500 hover:bg-amber-400 text-white' 
+                  : 'bg-white/10 border border-white/30 text-white hover:bg-white/20'
+              }`}
             >
               <Phone size={18} />
-              <span>Solicitar Orçamento</span>
+              <span>Agendar Apresentação</span>
             </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'hover:bg-gray-100 text-gray-700' : 'hover:bg-white/10 text-white'}`}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -122,17 +126,17 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2"
+                className="block w-full text-left text-gray-700 hover:text-amber-600 transition-colors duration-300 font-medium py-2"
               >
                 {item.name}
               </button>
             ))}
             <button
               onClick={handleWhatsApp}
-              className="btn-primary w-full flex items-center justify-center space-x-2"
+              className="w-full flex items-center justify-center space-x-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold py-3 px-4 rounded-xl"
             >
               <Phone size={18} />
-              <span>Solicitar Orçamento</span>
+              <span>Agendar Apresentação</span>
             </button>
           </div>
         </motion.div>

@@ -2,15 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  Globe, 
-  ShoppingCart, 
-  Smartphone, 
-  Settings, 
+import {
+  Zap,
+  Bot,
+  Smartphone,
+  Globe,
+  Settings,
+  GraduationCap,
   ArrowRight,
-  CheckCircle,
-  Palette,
-  Cloud
+  CheckCircle
 } from 'lucide-react';
 
 const Services = () => {
@@ -21,106 +21,98 @@ const Services = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+    hidden: { y: 24, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
   const services = [
     {
-      icon: Globe,
-      title: "Desenvolvimento de Sites Profissionais",
-      description: "Criamos sites modernos, responsivos e otimizados para conversão, utilizando as melhores práticas de UX/UI e SEO.",
+      icon: Bot,
+      title: "Automação e IA",
+      description: "Chatbots vendedores, SDR com IA e fluxos automatizados para reduzir gargalos e aumentar produtividade.",
       features: [
-        "Design responsivo",
-        "Otimização SEO",
-        "Performance otimizada",
-        "Integração com redes sociais"
+        "Chatbots e SDR com IA",
+        "Automação de processos",
+        "Redução de carga braçal",
+        "Mais tempo para estratégia"
       ],
-      color: "from-blue-500 to-blue-600"
+      color: "from-amber-500 to-orange-500",
+      highlight: true
     },
     {
-      icon: ShoppingCart,
-      title: "Lojas Virtuais e Sistemas de Pagamento",
-      description: "Desenvolvemos lojas virtuais completas com sistema de pagamento, gestão de estoque e painel administrativo.",
+      icon: GraduationCap,
+      title: "Capacitação em IA",
+      description: "Treinamento e letramento digital para sua equipe usar IA no dia a dia. Tecnologia sem cultura não entrega resultado.",
       features: [
-        "Sistema de pagamento",
-        "Gestão de estoque",
-        "Painel administrativo",
-        "Relatórios de vendas"
+        "Workshops e mentoria",
+        "Uso prático de IA",
+        "Redução de desperdício com ferramentas",
+        "Cultura digital sustentável"
       ],
-      color: "from-green-500 to-green-600"
+      color: "from-emerald-500 to-teal-500",
+      highlight: true
+    },
+    {
+      icon: Globe,
+      title: "Sites e Portais",
+      description: "Sites profissionais, institucionais e portais sob medida, responsivos e otimizados para conversão.",
+      features: [
+        "Design moderno",
+        "SEO e performance",
+        "Integração com ferramentas",
+        "Manutenção contínua"
+      ],
+      color: "from-blue-500 to-indigo-600"
     },
     {
       icon: Smartphone,
       title: "Aplicativos",
-      description: "Desenvolvemos aplicativos nativos e híbridos para Android e iOS, com foco na experiência do usuário.",
+      description: "Apps mobile e web para gestão, atendimento e automação. Soluções feitas sob medida, não de prateleira.",
       features: [
-        "Apps nativos e híbridos",
+        "React Native",
         "Interface intuitiva",
-        "Notificações push",
+        "Funciona offline quando necessário",
         "Integração com APIs"
       ],
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-violet-600"
     },
     {
       icon: Settings,
-      title: "Sistemas Web e Dashboards",
-      description: "Criamos sistemas web sob medida e dashboards interativos para atender às necessidades específicas do seu negócio.",
+      title: "Sistemas e Dashboards",
+      description: "Sistemas web, painéis administrativos e dashboards para gestão, vendas e operação.",
       features: [
         "Desenvolvimento sob medida",
-        "Dashboards interativos",
-        "Segurança avançada",
-        "Escalabilidade"
+        "Relatórios e métricas",
+        "Segurança e escalabilidade",
+        "Integrações"
       ],
-      color: "from-orange-500 to-orange-600"
+      color: "from-rose-500 to-pink-600"
     },
     {
-      icon: Palette,
-      title: "Design UI/UX e Identidade Visual",
-      description: "Criamos identidades visuais completas e interfaces de usuário que encantam e convertem.",
+      icon: Zap,
+      title: "Consultoria Tecnológica",
+      description: "Diagnóstico de processos, definição de roadmap e suporte para virada de chave digital.",
       features: [
-        "Identidade visual completa",
-        "Design de interfaces",
-        "Prototipagem interativa",
-        "Testes de usabilidade"
+        "Mapeamento de dores",
+        "Priorização de iniciativas",
+        "Acompanhamento pós-implantação",
+        "Maximização de ROI"
       ],
-      color: "from-pink-500 to-pink-600"
-    },
-    {
-      icon: Cloud,
-      title: "Hospedagem e Manutenção",
-      description: "Oferecemos serviços de hospedagem, manutenção, atualizações e otimização para manter seu projeto sempre atualizado.",
-      features: [
-        "Hospedagem segura",
-        "Manutenção preventiva",
-        "Atualizações de segurança",
-        "Suporte técnico 24/7"
-      ],
-      color: "from-cyan-500 to-cyan-600"
+      color: "from-cyan-500 to-sky-600"
     }
   ];
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de saber mais sobre os serviços da Nandi Dev.', '_blank');
+    window.open('https://wa.me/5492448888?text=Olá! Gostaria de conhecer os serviços da NandiDev.', '_blank');
   };
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -129,58 +121,52 @@ const Services = () => {
           animate={isInView ? "visible" : "hidden"}
           className="space-y-16"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Nossos <span className="text-gradient">Serviços</span>
+          <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              O que a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span> oferece
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Oferecemos soluções completas em desenvolvimento web e mobile, 
-              desde a concepção até a entrega e manutenção.
+            <p className="text-lg text-slate-600">
+              Tecnologia sob medida, automação com IA e capacitação de times. Sem produto de caixinha — 
+              cada solução é pensada na sua dor e no seu mercado.
             </p>
           </motion.div>
 
-          {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+                whileHover={{ y: -6 }}
+                className={`relative bg-white rounded-2xl border shadow-sm hover:shadow-lg transition-all overflow-hidden ${
+                  service.highlight ? 'border-amber-200 ring-1 ring-amber-100' : 'border-slate-100'
+                }`}
               >
-                {/* Service Header */}
-                <div className={`h-32 bg-gradient-to-r ${service.color} flex items-center justify-center`}>
+                <div className={`h-28 bg-gradient-to-r ${service.color} flex items-center justify-center`}>
                   <service.icon className="w-12 h-12 text-white" />
+                  {service.highlight && (
+                    <span className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/20 text-white text-xs font-medium">
+                      Destaque
+                    </span>
+                  )}
                 </div>
-
-                {/* Service Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Features List */}
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                        {feature}
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{service.title}</h3>
+                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{service.description}</p>
+                  <ul className="space-y-2 mb-5">
+                    {service.features.map((f, i) => (
+                      <li key={i} className="flex items-center text-sm text-slate-600">
+                        <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" />
+                        {f}
                       </li>
                     ))}
                   </ul>
-
-                  {/* CTA Button */}
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={handleWhatsApp}
-                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
                   >
-                    <span>Saiba Mais</span>
+                    Conversar
                     <ArrowRight className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -188,24 +174,24 @@ const Services = () => {
             ))}
           </div>
 
-          {/* CTA Section */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 md:p-12 text-center text-white"
+            className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 text-center text-white"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Pronto para começar seu projeto?
+            <h3 className="text-2xl md:text-3xl font-bold mb-3">
+              Pronto para a virada de chave?
             </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Entre em contato conosco e vamos transformar sua ideia em realidade.
+            <p className="text-slate-300 mb-6 max-w-xl mx-auto">
+              Agende uma apresentação comercial e veja como podemos ajudar sua empresa 
+              a automatizar processos e capacitar seu time com IA.
             </p>
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handleWhatsApp}
-              className="bg-white text-primary font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
+              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold py-4 px-8 rounded-xl transition-colors"
             >
-              <span>Solicitar Orçamento</span>
+              Agendar Apresentação
               <ArrowRight className="w-5 h-5" />
             </motion.button>
           </motion.div>
