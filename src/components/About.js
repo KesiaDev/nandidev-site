@@ -89,19 +89,20 @@ const About = () => {
                 <span className="font-semibold">Trajetória</span>
               </div>
               <p className="text-slate-600 leading-relaxed">
-                Mais de uma década em coordenação e gerência comercial em Magazine Luiza e Cielo. 
-                Especialização em Perfil Comportamental para recrutamento — conhece pessoas, potencializa 
-                talentos e reduz custos com turnover.
+                Mais de uma década em coordenação e gerência comercial em players como Magazine Luiza e Cielo. 
+                Especialização em Perfil Comportamental para recrutamento e seleção pois nada melhor do que 
+                conhecer pessoas para potencializar talentos e reduzir custos com turnover.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Entendeu que o futuro passa pela tecnologia: cursou Engenharia de Software e se aprofundou 
-                em IA e prompts. Desde 2023 atua em empresas de tech (gestão para restaurantes, medicamentos, 
-                varejo) e em startups de retail e SDR automatizado.
+                Késia entendeu que o futuro passa pela tecnologia: cursou Engenharia de Software e se aprofundou 
+                em IA e prompts. Desde 2023 atua em empresas de tech que operam sistemas de gestão para 
+                empresas nacionais e em startups de retail e SDR automatizado.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Desde 2025 lidera a NandiDev — desenvolvendo soluções sob medida e atuando como consultora 
-                e mentora para capacitar times a usar IA no dia a dia. O foco: virada de chave cultural, 
-                menos carga braçal e mais produtividade.
+                A partir de 2025 empreendeu com a NandiDev, desenvolvendo soluções sob medida e atuando como 
+                consultora e mentora para capacitar times a usar IA no dia a dia. O foco: virada de chave na 
+                cultura organizacional de pequenas e médias empresas. Menos trabalho operacional e mais 
+                produtividade para alavancar negócios.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
