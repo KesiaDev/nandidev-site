@@ -65,8 +65,7 @@ const About = () => {
               Quem está por trás da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Késia Nandi une experiência em gestão comercial de grandes players e formação em tecnologia 
-              para entregar soluções que realmente resolvem.
+              A Inteligência por trás da IA
             </p>
           </motion.div>
 
