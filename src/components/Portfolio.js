@@ -98,6 +98,23 @@ const Portfolio = () => {
       technicalDescription: "Site institucional para psicoterapeuta com hero, atendimentos (Famílias, Casais, Adolescentes, Empresas), seção de situações (ansiedade, conflitos, burnout, perda de propósito), abordagem TCC, processo em 5 etapas e área de conteúdos com filtros e busca. Integração WhatsApp e agendamento. Design responsivo com paleta verde e laranja."
     },
     {
+      id: 9,
+      title: "Yummi Cukie",
+      category: "ecommerce",
+      description: "Plataforma de cookies proteicos artesanais — doce sem culpa. Site com cardápio, pedidos via WhatsApp e identidade visual acolhedora em tons de rosa e vermelho.",
+      image: "/logo/yummicukie-hero.png",
+      technologies: ["React", "Tailwind CSS", "WhatsApp", "Responsive Design"],
+      liveUrl: "#",
+      githubUrl: "#",
+      screenshots: [
+        "/logo/yummicukie-hero.png",
+        "/logo/yummicukie-momento.png",
+        "/logo/yummicukie-oferta.png",
+        "/logo/yummicukie-essencia.png"
+      ],
+      technicalDescription: "Site para confeitaria artesanal de cookies proteicos. Hero com foco em 'doce sem culpa', seção 'O que nos move' (Nossa essência), 'O que oferecemos' (Cookies Proteicos, Opções Sem Glúten, Sem Açúcar Adicionado). Integração WhatsApp para pedidos, links para Instagram. Design em tons rosa, vermelho e bege."
+    },
+    {
       id: 8,
       title: "Gigi Pet Sitter",
       category: "website",

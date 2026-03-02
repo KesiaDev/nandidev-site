@@ -25,22 +25,22 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      {/* Overlay em gradiente: mais escuro à esquerda (texto), mais transparente à direita (foto visível) */}
+      {/* Overlay em gradiente: mais escuro à esquerda (zona do texto), transição suave para foto à direita */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.35) 100%)'
+          background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.2) 100%)'
         }}
         aria-hidden="true"
       />
 
-      {/* Conteúdo alinhado à esquerda */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 lg:py-32 flex justify-start">
+      {/* Conteúdo alinhado com a logo do header (mesmo container) */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex justify-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 lg:space-y-8 text-left max-w-2xl"
+          className="space-y-6 lg:space-y-8 text-left max-w-xl"
         >
           <motion.div
             initial={{ opacity: 0, y: 10 }}
