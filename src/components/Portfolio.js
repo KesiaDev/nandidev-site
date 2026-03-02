@@ -42,6 +42,65 @@ const Portfolio = () => {
 
   const projects = [
     {
+      id: 5,
+      title: "Checklist para Gestantes",
+      category: "mobile",
+      description: "Aplicativo mobile offline-first para organização da gestação e acompanhamento da primeira infância, com recursos emocionais, documentais e inteligência artificial de apoio (Lumi).",
+      image: "/logo/checklist-gestantes-hero.png",
+      technologies: ["React Native", "Offline-first", "IA de Apoio", "Documentos", "Emocional"],
+      liveUrl: "#",
+      githubUrl: "#",
+      screenshots: [
+        "/logo/checklist-gestantes-hero.png",
+        "/logo/checklist-gestantes-1.png",
+        "/logo/checklist-gestantes-2.png",
+        "/logo/checklist-gestantes-3.png",
+        "/logo/checklist-gestantes-4.png",
+        "/logo/checklist-gestantes-5.png"
+      ],
+      technicalDescription: "Aplicativo completo para gestantes com checklists semanais, linha do tempo da gestação, galeria da barriga, cartas para o bebê, contador de contrações e chutes, calculadora DPP, lembrete de consultas e vacinas. Inclui Lumi, assistente com IA para apoio emocional, e suporte à gestação adotiva (Gestação do Coração). Ecossistema do bebê com diário, documentos, histórico e acompanhamento de crescimento."
+    },
+    {
+      id: 6,
+      title: "FoolApp – App de Entregas",
+      category: "mobile",
+      description: "Aplicativo completo de entregas com painel para motoristas, clientes e administração. Sua entrega sempre na hora certa.",
+      image: "/logo/foolapp-hero.png",
+      technologies: ["React Native", "Node.js", "Google Maps", "Real-time"],
+      liveUrl: "#",
+      githubUrl: "#",
+      screenshots: [
+        "/logo/foolapp-hero.png",
+        "/logo/foolapp-criar-conta.png",
+        "/logo/foolapp-motorista-mapa.png",
+        "/logo/foolapp-admin.png",
+        "/logo/foolapp-cliente.png",
+        "/logo/foolapp-avaliacoes.png",
+        "/logo/foolapp-rastreamento.png"
+      ],
+      technicalDescription: "Plataforma de entregas com app para motoristas (cadastro com CNH, mapa, corridas, saldos), app para clientes (solicitar corrida, pagamento Cartão/PIX/Dinheiro) e painel administrativo (gerenciar motoristas, empresas, taxas, parâmetros). Inclui rastreamento em tempo real com Google Maps e sistema de avaliações bidirecional."
+    },
+    {
+      id: 7,
+      title: "Cláudia Cruz Terapeuta",
+      category: "website",
+      description: "Site profissional para psicoterapeuta com design acolhedor, seções de atendimentos (famílias, casais, adolescentes, empresas), processo terapêutico e conteúdos sobre saúde emocional.",
+      image: "/logo/terapeuta-claudia-hero.png",
+      technologies: ["React", "Tailwind CSS", "Responsive Design", "SEO"],
+      liveUrl: "#",
+      githubUrl: "#",
+      screenshots: [
+        "/logo/terapeuta-claudia-hero.png",
+        "/logo/terapeuta-claudia-servicos.png",
+        "/logo/terapeuta-claudia-situacoes.png",
+        "/logo/terapeuta-claudia-pratica.png",
+        "/logo/terapeuta-claudia-como-funciona.png",
+        "/logo/terapeuta-claudia-abordagem.png",
+        "/logo/terapeuta-claudia-conteudos.png"
+      ],
+      technicalDescription: "Site institucional para psicoterapeuta com hero, atendimentos (Famílias, Casais, Adolescentes, Empresas), seção de situações (ansiedade, conflitos, burnout, perda de propósito), abordagem TCC, processo em 5 etapas e área de conteúdos com filtros e busca. Integração WhatsApp e agendamento. Design responsivo com paleta verde e laranja."
+    },
+    {
       id: 1,
       title: "PsiPro – Aplicativo para Psicólogos",
       category: "mobile",
