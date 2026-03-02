@@ -51,7 +51,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 lg:py-28 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl xl:max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -70,14 +70,14 @@ const About = () => {
           </motion.div>
 
           {/* Main content - Photo + Story */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
             <motion.div variants={itemVariants} className="flex justify-center lg:justify-end">
               <div className="relative">
                 <div className="absolute -inset-2 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-2xl blur-xl" />
                 <img
-                  src="/logo/kesia-nandi.png"
+                  src="/logo/kesia-nandi-about.png"
                   alt="Késia Nandi"
-                  className="relative w-full max-w-sm rounded-2xl shadow-xl object-cover aspect-[3/4] object-top"
+                  className="relative w-full max-w-sm rounded-2xl shadow-xl object-cover aspect-[3/4] object-center"
                 />
               </div>
             </motion.div>

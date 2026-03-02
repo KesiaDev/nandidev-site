@@ -19,8 +19,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-6xl xl:max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12 py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left - Copy */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -46,7 +46,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed mb-8">
-              Soluções personalizadas para pequenas e médias empresas. Não vendemos produto de caixinha — 
+              Soluções personalizadas para pequenas e médias empresas. Não vendemos produto de caixinha, 
               desenvolvemos tecnologia centrada na sua dor e capacitamos sua equipe a usar IA no dia a dia.
             </p>
 
@@ -98,7 +98,7 @@ const Hero = () => {
                 <img
                   src="/logo/kesia-nandi.png"
                   alt="Késia Nandi - CEO NandiDev"
-                  className="w-full max-w-md aspect-[3/4] object-cover object-top"
+                  className="w-full max-w-sm xl:max-w-md aspect-[3/4] object-cover object-center"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <p className="text-white font-semibold text-lg">Késia Nandi</p>
