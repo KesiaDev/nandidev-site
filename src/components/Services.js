@@ -126,7 +126,7 @@ const Services = () => {
               O que a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span> oferece
             </h2>
             <p className="text-lg text-slate-600">
-              Tecnologia sob medida, automação com IA e capacitação de times. Sem produto de caixinha — 
+              Tecnologia sob medida, automação com IA e capacitação de times. Sem produto de caixinha, 
               cada solução é pensada na sua dor e no seu mercado.
             </p>
           </motion.div>

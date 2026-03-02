@@ -35,7 +35,7 @@ const About = () => {
     {
       icon: Users,
       title: "Perfil Comportamental",
-      desc: "Especialização em recrutamento e seleção — potencializa talentos e reduz turnover."
+      desc: "Especialização pela plataforma Sólides para potencializar talentos e reduzir turnover."
     },
     {
       icon: Zap,
