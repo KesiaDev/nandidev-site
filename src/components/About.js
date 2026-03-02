@@ -65,7 +65,7 @@ const About = () => {
               A Inteligência por trás da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">IA</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Késia Nandi, CEO e Fundadora — une experiência em gestão comercial e tecnologia para levar automação e IA às empresas.
+              Késia Nandi, CEO e Fundadora, une experiência em gestão comercial e tecnologia para levar automação e IA às empresas.
             </p>
           </motion.div>
 
