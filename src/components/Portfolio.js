@@ -205,7 +205,9 @@ const Portfolio = () => {
               Nosso <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Portfólio</span>
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Projetos entregues para empresas de diversos segmentos — tecnologia sob medida e resultados reais.
+              Projetos entregues para empresas de diversos segmentos.
+              <br />
+              Tecnologia sob medida e resultados reais.
             </p>
           </motion.div>
 
