@@ -13,28 +13,34 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background - imagem full width */}
+    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
+      {/* Background - imagem full width, posicionada para mostrar o rosto */}
       <div
-        className="absolute inset-0 w-full bg-cover bg-center"
+        className="absolute inset-0 w-full bg-cover"
         style={{
           backgroundImage: 'url(/logo/kesia-nandi.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center top'
         }}
         aria-hidden="true"
       />
 
-      {/* Overlay escuro para contraste do texto */}
-      <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+      {/* Overlay em gradiente: mais escuro à esquerda (texto), mais transparente à direita (foto visível) */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.35) 100%)'
+        }}
+        aria-hidden="true"
+      />
 
-      {/* Conteúdo centralizado por cima da imagem */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28 text-center">
+      {/* Conteúdo alinhado à esquerda */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 lg:py-32 flex justify-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 lg:space-y-8"
+          className="space-y-6 lg:space-y-8 text-left max-w-2xl"
         >
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -53,12 +59,12 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
             Soluções personalizadas para pequenas e médias empresas. Não vendemos produto de caixinha, 
             desenvolvemos tecnologia centrada na sua dor e capacitamos sua equipe a usar IA no dia a dia.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -82,7 +88,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-wrap gap-8 justify-center text-slate-300 text-sm md:text-base"
+            className="flex flex-wrap gap-8 justify-start text-slate-300 text-sm md:text-base"
           >
             <span className="flex items-center gap-2">
               <Zap className="w-4 h-4 text-amber-400" /> Automação
