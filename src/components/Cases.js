@@ -119,6 +119,35 @@ const Cases = () => {
       ]
     },
     {
+      id: 7,
+      title: "Gigi Pet Sitter",
+      category: "Website + Ecossistema Digital",
+      description: "Site para pet sitter com base veterinária em Londrina. Inclui ecossistema Gigi Care: cartão digital do pet com QR Code, dashboard e relatórios por visita.",
+      image: "/logo/gigipetsitter-hero.png",
+      technologies: ["React", "Dashboard", "QR Code", "WhatsApp"],
+      features: [
+        "Site institucional com proposta de valor clara",
+        "Serviços para cães e gatos (visitas, dog walker)",
+        "Cartão digital do pet com QR Code exclusivo",
+        "Dashboard Gigi Care Admin com métricas e cartões",
+        "Relatório completo por visita",
+        "Integração WhatsApp para agendamento",
+        "Protocolo em 6 etapas (visita prévia, anamnese, etc.)"
+      ],
+      icon: Globe,
+      color: "from-amber-500 to-orange-600",
+      liveUrl: "https://gigipetsitter.com.br/",
+      screenshots: [
+        "/logo/gigipetsitter-hero.png",
+        "/logo/gigipetsitter-sobre.png",
+        "/logo/gigipetsitter-servicos.png",
+        "/logo/gigipetsitter-veterinario.png",
+        "/logo/gigipetsitter-depoimentos.png",
+        "/logo/gigipetsitter-dashboard.png",
+        "/logo/gigipetsitter-dashboard-dark.png"
+      ]
+    },
+    {
       id: 1,
       title: "PsiPro – Aplicativo para Psicólogos",
       category: "Mobile App",

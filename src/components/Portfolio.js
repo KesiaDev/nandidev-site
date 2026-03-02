@@ -101,6 +101,26 @@ const Portfolio = () => {
       technicalDescription: "Site institucional para psicoterapeuta com hero, atendimentos (Famílias, Casais, Adolescentes, Empresas), seção de situações (ansiedade, conflitos, burnout, perda de propósito), abordagem TCC, processo em 5 etapas e área de conteúdos com filtros e busca. Integração WhatsApp e agendamento. Design responsivo com paleta verde e laranja."
     },
     {
+      id: 8,
+      title: "Gigi Pet Sitter",
+      category: "website",
+      description: "Site para pet sitter com base veterinária em Londrina. Ecossistema Gigi Care: cartão digital do pet com QR Code, dashboard e relatórios por visita.",
+      image: "/logo/gigipetsitter-hero.png",
+      technologies: ["React", "Dashboard", "QR Code", "WhatsApp"],
+      liveUrl: "https://gigipetsitter.com.br/",
+      githubUrl: "#",
+      screenshots: [
+        "/logo/gigipetsitter-hero.png",
+        "/logo/gigipetsitter-sobre.png",
+        "/logo/gigipetsitter-servicos.png",
+        "/logo/gigipetsitter-veterinario.png",
+        "/logo/gigipetsitter-depoimentos.png",
+        "/logo/gigipetsitter-dashboard.png",
+        "/logo/gigipetsitter-dashboard-dark.png"
+      ],
+      technicalDescription: "Site profissional para Giovanna Pet Sitter — pet sitter e dog walker em Londrina com formação em Medicina Veterinária. Inclui ecossistema Gigi Care: cartão digital do pet com QR Code, dashboard de status de saúde, relatórios por visita, integração WhatsApp e protocolo de cuidado em 6 etapas."
+    },
+    {
       id: 1,
       title: "PsiPro – Aplicativo para Psicólogos",
       category: "mobile",
