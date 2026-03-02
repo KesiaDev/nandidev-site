@@ -53,10 +53,7 @@ const Portfolio = () => {
       screenshots: [
         "/logo/checklist-gestantes-hero.png",
         "/logo/checklist-gestantes-1.png",
-        "/logo/checklist-gestantes-2.png",
-        "/logo/checklist-gestantes-3.png",
-        "/logo/checklist-gestantes-4.png",
-        "/logo/checklist-gestantes-5.png"
+        "/logo/checklist-gestantes-2.png"
       ],
       technicalDescription: "Aplicativo completo para gestantes com checklists semanais, linha do tempo da gestação, galeria da barriga, cartas para o bebê, contador de contrações e chutes, calculadora DPP, lembrete de consultas e vacinas. Inclui Lumi, assistente com IA para apoio emocional, e suporte à gestação adotiva (Gestação do Coração). Ecossistema do bebê com diário, documentos, histórico e acompanhamento de crescimento."
     },
