@@ -49,19 +49,19 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-slate-200 text-base font-medium"
           >
             <Sparkles className="w-5 h-5 text-amber-400" />
-            Production-ready AI Systems
+            Sistemas de IA prontos para produção
           </motion.div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-            AI Systems, LLMs and Automation for{' '}
+            IA, Automação e Tecnologia para{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-              smarter business decisions
+              empresas que querem crescer de verdade
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-            We design and deploy intelligent systems with LLM integration, multi-agent architectures, RAG pipelines
-            and intelligent automation to scale operations, reduce manual effort and improve decision quality.
+            Desenvolvemos sistemas inteligentes com integração de LLMs, arquiteturas multi-agente, pipelines RAG
+            e automação para escalar operações, reduzir esforço manual e melhorar a qualidade das decisões.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
@@ -91,10 +91,10 @@ const Hero = () => {
             className="flex flex-wrap gap-8 justify-start text-slate-300 text-sm md:text-base"
           >
             <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-400" /> LLM + RAG Systems
+              <Zap className="w-4 h-4 text-amber-400" /> Sistemas LLM + RAG
             </span>
             <span className="flex items-center gap-2">
-              <Target className="w-4 h-4 text-amber-400" /> Multi-Agent Automation
+              <Target className="w-4 h-4 text-amber-400" /> Automação Multi-Agente
             </span>
           </motion.div>
 

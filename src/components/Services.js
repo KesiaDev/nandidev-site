@@ -33,26 +33,26 @@ const Services = () => {
   const services = [
     {
       icon: Bot,
-      title: "AI Systems & Automation",
-      description: "Design and deployment of AI-powered systems with LLM integration, intelligent agents and process automation for mission-critical workflows.",
+      title: "Sistemas de IA & Automação",
+      description: "Criação e implantação de sistemas com IA, integração de LLMs, agentes inteligentes e automação de processos para fluxos críticos do negócio.",
       features: [
-        "LLM integration (OpenAI APIs)",
-        "Multi-agent workflow orchestration",
-        "Intelligent process automation",
-        "Operational efficiency at scale"
+        "Integração com LLMs (OpenAI APIs)",
+        "Orquestração de fluxos multi-agente",
+        "Automação inteligente de processos",
+        "Eficiência operacional em escala"
       ],
       color: "from-amber-500 to-orange-500",
       highlight: true
     },
     {
       icon: GraduationCap,
-      title: "AI Training & Implementation",
-      description: "Hands-on enablement programs to help teams adopt AI tools, deploy use cases and build internal AI operating capability.",
+      title: "Treinamento & Implementação de IA",
+      description: "Programas práticos para equipes adotarem ferramentas de IA, implantarem casos de uso e construírem capacidade interna de operação com IA.",
       features: [
-        "Executive and technical workshops",
-        "AI adoption frameworks",
-        "Prompt and workflow engineering",
-        "Implementation playbooks"
+        "Workshops executivos e técnicos",
+        "Frameworks de adoção de IA",
+        "Engenharia de prompts e fluxos",
+        "Playbooks de implementação"
       ],
       color: "from-emerald-500 to-teal-500",
       highlight: true
@@ -83,25 +83,25 @@ const Services = () => {
     },
     {
       icon: Settings,
-      title: "Data & AI Platforms",
-      description: "Data-driven platforms, analytics dashboards and AI-enabled systems that transform business data into operational intelligence.",
+      title: "Plataformas de Dados & IA",
+      description: "Plataformas orientadas a dados, dashboards de analytics e sistemas com IA que transformam dados do negócio em inteligência operacional.",
       features: [
-        "Decision intelligence dashboards",
-        "Data pipelines and integrations",
-        "Real-time performance metrics",
-        "Secure and scalable architecture"
+        "Dashboards de inteligência de decisão",
+        "Pipelines e integrações de dados",
+        "Métricas de desempenho em tempo real",
+        "Arquitetura segura e escalável"
       ],
       color: "from-rose-500 to-pink-600"
     },
     {
       icon: Zap,
-      title: "AI Strategy & Architecture",
-      description: "Strategic advisory for AI transformation, architecture design and roadmap execution focused on measurable business impact.",
+      title: "Estratégia & Arquitetura de IA",
+      description: "Consultoria estratégica para transformação com IA, design de arquitetura e execução de roadmap com foco em impacto mensurável no negócio.",
       features: [
-        "AI opportunity assessment",
-        "RAG and agent architecture design",
-        "Technical roadmap prioritization",
-        "ROI and impact tracking"
+        "Mapeamento de oportunidades com IA",
+        "Design de arquitetura RAG e agentes",
+        "Priorização de roadmap técnico",
+        "Rastreamento de ROI e impacto"
       ],
       color: "from-cyan-500 to-sky-600"
     }
@@ -123,10 +123,10 @@ const Services = () => {
         >
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              AI Engineering Services by <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
+              Serviços de Tecnologia e IA da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
             </h2>
             <p className="text-lg text-slate-600">
-              From LLM integration to multi-agent systems and RAG pipelines, we build intelligent systems tailored to your business context.
+              De integração com LLMs a sistemas multi-agente e pipelines RAG, construímos soluções inteligentes sob medida para o seu negócio.
             </p>
           </motion.div>
 

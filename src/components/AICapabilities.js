@@ -11,33 +11,33 @@ const AICapabilities = () => {
   const capabilities = [
     {
       icon: Brain,
-      title: 'LLM Integration',
-      description: 'OpenAI and API-based LLM integration for assistants, copilots and domain-specific workflows.'
+      title: 'Integração com LLMs',
+      description: 'Integração com OpenAI e outras APIs de LLM para assistentes, copilotos e fluxos específicos do negócio.'
     },
     {
       icon: Bot,
-      title: 'Multi-Agent Systems',
-      description: 'Agent orchestration for complex tasks, cross-functional workflows and autonomous execution chains.'
+      title: 'Sistemas Multi-Agente',
+      description: 'Orquestração de agentes para tarefas complexas, fluxos multifuncionais e cadeias de execução autônoma.'
     },
     {
       icon: Database,
-      title: 'RAG Pipelines',
-      description: 'Retrieval-augmented generation with curated knowledge bases, embeddings and contextual responses.'
+      title: 'Pipelines RAG',
+      description: 'Geração aumentada por recuperação com bases de conhecimento, embeddings e respostas contextualizadas.'
     },
     {
       icon: MessageSquare,
-      title: 'NLP Applications',
-      description: 'Text classification, extraction and conversational interfaces for operations, support and sales.'
+      title: 'Aplicações de NLP',
+      description: 'Classificação de texto, extração e interfaces conversacionais para operações, suporte e vendas.'
     },
     {
       icon: Workflow,
-      title: 'Intelligent Automation',
-      description: 'AI-enhanced process automation integrating business rules, decision support and execution flows.'
+      title: 'Automação Inteligente',
+      description: 'Automação de processos aprimorada com IA, integrando regras de negócio e suporte à decisão.'
     },
     {
       icon: GitBranch,
-      title: 'Data Pipelines',
-      description: 'Reliable data pipelines that connect systems, structure information and power decision intelligence.'
+      title: 'Pipelines de Dados',
+      description: 'Pipelines confiáveis que conectam sistemas, estruturam informações e potencializam decisões baseadas em dados.'
     }
   ];
 
@@ -53,10 +53,10 @@ const AICapabilities = () => {
         >
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Capabilities</span>
+              Capacidades de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">IA</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Core technical capabilities used to design production-ready intelligent systems for real business operations.
+              Capacidades técnicas que usamos para projetar sistemas inteligentes prontos para produção em operações reais de negócio.
             </p>
           </div>
 
