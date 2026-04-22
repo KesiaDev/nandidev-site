@@ -24,23 +24,23 @@ const About = () => {
   const highlights = [
     {
       icon: Briefcase,
-      title: "Gestão Comercial",
-      desc: "Coordenação e gerência comercial em players nacionais. Experiência e prática para dominar processos, entender as dores e as estratégias."
+      title: "Business + AI Execution",
+      desc: "Leadership background in commercial operations combined with hands-on AI delivery for real business environments."
     },
     {
       icon: GraduationCap,
-      title: "Formação em Tech",
-      desc: "Bacharelado em Engenharia de Software + cursos em IA e engenharia de prompts."
+      title: "Software & AI Engineering",
+      desc: "Software Engineering foundation with continuous specialization in LLM systems, prompt engineering and applied AI."
     },
     {
       icon: Users,
-      title: "Perfil Comportamental",
-      desc: "Especialização pela plataforma Sólides para potencializar talentos e reduzir turnover."
+      title: "People-Centered Adoption",
+      desc: "Experience in team development and change management to make AI adoption practical and sustainable."
     },
     {
       icon: Zap,
-      title: "Diferencial",
-      desc: "Tecnologia sob medida + capacitação de times. Não adianta comprar ferramenta sem letramento digital."
+      title: "Technical Differentiator",
+      desc: "Production-focused intelligent systems using LLMs, multi-agent architectures and data-driven automation."
     }
   ];
 
@@ -62,10 +62,10 @@ const About = () => {
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              A Inteligência por trás da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">IA</span>
+              The Engineer behind <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">AI Systems</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Késia Nandi, CEO e Fundadora, une experiência em gestão comercial e tecnologia para levar automação e IA às empresas.
+              Késia Nandi combines business leadership and software engineering to build intelligent systems with LLMs, multi-agent workflows and automation.
             </p>
           </motion.div>
 
@@ -88,20 +88,16 @@ const About = () => {
                 <span className="font-semibold">Trajetória</span>
               </div>
               <p className="text-slate-600 leading-relaxed">
-                Mais de uma década em coordenação e gerência comercial em players como Magazine Luiza e Cielo. 
-                Especializou-se em Perfil Comportamental para recrutamento e seleção, pois nada é melhor do que 
-                conhecer pessoas para potencializar talentos e reduzir custos com turnover.
+                With over a decade in commercial leadership at national companies such as Magazine Luiza and Cielo, she developed a strong
+                operational mindset to map bottlenecks, prioritize initiatives and drive measurable business outcomes.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Késia entendeu que o futuro passa pela tecnologia: cursou Engenharia de Software e se aprofundou 
-                em IA e prompts. Desde 2023 atua em empresas de tech que operam sistemas de gestão para 
-                empresas nacionais e em startups de retail e de SDR automatizado.
+                After transitioning to Software Engineering, she specialized in applied AI and LLM-based products, working on intelligent
+                automation, AI assistants and data systems used in real commercial and operational workflows.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                A partir de 2025, empreendeu com a NandiDev, desenvolvendo soluções sob medida e atuando como 
-                consultora e mentora para capacitar times a usar IA no dia a dia. O foco: virada de chave na 
-                cultura organizacional de pequenas e médias empresas — menos trabalho operacional e mais 
-                produtividade para alavancar negócios.
+                At NandiDev, she leads the design and delivery of production-ready AI systems, including LLM integrations, multi-agent
+                architectures, RAG pipelines and intelligent process automation for data-driven decision environments.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}

@@ -45,7 +45,7 @@ const Portfolio = () => {
       id: 5,
       title: "Checklist para Gestantes",
       category: "mobile",
-      description: "Aplicativo mobile offline-first para organização da gestação e acompanhamento da primeira infância, com recursos emocionais, documentais e inteligência artificial de apoio (Lumi).",
+      description: "AI-powered maternal care app with offline-first architecture, intelligent guidance and structured data tracking for pregnancy and early childhood journeys.",
       image: "/logo/checklist-gestantes-hero.png",
       technologies: ["React Native", "Offline-first", "IA de Apoio", "Documentos", "Emocional"],
       liveUrl: "#",
@@ -61,7 +61,7 @@ const Portfolio = () => {
       id: 6,
       title: "FoolApp – App de Entregas",
       category: "mobile",
-      description: "Aplicativo completo de entregas com painel para motoristas, clientes e administração. Sua entrega sempre na hora certa.",
+      description: "Intelligent delivery operations platform with real-time orchestration for drivers, customers and administrators, optimizing dispatch and service-level performance.",
       image: "/logo/foolapp-hero.png",
       technologies: ["React Native", "Node.js", "Google Maps", "Real-time"],
       liveUrl: "#",
@@ -81,7 +81,7 @@ const Portfolio = () => {
       id: 7,
       title: "Cláudia Cruz Terapeuta",
       category: "website",
-      description: "Site profissional para psicoterapeuta com design acolhedor, seções de atendimentos (famílias, casais, adolescentes, empresas), processo terapêutico e conteúdos sobre saúde emocional.",
+      description: "AI-ready digital presence for a psychotherapy practice, structured to support lead qualification, service communication and scalable client engagement.",
       image: "/logo/terapeuta-claudia-hero.png",
       technologies: ["React", "Tailwind CSS", "Responsive Design", "SEO"],
       liveUrl: "#",
@@ -101,7 +101,7 @@ const Portfolio = () => {
       id: 9,
       title: "Yummi Cukie",
       category: "ecommerce",
-      description: "Plataforma de cookies proteicos artesanais — doce sem culpa. Site com cardápio, pedidos via WhatsApp e identidade visual acolhedora em tons de rosa e vermelho.",
+      description: "E-commerce-style brand platform with automated conversion flows and data-ready touchpoints for demand generation and order operations.",
       image: "/logo/yummicukie-hero.png",
       technologies: ["React", "Tailwind CSS", "WhatsApp", "Responsive Design"],
       liveUrl: "#",
@@ -118,7 +118,7 @@ const Portfolio = () => {
       id: 8,
       title: "Gigi Pet Sitter",
       category: "website",
-      description: "Site para pet sitter com base veterinária em Londrina. Ecossistema Gigi Care: cartão digital do pet com QR Code, dashboard e relatórios por visita.",
+      description: "Pet care service platform with data-driven visit tracking, QR-based pet identity and operational dashboards for transparent service delivery.",
       image: "/logo/gigipetsitter-hero.png",
       technologies: ["React", "Dashboard", "QR Code", "WhatsApp"],
       liveUrl: "https://gigipetsitter.com.br/",
@@ -138,7 +138,7 @@ const Portfolio = () => {
       id: 1,
       title: "PsiPro – Aplicativo para Psicólogos",
       category: "mobile",
-      description: "Aplicativo completo para gestão de pacientes, agenda, prontuário e financeiro, com modo claro/escuro e integração com WhatsApp.",
+      description: "AI-powered clinical operations app for psychologists, unifying patient records, scheduling, financial workflows and communication automation.",
       image: "/logo/psipro-dasboard.jpg",
       technologies: ["React Native", "Firebase", "WhatsApp API", "Dark Mode"],
       liveUrl: "#",
@@ -157,7 +157,7 @@ const Portfolio = () => {
       id: 2,
       title: "Conferência Internacional de Turismo Cinematográfico",
       category: "website",
-      description: "Site institucional com design elegante, multilíngue e responsivo, desenvolvido para um evento internacional.",
+      description: "International event platform with multilingual architecture and high-performance information delivery for registrations, schedule and audience communication.",
       image: "/logo/conferencia-hero.png",
       technologies: ["Next.js", "Tailwind CSS", "i18n", "Responsive Design"],
       liveUrl: "https://turismocinematografico.com.br/",
@@ -173,7 +173,7 @@ const Portfolio = () => {
       id: 3,
       title: "Sistema de Prestação de Contas",
       category: "system",
-      description: "Sistema completo para acompanhamento comercial de equipes, com fechamento diários, acompanhamento de resultados e relatórios gerenciais.",
+      description: "Data-driven commercial intelligence system with automated daily closing, performance monitoring and management reporting for decision acceleration.",
       image: "/logo/prestacao-contas.png",
       technologies: ["React", "Node.js", "PostgreSQL", "Chart.js"],
       liveUrl: "#",
@@ -187,7 +187,7 @@ const Portfolio = () => {
       id: 4,
       title: "Sistema de Gestão Empresarial",
       category: "system",
-      description: "Sistema web completo para gestão de clientes, vendas e relatórios financeiros.",
+      description: "AI-ready business management system integrating CRM, sales and financial intelligence in a single operational platform.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
       technologies: ["Vue.js", "Laravel", "MySQL", "Chart.js"],
       liveUrl: "#",
@@ -219,9 +219,9 @@ const Portfolio = () => {
               Nosso <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Portfólio</span>
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Projetos entregues para empresas de diversos segmentos.
+              AI-powered products and intelligent systems delivered across multiple industries.
               <br />
-              Tecnologia sob medida e resultados reais.
+              Each project is designed around measurable operational and business impact.
             </p>
           </motion.div>
 
@@ -312,7 +312,7 @@ const Portfolio = () => {
               Gostou do que viu?
             </h3>
             <p className="text-gray-600 mb-6">
-              Vamos criar algo incrível juntos! Entre em contato e vamos discutir seu projeto.
+              Let's design your next AI-powered product with a clear architecture and real business outcomes.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

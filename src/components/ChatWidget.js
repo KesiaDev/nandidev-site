@@ -1,571 +1,367 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
-const ChatWidget = () => {
-  const AVATAR_URL = "https://softwareplay.com.br/wp-content/uploads/2025/06/bia.png";
-  const WEBHOOK_URL = "https://drybee-n8n.cloudfy.live/webhook/32610611-454c-4640-9816-93f3a432ea54-asdseeeedsd";
-  const INITIAL_RESPONSE = "Pronto! Agora posso te ajudar\nQual serviço você gostaria de conhecer?\n\n- Criação de Sites\n- Gestão de Tráfego\n- Automações";
+const WEBHOOK_URL = 'https://n8n-railway-production-f85d.up.railway.app/webhook/nina-nandi';
+const WA_NUMBER   = '5554996246565';
+const WA_MSG      = 'Oi Nina! Vim pelo site da Nandi Dev e quero saber mais.';
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState('welcome'); // welcome, nome, whatsapp, chat
-  const [userData, setUserData] = useState({ nome: '', whatsapp: '', session: 'softwareplay-usuario' });
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
-  const [inputNome, setInputNome] = useState('');
-  const [inputWhatsapp, setInputWhatsapp] = useState('');
-  const chatlogRef = useRef(null);
-  const chatInputRef = useRef(null);
+// Delay aleatório entre min e max ms — humaniza o tempo de resposta
+const wait = (min, max) =>
+  new Promise(res => setTimeout(res, min + Math.random() * (max - min)));
 
+export default function ChatWidget() {
+  const [open, setOpen]           = useState(false);
+  const [msgs, setMsgs]           = useState([]);
+  const [input, setInput]         = useState('');
+  const [typing, setTyping]       = useState(false);
+  const [busy, setBusy]           = useState(false);
+  const [waCTA, setWaCTA]         = useState(false);
+  const [started, setStarted]     = useState(false);
+
+  const endRef    = useRef(null);
+  const inputRef  = useRef(null);
+  const historyRef = useRef([]);
+  const sessionId  = useRef('nina_' + Date.now());
+
+  // Scroll automático
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs, typing]);
+
+  // Nina abre a conversa sozinha ao abrir o widget
   useEffect(() => {
-    if (chatlogRef.current) {
-      chatlogRef.current.scrollTop = chatlogRef.current.scrollHeight;
-    }
-  }, [messages]);
+    if (!open || started) return;
+    setStarted(true);
 
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-  };
+    (async () => {
+      // Msg 1 — 20-25s
+      setTyping(true);
+      await wait(20000, 25000);
+      setTyping(false);
+      addNina('Oi! 👋');
 
-  const startChat = () => {
-    setStep('nome');
-  };
+      // Msg 2 — +10-14s
+      setTyping(true);
+      await wait(10000, 14000);
+      setTyping(false);
+      addNina('Sou a Nina, da Nandi Dev!');
 
-  const enviarNome = () => {
-    const nome = inputNome.trim();
-    if (!nome) {
-      alert('Digite seu nome!');
-      return;
-    }
-    setUserData(prev => ({ ...prev, nome }));
-    setStep('whatsapp');
-    setTimeout(() => {
-      if (chatInputRef.current) {
-        chatInputRef.current.focus();
-      }
-    }, 100);
-  };
+      // Msg 3 — +12-16s (pergunta de abertura)
+      setTyping(true);
+      await wait(12000, 16000);
+      setTyping(false);
+      const abertura = 'Me conta uma coisa — como tá indo a prospecção de vocês hoje em dia?';
+      addNina(abertura);
 
-  const formatWhatsApp = (value) => {
-    let digits = value.replace(/\D/g, '').slice(0, 11);
-    if (digits.length <= 2) {
-      return digits.replace(/(\d{0,2})/, '($1');
-    } else if (digits.length <= 7) {
-      return digits.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-    } else {
-      return digits.replace(/(\d{2})(\d{1})(\d{0,4})(\d{0,4})/, '($1) $2 $3-$4');
-    }
-  };
+      historyRef.current = [
+        { role: 'assistant', content: 'Oi! 👋' },
+        { role: 'assistant', content: 'Sou a Nina, da Nandi Dev!' },
+        { role: 'assistant', content: abertura },
+      ];
+    })();
+  }, [open, started]);
 
-  const handleWhatsappChange = (e) => {
-    const formatted = formatWhatsApp(e.target.value);
-    setInputWhatsapp(formatted);
-  };
+  function addNina(text) {
+    setMsgs(prev => [...prev, { id: Date.now() + Math.random(), role: 'nina', text }]);
+    historyRef.current.push({ role: 'assistant', content: text });
+  }
 
-  const enviarWhatsapp = async () => {
-    const raw = inputWhatsapp.trim();
-    const digits = raw.replace(/\D/g, '');
-    if (digits.length < 10) {
-      alert('Digite um número válido com DDD!');
-      return;
-    }
+  function addUser(text) {
+    setMsgs(prev => [...prev, { id: Date.now() + Math.random(), role: 'user', text }]);
+    historyRef.current.push({ role: 'user', content: text });
+  }
 
-    const whatsapp = `+55${digits}`;
-    setUserData(prev => ({ ...prev, whatsapp }));
+  const send = useCallback(async () => {
+    if (!input.trim() || typing || busy) return;
+    const text = input.trim();
+    setInput('');
+    setBusy(true);
+    addUser(text);
 
-    // Adicionar mensagem de confirmação
-    setMessages(prev => [...prev, {
-      type: 'bot',
-      text: '👩‍💼 Bia: Obrigada! Vou começar seu atendimento agora 😊'
-    }]);
-
-    setStep('chat');
-
-    // Adicionar loading
-    setMessages(prev => [...prev, {
-      type: 'loading',
-      text: 'Bia está digitando...'
-    }]);
+    // Delay CLIENT-SIDE — 30 a 55s antes de chamar o n8n
+    // O usuário vê "digitando..." — a Nina parece estar pensando
+    setTyping(true);
+    await wait(30000, 55000);
 
     try {
-      const response = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...userData, whatsapp })
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 60000);
+
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({
+          sessionId: sessionId.current,
+          message: text,
+          history: historyRef.current.slice(-12),
+        }),
       });
+      clearTimeout(timeout);
 
-      const data = await response.json();
+      const data = await res.json();
+      setTyping(false);
 
-      // Remover loading
-      setMessages(prev => prev.filter(msg => msg.type !== 'loading'));
+      const messages = data.messages || [data.message || 'Me conta mais 😊'];
+      const delayBetween = data.delay_between ?? 12000;
 
-      const resposta = data.resposta || INITIAL_RESPONSE;
-      const regexWa = /(https:\/\/wa\.me\/[0-9?=]+)/;
-      const match = resposta.match(regexWa);
-
-      if (match) {
-        const link = match[1];
-        const textoSemLink = resposta.replace(link, '').trim();
-        setMessages(prev => [...prev, {
-          type: 'bot',
-          text: textoSemLink,
-          link: link,
-          linkText: '💬 Falar no WhatsApp'
-        }]);
-      } else {
-        setMessages(prev => [...prev, {
-          type: 'bot',
-          text: resposta
-        }]);
-      }
-    } catch (err) {
-      setMessages(prev => prev.filter(msg => msg.type !== 'loading'));
-      setMessages(prev => [...prev, {
-        type: 'bot',
-        text: '❌ Erro ao iniciar atendimento.'
-      }]);
-    }
-  };
-
-  const sendChat = async () => {
-    const message = inputMessage.trim();
-    if (!message) return;
-
-    // Adicionar mensagem do usuário
-    setMessages(prev => [...prev, {
-      type: 'user',
-      text: message
-    }]);
-
-    setInputMessage('');
-
-    const payload = { message, session: userData.session };
-
-    try {
-      const response = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      const data = await response.json();
-      const respostas = Array.isArray(data) ? data : [data];
-
-      for (let i = 0; i < respostas.length; i++) {
-        // Adicionar loading
-        setMessages(prev => [...prev, {
-          type: 'loading',
-          text: 'Bia está digitando...'
-        }]);
-
-        await new Promise(res => setTimeout(res, 1000 + i * 300));
-
-        // Remover loading
-        setMessages(prev => prev.filter(msg => msg.type !== 'loading'));
-
-        const texto = respostas[i].resposta || '';
-
-        if (texto.trim()) {
-          const regexWa = /(https:\/\/wa\.me\/[0-9?=]+)/;
-          const match = texto.match(regexWa);
-
-          if (match) {
-            const link = match[1];
-            const textoSemLink = texto.replace(link, '').trim();
-            setMessages(prev => [...prev, {
-              type: 'bot',
-              text: textoSemLink,
-              link: link,
-              linkText: '💬 Continuar no WhatsApp'
-            }]);
-          } else {
-            setMessages(prev => [...prev, {
-              type: 'bot',
-              text: texto
-            }]);
-          }
+      // Exibe mensagens fragmentadas com delay entre elas
+      for (let i = 0; i < messages.length; i++) {
+        if (i > 0) {
+          setTyping(true);
+          await wait(delayBetween, delayBetween + 5000);
+          setTyping(false);
         }
+        addNina(messages[i]);
       }
-    } catch (err) {
-      setMessages(prev => prev.filter(msg => msg.type !== 'loading'));
-      setMessages(prev => [...prev, {
-        type: 'bot',
-        text: '❌ Erro ao se comunicar com a IA.'
-      }]);
+
+      if (data.whatsappCTA) setWaCTA(true);
+
+    } catch {
+      setTyping(false);
+      addNina('Tive um probleminha aqui... Bora continuar no WhatsApp? 😊');
+      setWaCTA(true);
     }
+
+    setBusy(false);
+    setTimeout(() => inputRef.current?.focus(), 100);
+  }, [input, typing, busy]);
+
+  const handleKey = e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      if (step === 'chat') {
-        sendChat();
-      } else if (step === 'nome') {
-        enviarNome();
-      } else if (step === 'whatsapp') {
-        enviarWhatsapp();
-      }
-    }
-  };
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MSG)}`;
 
   return (
     <>
-      {/* Botão Flutuante */}
-      <div
-        id="chat-launcher"
-        onClick={toggleChat}
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          display: 'flex',
-          alignItems: 'center',
-          background: 'white',
-          border: '1px solid #ddd',
-          borderRadius: '50px',
-          padding: '10px 16px',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-          cursor: 'pointer',
-          zIndex: 9999,
-          transition: 'all 0.3s ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-2px)';
-          e.currentTarget.style.boxShadow = '0 6px 14px rgba(0, 0, 0, 0.25)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
-        }}
-      >
-        <div style={{ marginRight: '12px' }}>
-          <img
-            src={AVATAR_URL}
-            alt="Avatar"
-            style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
-              objectFit: 'cover'
-            }}
-          />
-        </div>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          fontSize: '14px',
-          color: '#333',
-          fontFamily: "'Segoe UI', sans-serif",
-          textAlign: 'left'
-        }}>
-          <div style={{ fontWeight: 600, fontSize: '15px', color: '#0073e6' }}>
-            Olá 👋
-          </div>
-          <div>Possui alguma dúvida?</div>
-        </div>
-      </div>
-
-      {/* Chatbox */}
-      {isOpen && (
-        <div
-          id="chat-container"
-          style={{
-            position: 'fixed',
-            bottom: '100px',
-            right: '20px',
-            width: '380px',
-            height: 'auto',
-            minHeight: '500px',
-            maxHeight: '60vh',
-            background: 'white',
-            borderRadius: '16px',
-            boxShadow: '0 0 20px rgba(0, 0, 0, 0.2)',
-            overflow: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-            fontFamily: "'Segoe UI', sans-serif",
-            zIndex: 9999
-          }}
-        >
+      {/* ── Chat Window ─────────────────────────────── */}
+      {open && (
+        <div style={styles.window}>
           {/* Header */}
-          <div style={{
-            background: '#0073e6',
-            color: 'white',
-            padding: '16px',
-            fontWeight: 'bold',
-            fontSize: '16px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}>
-            <span style={{ display: 'flex', alignItems: 'center' }}>
-              <img
-                src={AVATAR_URL}
-                alt="Avatar"
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  marginRight: '10px',
-                  objectFit: 'cover'
-                }}
-              />
-              Software Play - Bia
-            </span>
-            <span
-              style={{ cursor: 'pointer', fontSize: '20px' }}
-              onClick={toggleChat}
-            >
-              ✖
-            </span>
-          </div>
-
-          {/* Body */}
-          <div
-            ref={chatlogRef}
-            style={{
-              padding: '16px',
-              flex: 1,
-              overflowY: 'auto',
-              fontSize: '14px',
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: '#fafafa'
-            }}
-          >
-            {/* Welcome */}
-            {step === 'welcome' && (
-              <div style={{
-                background: '#f1f1f1',
-                borderRadius: '14px',
-                padding: '12px 14px',
-                marginBottom: '10px',
-                maxWidth: '85%',
-                fontSize: '14px',
-                lineHeight: 1.4
-              }}>
-                <strong>Oi! 👋</strong><br />
-                Eu sou a <strong>Bia</strong>, assistente da Software Play. Posso te ajudar com sites, lojas ou tráfego pago.<br />
-                <button
-                  onClick={startChat}
-                  style={{
-                    marginTop: '12px',
-                    padding: '10px 16px',
-                    border: 'none',
-                    background: '#0073e6',
-                    color: 'white',
-                    borderRadius: '8px',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    boxShadow: 'none'
-                  }}
-                >
-                  Sim, conversar agora
-                </button>
+          <div style={styles.header}>
+            <div style={styles.headerLeft}>
+              <div style={styles.avatar}>N</div>
+              <div>
+                <p style={styles.name}>Nina</p>
+                <p style={styles.subtitle}>
+                  <span style={styles.onlineDot} />
+                  Consultora Nandi Dev
+                </p>
               </div>
-            )}
-
-            {/* Step Nome */}
-            {step === 'nome' && (
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '10px',
-                background: '#f1f1f1',
-                borderRadius: '14px',
-                padding: '12px 14px',
-                marginBottom: '10px',
-                maxWidth: '85%'
-              }}>
-                <label style={{ fontWeight: 500, fontSize: '15px', marginBottom: '4px', color: '#333' }}>
-                  <strong>Qual seu nome?</strong>
-                </label>
-                <input
-                  type="text"
-                  value={inputNome}
-                  onChange={(e) => setInputNome(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Digite seu nome..."
-                  style={{
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    border: '1px solid #ccc',
-                    fontSize: '14px'
-                  }}
-                />
-                <button
-                  onClick={enviarNome}
-                  style={{
-                    marginTop: '12px',
-                    padding: '10px 16px',
-                    border: 'none',
-                    background: '#0073e6',
-                    color: 'white',
-                    borderRadius: '8px',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Continuar
-                </button>
-              </div>
-            )}
-
-            {/* Step WhatsApp */}
-            {step === 'whatsapp' && (
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '10px',
-                background: '#f1f1f1',
-                borderRadius: '14px',
-                padding: '12px 14px',
-                marginBottom: '10px',
-                maxWidth: '85%'
-              }}>
-                <label style={{ fontWeight: 500, fontSize: '15px', marginBottom: '4px', color: '#333' }}>
-                  <strong>Qual seu WhatsApp (com DDD)?</strong>
-                </label>
-                <input
-                  ref={chatInputRef}
-                  type="text"
-                  value={inputWhatsapp}
-                  onChange={handleWhatsappChange}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Ex: (xx) xxxxx-xxxx"
-                  style={{
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    border: '1px solid #ccc',
-                    fontSize: '14px'
-                  }}
-                />
-                <button
-                  onClick={enviarWhatsapp}
-                  style={{
-                    marginTop: '12px',
-                    padding: '10px 16px',
-                    border: 'none',
-                    background: '#0073e6',
-                    color: 'white',
-                    borderRadius: '8px',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Iniciar Atendimento
-                </button>
-              </div>
-            )}
-
-            {/* Messages */}
-            {step === 'chat' && messages.map((msg, index) => {
-              if (msg.type === 'loading') {
-                return (
-                  <div
-                    key={index}
-                    style={{
-                      background: '#f1f1f1',
-                      borderRadius: '14px',
-                      padding: '12px 14px',
-                      marginBottom: '10px',
-                      maxWidth: '85%',
-                      fontSize: '14px',
-                      lineHeight: 1.4
-                    }}
-                  >
-                    {msg.text}
-                  </div>
-                );
-              }
-
-              return (
-                <div
-                  key={index}
-                  style={{
-                    background: msg.type === 'user' ? '#0073e6' : '#f1f1f1',
-                    color: msg.type === 'user' ? 'white' : '#333',
-                    borderRadius: '14px',
-                    padding: '12px 14px',
-                    marginBottom: '10px',
-                    maxWidth: '85%',
-                    fontSize: '14px',
-                    lineHeight: 1.4,
-                    alignSelf: msg.type === 'user' ? 'flex-end' : 'flex-start'
-                  }}
-                >
-                  {msg.type === 'bot' && '👩‍💼 Bia: '}
-                  {msg.text}
-                  {msg.link && (
-                    <a
-                      href={msg.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-block',
-                        marginTop: '8px',
-                        padding: '8px 16px',
-                        backgroundColor: '#25D366',
-                        color: 'white',
-                        borderRadius: '8px',
-                        textDecoration: 'none',
-                        fontWeight: 600,
-                        fontSize: '14px'
-                      }}
-                    >
-                      {msg.linkText}
-                    </a>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Footer */}
-          {step === 'chat' && (
-            <div style={{
-              borderTop: '1px solid #eee',
-              padding: '12px',
-              display: 'flex',
-              gap: '8px',
-              background: '#fff'
-            }}>
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Digite sua mensagem..."
-                style={{
-                  flex: 1,
-                  padding: '10px 14px',
-                  border: '1px solid #ccc',
-                  borderRadius: '8px',
-                  fontSize: '14px'
-                }}
-              />
-              <button
-                onClick={sendChat}
-                style={{
-                  background: '#0073e6',
-                  color: 'white',
-                  border: 'none',
-                  padding: '10px 16px',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 600,
-                  fontSize: '14px'
-                }}
-              >
-                Enviar
-              </button>
             </div>
-          )}
+            <button style={styles.closeBtn} onClick={() => setOpen(false)}>✕</button>
+          </div>
+
+          {/* Messages */}
+          <div style={styles.messages}>
+            {msgs.length === 0 && !typing && (
+              <div style={styles.empty}>
+                <div style={{ ...styles.avatar, width: 60, height: 60, fontSize: 22, margin: '0 auto 12px' }}>N</div>
+                <p>Automatize suas vendas com IA 🚀</p>
+              </div>
+            )}
+
+            {msgs.map(msg => (
+              <div key={msg.id} style={{ ...styles.row, ...(msg.role === 'user' ? styles.rowUser : {}) }}>
+                {msg.role === 'nina' && <div style={styles.avatarSm}>N</div>}
+                <div style={{ ...styles.bubble, ...(msg.role === 'user' ? styles.bubbleUser : styles.bubbleNina) }}>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+
+            {typing && (
+              <div style={styles.row}>
+                <div style={styles.avatarSm}>N</div>
+                <div style={{ ...styles.bubble, ...styles.bubbleNina, ...styles.typingBubble }}>
+                  <span style={styles.dot} />
+                  <span style={{ ...styles.dot, animationDelay: '0.18s' }} />
+                  <span style={{ ...styles.dot, animationDelay: '0.36s' }} />
+                </div>
+              </div>
+            )}
+
+            {waCTA && (
+              <div style={styles.waCTAWrap}>
+                <a href={waLink} target="_blank" rel="noopener noreferrer" style={styles.waBtn}>
+                  Continuar no WhatsApp 💬
+                </a>
+              </div>
+            )}
+
+            <div ref={endRef} />
+          </div>
+
+          {/* Input */}
+          <div style={styles.inputArea}>
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyPress={handleKey}
+              placeholder="Digite sua mensagem..."
+              disabled={busy || typing}
+              style={{ ...styles.input, opacity: (busy || typing) ? 0.5 : 1 }}
+            />
+            <button
+              onClick={send}
+              disabled={busy || typing || !input.trim()}
+              style={{ ...styles.sendBtn, opacity: (busy || typing || !input.trim()) ? 0.4 : 1 }}
+            >
+              ➤
+            </button>
+          </div>
         </div>
       )}
+
+      {/* ── FAB ─────────────────────────────────────── */}
+      <button
+        style={{ ...styles.fab, ...(open ? styles.fabOpen : {}) }}
+        onClick={() => setOpen(o => !o)}
+        aria-label={open ? 'Fechar chat' : 'Falar com a Nina'}
+      >
+        {open ? (
+          <span style={{ fontSize: 18, color: '#aaa' }}>✕</span>
+        ) : (
+          <>
+            <span style={{ fontSize: 22, fontWeight: 800, color: '#fff' }}>N</span>
+            <span style={styles.pulse} />
+          </>
+        )}
+      </button>
+
+      {/* Keyframes para animações */}
+      <style>{`
+        @keyframes nina-pulse {
+          0%,100% { transform: scale(1); opacity: 1; }
+          50%      { transform: scale(1.3); opacity: 0.7; }
+        }
+        @keyframes nina-dot {
+          0%,80%,100% { transform: translateY(0); opacity: 0.4; }
+          40%          { transform: translateY(-5px); opacity: 1; }
+        }
+        @keyframes nina-appear {
+          from { opacity: 0; transform: translateY(16px) scale(0.97); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+      `}</style>
     </>
   );
+}
+
+// ─── Styles ───────────────────────────────────────────────────────────────────
+const styles = {
+  fab: {
+    position: 'fixed',
+    bottom: 24,
+    right: 24,
+    width: 60,
+    height: 60,
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+    border: 'none',
+    cursor: 'pointer',
+    boxShadow: '0 6px 24px rgba(99,102,241,0.45)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 9999,
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+  },
+  fabOpen: {
+    background: '#1e1e2e',
+    boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+  },
+  pulse: {
+    position: 'absolute',
+    top: 3,
+    right: 3,
+    width: 14,
+    height: 14,
+    background: '#22c55e',
+    borderRadius: '50%',
+    border: '2px solid white',
+    animation: 'nina-pulse 2.2s ease-in-out infinite',
+  },
+  window: {
+    position: 'fixed',
+    bottom: 96,
+    right: 24,
+    width: 370,
+    height: 540,
+    background: '#0d0d12',
+    borderRadius: 20,
+    border: '1px solid rgba(255,255,255,0.07)',
+    boxShadow: '0 24px 72px rgba(0,0,0,0.55)',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'hidden',
+    zIndex: 9999,
+    animation: 'nina-appear 0.22s cubic-bezier(0.34,1.56,0.64,1)',
+    fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
+  },
+  header: {
+    padding: '14px 18px',
+    background: 'linear-gradient(135deg,#13131f,#1a1a30)',
+    borderBottom: '1px solid rgba(255,255,255,0.055)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexShrink: 0,
+  },
+  headerLeft: { display: 'flex', alignItems: 'center', gap: 12 },
+  avatar: {
+    width: 40, height: 40, borderRadius: '50%',
+    background: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    fontWeight: 800, color: '#fff', fontSize: 15, flexShrink: 0,
+  },
+  avatarSm: {
+    width: 28, height: 28, borderRadius: '50%',
+    background: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    fontWeight: 800, color: '#fff', fontSize: 10, flexShrink: 0,
+    alignSelf: 'flex-end', marginBottom: 2,
+  },
+  name:     { margin: 0, fontWeight: 700, fontSize: 15, color: '#f0f0f8', lineHeight: 1.3 },
+  subtitle: { margin: 0, display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#777', lineHeight: 1.3 },
+  onlineDot:{ display: 'inline-block', width: 7, height: 7, background: '#22c55e', borderRadius: '50%' },
+  closeBtn: { background: 'transparent', border: 'none', color: '#555', fontSize: 15, cursor: 'pointer', padding: 6, borderRadius: 6 },
+  messages: {
+    flex: 1, overflowY: 'auto', padding: '18px 14px 14px',
+    display: 'flex', flexDirection: 'column', gap: 8,
+    scrollbarWidth: 'thin', scrollbarColor: '#2a2a3a transparent',
+  },
+  empty: { textAlign: 'center', color: '#505060', fontSize: 14, padding: '40px 24px', lineHeight: 1.6 },
+  row:     { display: 'flex', alignItems: 'flex-end', gap: 8 },
+  rowUser: { flexDirection: 'row-reverse' },
+  bubble:  { maxWidth: '76%', padding: '10px 14px', borderRadius: 18, fontSize: 14, lineHeight: 1.55, wordBreak: 'break-word' },
+  bubbleNina: { background: '#1c1c2c', color: '#dddde8', borderBottomLeftRadius: 4 },
+  bubbleUser: { background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', color: '#fff', borderBottomRightRadius: 4 },
+  typingBubble: { display: 'flex', alignItems: 'center', gap: 5, minWidth: 50, padding: '12px 14px' },
+  dot: {
+    display: 'block', width: 7, height: 7, background: '#6366f1', borderRadius: '50%',
+    animation: 'nina-dot 1.3s infinite ease-in-out',
+  },
+  waCTAWrap: { display: 'flex', justifyContent: 'center', padding: '8px 0 4px' },
+  waBtn: {
+    display: 'inline-flex', alignItems: 'center', gap: 7,
+    background: '#25d366', color: '#fff', textDecoration: 'none',
+    fontSize: 13.5, fontWeight: 700, padding: '9px 20px', borderRadius: 22,
+    boxShadow: '0 3px 12px rgba(37,211,102,0.3)',
+  },
+  inputArea: {
+    display: 'flex', alignItems: 'center', gap: 10, padding: '12px 14px',
+    borderTop: '1px solid rgba(255,255,255,0.055)', background: '#0d0d12', flexShrink: 0,
+  },
+  input: {
+    flex: 1, background: '#18182a', border: '1px solid rgba(255,255,255,0.08)',
+    borderRadius: 12, padding: '10px 14px', color: '#f0f0f0', fontSize: 14,
+    outline: 'none', fontFamily: 'inherit',
+  },
+  sendBtn: {
+    width: 40, height: 40, borderRadius: 10, flexShrink: 0,
+    background: 'linear-gradient(135deg,#6366f1,#8b5cf6)', border: 'none',
+    color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
+    justifyContent: 'center', fontSize: 16,
+  },
 };
-
-export default ChatWidget;
-

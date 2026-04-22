@@ -33,26 +33,26 @@ const Services = () => {
   const services = [
     {
       icon: Bot,
-      title: "Automação e IA",
-      description: "Chatbots vendedores, SDR com IA e fluxos automatizados para reduzir gargalos e aumentar produtividade.",
+      title: "AI Systems & Automation",
+      description: "Design and deployment of AI-powered systems with LLM integration, intelligent agents and process automation for mission-critical workflows.",
       features: [
-        "Chatbots e SDR com IA",
-        "Automação de processos",
-        "Redução de carga braçal",
-        "Mais tempo para estratégia"
+        "LLM integration (OpenAI APIs)",
+        "Multi-agent workflow orchestration",
+        "Intelligent process automation",
+        "Operational efficiency at scale"
       ],
       color: "from-amber-500 to-orange-500",
       highlight: true
     },
     {
       icon: GraduationCap,
-      title: "Capacitação em IA",
-      description: "Treinamento e letramento digital para sua equipe usar IA no dia a dia. Tecnologia sem cultura não entrega resultado.",
+      title: "AI Training & Implementation",
+      description: "Hands-on enablement programs to help teams adopt AI tools, deploy use cases and build internal AI operating capability.",
       features: [
-        "Workshops e mentoria",
-        "Uso prático de IA",
-        "Redução de desperdício com ferramentas",
-        "Cultura digital sustentável"
+        "Executive and technical workshops",
+        "AI adoption frameworks",
+        "Prompt and workflow engineering",
+        "Implementation playbooks"
       ],
       color: "from-emerald-500 to-teal-500",
       highlight: true
@@ -83,25 +83,25 @@ const Services = () => {
     },
     {
       icon: Settings,
-      title: "Sistemas e Dashboards",
-      description: "Sistemas web, painéis administrativos e dashboards para gestão, vendas e operação.",
+      title: "Data & AI Platforms",
+      description: "Data-driven platforms, analytics dashboards and AI-enabled systems that transform business data into operational intelligence.",
       features: [
-        "Desenvolvimento sob medida",
-        "Relatórios e métricas",
-        "Segurança e escalabilidade",
-        "Integrações"
+        "Decision intelligence dashboards",
+        "Data pipelines and integrations",
+        "Real-time performance metrics",
+        "Secure and scalable architecture"
       ],
       color: "from-rose-500 to-pink-600"
     },
     {
       icon: Zap,
-      title: "Consultoria Tecnológica",
-      description: "Diagnóstico de processos, definição de roadmap e suporte para virada de chave digital.",
+      title: "AI Strategy & Architecture",
+      description: "Strategic advisory for AI transformation, architecture design and roadmap execution focused on measurable business impact.",
       features: [
-        "Mapeamento de dores",
-        "Priorização de iniciativas",
-        "Acompanhamento pós-implantação",
-        "Maximização de ROI"
+        "AI opportunity assessment",
+        "RAG and agent architecture design",
+        "Technical roadmap prioritization",
+        "ROI and impact tracking"
       ],
       color: "from-cyan-500 to-sky-600"
     }
@@ -123,11 +123,10 @@ const Services = () => {
         >
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              O que a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span> oferece
+              AI Engineering Services by <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Tecnologia sob medida, automação com IA e capacitação de times. Sem produto de caixinha, 
-              cada solução é pensada na sua dor e no seu mercado.
+              From LLM integration to multi-agent systems and RAG pipelines, we build intelligent systems tailored to your business context.
             </p>
           </motion.div>
 

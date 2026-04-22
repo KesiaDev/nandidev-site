@@ -49,19 +49,19 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-slate-200 text-base font-medium"
           >
             <Sparkles className="w-5 h-5 text-amber-400" />
-            Tecnologia sob medida + Capacitação em IA
+            Production-ready AI Systems
           </motion.div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-            Virada de chave para sua empresa com{' '}
+            AI Systems, LLMs and Automation for{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-              automação e IA
+              smarter business decisions
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-            Soluções personalizadas para pequenas e médias empresas. Não vendemos produto de caixinha, 
-            desenvolvemos tecnologia centrada na sua dor e capacitamos sua equipe a usar IA no dia a dia.
+            We design and deploy intelligent systems with LLM integration, multi-agent architectures, RAG pipelines
+            and intelligent automation to scale operations, reduce manual effort and improve decision quality.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
@@ -91,10 +91,10 @@ const Hero = () => {
             className="flex flex-wrap gap-8 justify-start text-slate-300 text-sm md:text-base"
           >
             <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-400" /> Automação
+              <Zap className="w-4 h-4 text-amber-400" /> LLM + RAG Systems
             </span>
             <span className="flex items-center gap-2">
-              <Target className="w-4 h-4 text-amber-400" /> IA e Treinamento
+              <Target className="w-4 h-4 text-amber-400" /> Multi-Agent Automation
             </span>
           </motion.div>
 

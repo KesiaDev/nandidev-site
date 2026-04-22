@@ -60,14 +60,14 @@ const CTA = () => {
           {/* Main CTA */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Pronto para a{' '}
+              Ready to build{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                virada de chave?
+                your AI system?
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
-              Agende uma apresentação comercial e descubra como a NandiDev pode 
-              automatizar seus processos e capacitar sua equipe com IA.
+              Schedule a strategic call to map high-impact opportunities with LLMs, intelligent automation
+              and data-driven system architecture.
             </p>
 
             {/* Main CTA Button */}
@@ -94,7 +94,7 @@ const CTA = () => {
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">WhatsApp</h3>
-              <p className="text-gray-300 mb-4">Resposta rápida e atendimento personalizado</p>
+              <p className="text-gray-300 mb-4">Fast response for AI scoping and solution discovery</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -114,7 +114,7 @@ const CTA = () => {
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">E-mail</h3>
-              <p className="text-gray-300 mb-4">Envie-nos sua proposta detalhada</p>
+              <p className="text-gray-300 mb-4">Share your business context and technical requirements</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -130,15 +130,15 @@ const CTA = () => {
           {/* Process Steps */}
           <motion.div variants={itemVariants} className="text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-12">
-              Como funciona nosso processo
+              How we execute
             </h3>
             
             <div className="grid md:grid-cols-4 gap-8">
               {[
-                { step: "01", title: "Consulta", description: "Conversamos sobre suas necessidades e objetivos" },
-                { step: "02", title: "Proposta", description: "Criamos uma proposta personalizada para seu projeto" },
-                { step: "03", title: "Desenvolvimento", description: "Desenvolvemos sua solução com qualidade e agilidade" },
-                { step: "04", title: "Entrega", description: "Entregamos seu projeto pronto e funcionando perfeitamente" }
+                { step: "01", title: "Discovery", description: "Map business goals, constraints and AI opportunities" },
+                { step: "02", title: "Architecture", description: "Define LLM, agent and data architecture for your use case" },
+                { step: "03", title: "Build", description: "Implement and integrate production-ready intelligent workflows" },
+                { step: "04", title: "Scale", description: "Measure impact, optimize performance and expand adoption" }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -161,10 +161,10 @@ const CTA = () => {
             className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Não perca mais tempo!
+              Move from idea to intelligent execution
             </h3>
             <p className="text-gray-300 mb-8 text-lg">
-              Quanto antes começarmos, mais rápido você terá sua solução digital funcionando.
+              The sooner we start, the faster your team operates with AI-driven efficiency and better decisions.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
