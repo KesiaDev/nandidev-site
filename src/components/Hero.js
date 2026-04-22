@@ -60,8 +60,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-            Desenvolvemos sistemas inteligentes com integração de LLMs, arquiteturas multi-agente, pipelines RAG
-            e automação para escalar operações, reduzir esforço manual e melhorar a qualidade das decisões.
+            Nossas automações com IA já eliminaram centenas de horas de trabalho manual para nossos clientes — integrando LLMs, arquiteturas multi-agente e pipelines RAG para escalar operações e melhorar a qualidade das decisões.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
