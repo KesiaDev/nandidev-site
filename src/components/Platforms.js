@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Headphones, Share2, CheckCircle, ArrowRight, Scale, Target } from 'lucide-react';
+import { Send, Headphones, Share2, CheckCircle, ArrowRight, Scale, Target, UserCheck } from 'lucide-react';
 
 const platforms = [
   {
@@ -71,6 +71,29 @@ const platforms = [
     ],
     screenshot: '/screenshots/redes-sociais.png',
     cta: 'Quero automatizar minhas redes',
+  },
+  {
+    id: 'sdr-humanizada',
+    icon: UserCheck,
+    label: 'SDR Humanizada',
+    color: 'from-indigo-500 to-blue-600',
+    colorLight: 'bg-indigo-50',
+    colorText: 'text-indigo-600',
+    colorBorder: 'border-indigo-200',
+    colorRing: 'ring-indigo-100',
+    headline: 'SDR com IA que parece humano — para qualquer segmento',
+    description:
+      'Agente SDR com IA ultra-humanizada que se adapta a qualquer empresa. Atende leads em segundos, qualifica com naturalidade, agenda automaticamente e nunca para — enquanto custa uma fração de um SDR humano.',
+    features: [
+      'Responde em segundos, 24h por dia, 7 dias por semana',
+      '8 camadas de humanização: Voz, Gatilhos, Prompts, Intenções e mais',
+      'Se adapta ao tom e segmento de qualquer empresa',
+      'Qualificação automática sem variação de qualidade',
+      'Capacidade ilimitada — atende 1 ou 10.000 leads ao mesmo tempo',
+      'Custo fixo: fração de R$ 4.000–6.000/mês de um SDR humano',
+    ],
+    screenshot: '/screenshots/sdr-humanizada.png',
+    cta: 'Quero um SDR com IA no meu negócio',
   },
   {
     id: 'sdr-juridico',
