@@ -218,42 +218,59 @@ export default function Platforms() {
 
             {/* Right: screenshot in browser frame */}
             <div className="relative">
-              {/* Glow */}
-              <div className={`absolute -inset-4 bg-gradient-to-r ${platform.color} opacity-10 blur-2xl rounded-3xl`} />
+              {/* Glow ampliado */}
+              <div className={`absolute -inset-6 bg-gradient-to-r ${platform.color} opacity-15 blur-3xl rounded-3xl`} />
 
               {/* Browser frame */}
               <div className="relative bg-slate-800 rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
                 {/* Browser chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-white/10">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                  <div className="flex-1 mx-4 bg-slate-700 rounded-md px-3 py-1 text-xs text-slate-500">
+                <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/90 border-b border-white/10">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  <div className="flex-1 mx-4 bg-slate-700/80 rounded-md px-3 py-1 text-xs text-slate-400 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-green-500/60 inline-block" />
                     app.nandidev.com.br
                   </div>
                 </div>
 
-                {/* Screenshot */}
-                <div className="relative bg-slate-800" style={{ aspectRatio: '16/10' }}>
+                {/* Screenshot com zoom no hover */}
+                <div className="relative bg-slate-900 overflow-hidden" style={{ aspectRatio: '16/9' }}>
                   <img
                     src={platform.screenshot}
                     alt={platform.label}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                    style={{ transformOrigin: 'top center' }}
                     onError={(e) => {
                       e.target.style.display = 'none';
                       e.target.nextSibling.style.display = 'flex';
                     }}
                   />
-                  {/* Fallback enquanto imagem não está disponível */}
+                  {/* Gradiente inferior para integrar ao fundo */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
+                  {/* Fallback */}
                   <div
-                    className={`hidden w-full h-full bg-gradient-to-br ${platform.color} opacity-20 items-center justify-center`}
-                    style={{ display: 'none', aspectRatio: '16/10' }}
+                    style={{ display: 'none', aspectRatio: '16/9' }}
+                    className="w-full h-full items-center justify-center"
                   >
-                    <div className="text-center">
-                      <platform.icon className="w-16 h-16 text-white/40 mx-auto mb-3" />
-                      <p className="text-white/40 text-sm">Screenshot em breve</p>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-10`} />
+                    <div className="text-center relative z-10">
+                      <platform.icon className="w-16 h-16 text-white/30 mx-auto mb-3" />
+                      <p className="text-white/30 text-sm font-medium">Screenshot em breve</p>
                     </div>
                   </div>
+                </div>
+
+                {/* Barra inferior com badge da plataforma */}
+                <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/80 border-t border-white/5">
+                  <div className="flex items-center gap-2">
+                    <platform.icon className={`w-3.5 h-3.5 ${platform.colorText}`} />
+                    <span className="text-xs text-slate-400 font-medium">{platform.label}</span>
+                  </div>
+                  <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                    Ao vivo
+                  </span>
                 </div>
               </div>
             </div>
