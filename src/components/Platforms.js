@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Headphones, Share2, CheckCircle, ArrowRight } from 'lucide-react';
+import { Send, Headphones, Share2, CheckCircle, ArrowRight, Scale, Target } from 'lucide-react';
 
 const platforms = [
   {
@@ -71,6 +71,52 @@ const platforms = [
     ],
     screenshot: '/screenshots/redes-sociais.png',
     cta: 'Quero automatizar minhas redes',
+  },
+  {
+    id: 'sdr-juridico',
+    icon: Scale,
+    label: 'SDR Jurídico Inteligente',
+    color: 'from-amber-500 to-orange-500',
+    colorLight: 'bg-amber-50',
+    colorText: 'text-amber-600',
+    colorBorder: 'border-amber-200',
+    colorRing: 'ring-amber-100',
+    headline: 'SDR que qualifica leads jurídicos com IA ultra-humanizada',
+    description:
+      'Plataforma especializada em prospecção e qualificação de leads para escritórios e prestadores jurídicos. Um agente de IA com 8 camadas de humanização conduz o atendimento, qualifica o lead e agenda automaticamente.',
+    features: [
+      'SDR com IA que qualifica leads 24h por dia',
+      '8 funções ultra-humanizadas (Voz, Gatilhos, Prompts, Intenções e mais)',
+      'Funil por área do direito (cível, trabalhista, família etc.)',
+      'Agenda integrada com confirmação automática',
+      'Banco de mídia e follow-up inteligente',
+      'Exportação de dados e relatórios de conversão',
+    ],
+    screenshot: '/screenshots/sdr-juridico.png',
+    cta: 'Quero um SDR Jurídico com IA',
+  },
+  {
+    id: 'radar-comercial',
+    icon: Target,
+    label: 'Radar Comercial',
+    color: 'from-emerald-500 to-green-600',
+    colorLight: 'bg-emerald-50',
+    colorText: 'text-emerald-600',
+    colorBorder: 'border-emerald-200',
+    colorRing: 'ring-emerald-100',
+    headline: 'Prospecção de leads B2B com inteligência artificial',
+    description:
+      'Plataforma completa de prospecção ativa com IA. Encontre empresas ideais para o seu negócio, qualifique automaticamente por score e gerencie todo o pipeline de oportunidades em um só lugar.',
+    features: [
+      'Prospecção IA com score de qualificação (0–100)',
+      'Leads Quentes (85+), Mornos (60–84) e Frios (<60)',
+      'Growth Radar e Market Scanner por segmento',
+      'Local Leads e Lead Generators integrados',
+      'Self-Driving Sales com AI Suggestions',
+      'Pipeline, Oportunidades e Relatórios em tempo real',
+    ],
+    screenshot: '/screenshots/radar-comercial.png',
+    cta: 'Quero prospectar com IA',
   },
 ];
 
