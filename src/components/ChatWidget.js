@@ -31,21 +31,21 @@ export default function ChatWidget() {
     setStarted(true);
 
     (async () => {
-      // Msg 1 — 20-25s
+      // Msg 1 — 1.5-2.5s
       setTyping(true);
-      await wait(20000, 25000);
+      await wait(1500, 2500);
       setTyping(false);
       addNina('Oi! 👋');
 
-      // Msg 2 — +10-14s
+      // Msg 2 — +1.5-2.5s
       setTyping(true);
-      await wait(10000, 14000);
+      await wait(1500, 2500);
       setTyping(false);
       addNina('Sou a Nina, da Nandi Dev!');
 
-      // Msg 3 — +12-16s (pergunta de abertura)
+      // Msg 3 — +2-3s (pergunta de abertura)
       setTyping(true);
-      await wait(12000, 16000);
+      await wait(2000, 3000);
       setTyping(false);
       const abertura = 'Me conta uma coisa — como tá indo a prospecção de vocês hoje em dia?';
       addNina(abertura);
@@ -75,10 +75,9 @@ export default function ChatWidget() {
     setBusy(true);
     addUser(text);
 
-    // Delay CLIENT-SIDE — 30 a 55s antes de chamar o n8n
-    // O usuário vê "digitando..." — a Nina parece estar pensando
+    // Delay CLIENT-SIDE — 2 a 4s antes de chamar o n8n
     setTyping(true);
-    await wait(30000, 55000);
+    await wait(2000, 4000);
 
     try {
       const controller = new AbortController();
@@ -100,7 +99,7 @@ export default function ChatWidget() {
       setTyping(false);
 
       const messages = data.messages || [data.message || 'Me conta mais 😊'];
-      const delayBetween = data.delay_between ?? 12000;
+      const delayBetween = data.delay_between ?? 3000;
 
       // Exibe mensagens fragmentadas com delay entre elas
       for (let i = 0; i < messages.length; i++) {
