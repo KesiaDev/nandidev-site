@@ -149,7 +149,7 @@ export default function Platforms() {
 
   const handleCTA = (platform) => {
     if (platform.id === 'disparo') {
-      window.open('https://brilliant-essence-production-03f2.up.railway.app', '_blank');
+      window.open('https://intelligentwatsapp.up.railway.app', '_blank');
       return;
     }
     const msg = encodeURIComponent(`Olá! ${platform.cta} — vi no site da NandiDev.`);
