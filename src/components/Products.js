@@ -106,7 +106,7 @@ const Products = () => {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    href="https://intelligentwatsapp.up.railway.app"
+                    href="https://intelligentwhatsapp.up.railway.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-bold py-3 px-6 rounded-xl transition-colors"
@@ -117,7 +117,7 @@ const Products = () => {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    href="https://intelligentwatsapp.com"
+                    href="https://intelligentwhatsapp.up.railway.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
