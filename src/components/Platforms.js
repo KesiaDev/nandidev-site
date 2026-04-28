@@ -147,8 +147,12 @@ export default function Platforms() {
   const [active, setActive] = useState(0);
   const platform = platforms[active];
 
-  const handleWhatsApp = (cta) => {
-    const msg = encodeURIComponent(`Olá! ${cta} — vi no site da NandiDev.`);
+  const handleCTA = (platform) => {
+    if (platform.id === 'disparo') {
+      window.open('https://brilliant-essence-production-03f2.up.railway.app', '_blank');
+      return;
+    }
+    const msg = encodeURIComponent(`Olá! ${platform.cta} — vi no site da NandiDev.`);
     window.open(`https://wa.me/5554996246565?text=${msg}`, '_blank');
   };
 
@@ -231,7 +235,7 @@ export default function Platforms() {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => handleWhatsApp(platform.cta)}
+                onClick={() => handleCTA(platform)}
                 className={`inline-flex items-center gap-2 bg-gradient-to-r ${platform.color} text-white font-semibold py-3.5 px-7 rounded-xl shadow-lg transition-all`}
               >
                 {platform.cta}
