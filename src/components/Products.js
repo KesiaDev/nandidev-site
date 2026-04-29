@@ -58,7 +58,7 @@ const Products = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Conheça o{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                Evo Disparo
+                Disparo.AI
               </span>
             </h2>
             <p className="text-lg text-slate-400">
@@ -83,7 +83,7 @@ const Products = () => {
                     <MessageCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Evo Disparo</h3>
+                    <h3 className="text-xl font-bold text-white">Disparo.AI</h3>
                     <p className="text-slate-400 text-sm">WhatsApp Automation Platform</p>
                   </div>
                 </div>
