@@ -5,7 +5,7 @@ import {
   ArrowRight, CheckCircle, Star, ExternalLink,
   Headphones, Bot, ListFilter, FileText, Tag, Shield, Inbox, TrendingUp,
   Share2, CalendarDays, Wand2, Lightbulb, GalleryHorizontal, PieChart,
-  UserCheck, Clock, Mic, Target,
+  UserCheck, Clock, Mic, Target, Scale, Tag,
 } from 'lucide-react';
 
 /* ─── Disparo.AI data ────────────────────────────────────────────────────── */
@@ -77,6 +77,23 @@ const sdrPlans = [
   { name: "Black",  price: "R$2,99", detail: "/lead · alto volume",         instances: "Gold + Telefonia IA + Dashboard RT", highlight: false },
 ];
 
+/* ─── SDR Jurídico data ──────────────────────────────────────────────────── */
+
+const sdrJuridicoFeatures = [
+  { icon: Tag,          label: "Qualificação por área do direito", desc: "Triagem automática de leads por prática jurídica: trabalhista, família, cível e mais" },
+  { icon: MessageCircle,label: "SDR WhatsApp multi-agente",        desc: "Múltiplos agentes IA atendendo leads jurídicos simultaneamente, 24h por dia" },
+  { icon: CalendarDays, label: "Agendamento automático",           desc: "Integração com Google Calendar e Advbox para marcar consultas sem fricção" },
+  { icon: Clock,        label: "Follow-ups automatizados",         desc: "Sequência inteligente de acompanhamento até o fechamento do caso" },
+  { icon: Mic,          label: "Voz clonada do advogado",          desc: "SDR com voz natural do titular do escritório via ElevenLabs" },
+  { icon: BarChart3,    label: "Dashboard de leads jurídicos",     desc: "Relatórios de qualificados, urgentes e taxa de conversão por área do direito" },
+];
+
+const sdrJuridicoPlans = [
+  { name: "Essencial", price: "R$1,99", detail: "/lead · Solo Lawyer",          instances: "WhatsApp + Qualificação + Agenda", highlight: false },
+  { name: "Escritório",price: "R$2,49", detail: "/lead · 2-5 advogados",        instances: "Multi-agentes + CRM jurídico + Voz", highlight: true  },
+  { name: "Corporativo",price: "R$2,99", detail: "/lead · Escritórios grandes", instances: "Ilimitado + Ligação IA + Campanhas", highlight: false },
+];
+
 /* ─── Shared animations ──────────────────────────────────────────────────── */
 
 const container = {
@@ -95,6 +112,7 @@ const TABS = [
   { id: 'multiagente',  label: 'Atendimento Multi-Agentes', accent: 'green'  },
   { id: 'social',     label: 'Automação de Redes Sociais', accent: 'violet' },
   { id: 'sdr',        label: 'SDR IA Humanizada',          accent: 'orange' },
+  { id: 'juridico',   label: 'SDR Jurídico',               accent: 'indigo' },
 ];
 
 /* ─── Disparo.AI card ────────────────────────────────────────────────────── */
@@ -514,6 +532,115 @@ function SdrCard() {
   );
 }
 
+/* ─── SDR Jurídico card ──────────────────────────────────────────────────── */
+
+function SdrJuridicoCard() {
+  return (
+    <div className="relative rounded-3xl overflow-hidden border border-indigo-500/20 bg-[#08091a]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-indigo-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="relative grid lg:grid-cols-2 gap-0">
+        {/* Left — Features */}
+        <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-indigo-500/10">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-400 to-blue-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+              <Scale className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">SDR Jurídico Inteligente</h3>
+              <p className="text-slate-400 text-sm">AI-Powered Lead Intelligence for Law Firms</p>
+            </div>
+          </div>
+
+          <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+            SDR com IA especializado em escritórios de advocacia. Qualifica leads por área do direito,
+            agenda consultas automaticamente e faz follow-up até o fechamento — enquanto o advogado foca nos casos.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {sdrJuridicoFeatures.map((f, i) => (
+              <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <f.icon className="w-4 h-4 text-indigo-400" />
+                </div>
+                <div>
+                  <p className="text-white text-sm font-medium">{f.label}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <motion.a
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+              href="https://sdr-juridico-pricing-production.up.railway.app/"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+            >
+              Quero um SDR Jurídico <ArrowRight className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+              href="https://www.sdrjuridico.com.br/"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+            >
+              Ver a plataforma <ExternalLink className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </div>
+
+        {/* Right — Plans */}
+        <div className="p-8 md:p-12">
+          <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <Star className="w-4 h-4 text-indigo-400" /> Planos disponíveis
+          </h4>
+          <div className="space-y-3">
+            {sdrJuridicoPlans.map((plan, i) => (
+              <div
+                key={i}
+                className={`flex items-center justify-between p-4 rounded-xl border transition-all ${
+                  plan.highlight ? "bg-indigo-500/10 border-indigo-500/30" : "bg-white/5 border-white/5"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <CheckCircle className={`w-4 h-4 shrink-0 ${plan.highlight ? "text-indigo-400" : "text-slate-500"}`} />
+                  <div>
+                    <p className={`font-semibold text-sm ${plan.highlight ? "text-indigo-400" : "text-white"}`}>
+                      Plano {plan.name}
+                      {plan.highlight && <span className="ml-2 text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full">Popular</span>}
+                    </p>
+                    <p className="text-slate-500 text-xs">{plan.detail}</p>
+                    <p className="text-slate-600 text-xs">{plan.instances}</p>
+                  </div>
+                </div>
+                <span className={`font-bold text-sm ${plan.highlight ? "text-indigo-400" : "text-slate-300"}`}>
+                  {plan.price}<span className="text-xs font-normal text-slate-500">/lead</span>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/15">
+            <p className="text-indigo-300 text-sm font-medium mb-1">Simulador de orçamento incluso</p>
+            <p className="text-slate-400 text-xs">
+              Configure volume de leads, número de agentes e tipo de contrato. Gere uma proposta personalizada para o seu escritório em segundos.
+            </p>
+          </div>
+
+          <motion.a
+            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+            href="https://sdr-juridico-pricing-production.up.railway.app/"
+            target="_blank" rel="noopener noreferrer"
+            className="mt-6 flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+          >
+            Fazer um orçamento <ArrowRight className="w-4 h-4" />
+          </motion.a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main section ───────────────────────────────────────────────────────── */
 
 const Products = () => {
@@ -557,7 +684,9 @@ const Products = () => {
                 ? 'bg-green-500/15 border-green-500/40 text-green-400'
                 : tab.accent === 'violet'
                 ? 'bg-violet-500/15 border-violet-500/40 text-violet-400'
-                : 'bg-orange-500/15 border-orange-500/40 text-orange-400';
+                : tab.accent === 'orange'
+                ? 'bg-orange-500/15 border-orange-500/40 text-orange-400'
+                : 'bg-indigo-500/15 border-indigo-500/40 text-indigo-400';
               return (
                 <button
                   key={tab.id}
@@ -572,9 +701,10 @@ const Products = () => {
                   {tab.id === 'multiagente' && <Headphones    className="w-4 h-4" />}
                   {tab.id === 'social'      && <Share2         className="w-4 h-4" />}
                   {tab.id === 'sdr'         && <Bot            className="w-4 h-4" />}
+                  {tab.id === 'juridico'    && <Scale          className="w-4 h-4" />}
                   {tab.label}
                   {isActive && (
-                    <span className={`w-1.5 h-1.5 rounded-full ${tab.accent === 'cyan' ? 'bg-cyan-400' : tab.accent === 'green' ? 'bg-green-400' : tab.accent === 'violet' ? 'bg-violet-400' : 'bg-orange-400'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${tab.accent === 'cyan' ? 'bg-cyan-400' : tab.accent === 'green' ? 'bg-green-400' : tab.accent === 'violet' ? 'bg-violet-400' : tab.accent === 'orange' ? 'bg-orange-400' : 'bg-indigo-400'}`} />
                   )}
                 </button>
               );
@@ -593,6 +723,7 @@ const Products = () => {
             {activeTab === 'multiagente' && <MultiAgenteCard />}
             {activeTab === 'social'      && <SocialCard />}
             {activeTab === 'sdr'         && <SdrCard />}
+            {activeTab === 'juridico'    && <SdrJuridicoCard />}
           </motion.div>
 
           {/* Bottom CTA */}
