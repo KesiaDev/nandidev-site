@@ -8,6 +8,49 @@ import {
   UserCheck, Clock, Mic, Target, Scale, Search, Database, Crosshair,
 } from 'lucide-react';
 
+function ScreenshotFrame({ src, alt, color, Icon }) {
+  return (
+    <div className="relative px-6 pt-6 pb-0">
+      <div className="relative bg-slate-800/80 rounded-xl border border-white/10 shadow-xl overflow-hidden">
+        <div className="flex items-center gap-2 px-4 py-2 bg-slate-900/90 border-b border-white/10">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+          <div className="flex-1 mx-3 bg-slate-700/70 rounded px-2.5 py-0.5 text-xs text-slate-400 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500/60 inline-block" />
+            app.nandidev.com.br
+          </div>
+        </div>
+        <div className="relative overflow-hidden" style={{ aspectRatio: '16/6' }}>
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover object-top"
+            onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+          />
+          <div style={{ display: 'none' }} className="absolute inset-0 flex items-center justify-center bg-slate-900/40">
+            <div className="text-center">
+              <Icon className="w-10 h-10 text-white/20 mx-auto mb-2" />
+              <p className="text-white/20 text-xs">Screenshot em breve</p>
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent pointer-events-none" />
+        </div>
+        <div className="flex items-center justify-between px-4 py-2 bg-slate-900/80 border-t border-white/5">
+          <div className="flex items-center gap-1.5">
+            <Icon className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-xs text-slate-400 font-medium">{alt}</span>
+          </div>
+          <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+            Ao vivo
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Disparo.AI data ────────────────────────────────────────────────────── */
 
 const disparoFeatures = [
@@ -139,6 +182,7 @@ function DisparoCard() {
   return (
     <div className="relative rounded-3xl overflow-hidden border border-[#1a2744] bg-[#0d1526]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-cyan-500/5 blur-3xl rounded-full pointer-events-none" />
+      <ScreenshotFrame src="/screenshots/disparo.png" alt="Disparo.AI" color="from-cyan-500 to-teal-500" Icon={MessageCircle} />
       <div className="relative grid lg:grid-cols-2 gap-0">
         {/* Left — Features */}
         <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-[#1a2744]">
@@ -229,6 +273,7 @@ function MultiAgenteCard() {
   return (
     <div className="relative rounded-3xl overflow-hidden border border-green-500/20 bg-[#0a110d]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-green-500/5 blur-3xl rounded-full pointer-events-none" />
+      <ScreenshotFrame src="/screenshots/atendimento.png" alt="Atendimento Multi-Agentes" color="from-green-400 to-emerald-600" Icon={Headphones} />
       <div className="relative grid lg:grid-cols-2 gap-0">
         {/* Left — Features */}
         <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-green-500/10">
@@ -277,7 +322,7 @@ function MultiAgenteCard() {
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
-              Conhecer a plataforma <ExternalLink className="w-4 h-4" />
+              Falar com especialista <MessageCircle className="w-4 h-4" />
             </motion.a>
           </div>
         </div>
@@ -338,6 +383,7 @@ function SocialCard() {
   return (
     <div className="relative rounded-3xl overflow-hidden border border-violet-500/20 bg-[#0d0a18]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-violet-500/5 blur-3xl rounded-full pointer-events-none" />
+      <ScreenshotFrame src="/screenshots/redes-sociais.png" alt="Automação de Redes Sociais" color="from-violet-400 to-purple-600" Icon={Share2} />
       <div className="relative grid lg:grid-cols-2 gap-0">
         {/* Left — Features */}
         <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-violet-500/10">
@@ -385,7 +431,7 @@ function SocialCard() {
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
-              Conhecer a plataforma <ExternalLink className="w-4 h-4" />
+              Falar com especialista <MessageCircle className="w-4 h-4" />
             </motion.a>
           </div>
         </div>
@@ -447,6 +493,7 @@ function SdrCard() {
   return (
     <div className="relative rounded-3xl overflow-hidden border border-orange-500/20 bg-[#130e05]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-orange-500/5 blur-3xl rounded-full pointer-events-none" />
+      <ScreenshotFrame src="/screenshots/sdr-humanizada.png" alt="SDR IA Humanizada" color="from-orange-400 to-amber-600" Icon={Bot} />
       <div className="relative grid lg:grid-cols-2 gap-0">
         {/* Left — Features */}
         <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-orange-500/10">
@@ -494,7 +541,7 @@ function SdrCard() {
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
-              Conhecer a plataforma <ExternalLink className="w-4 h-4" />
+              Falar com especialista <MessageCircle className="w-4 h-4" />
             </motion.a>
           </div>
         </div>
@@ -556,6 +603,7 @@ function SdrJuridicoCard() {
   return (
     <div className="relative rounded-3xl overflow-hidden border border-indigo-500/20 bg-[#08091a]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-indigo-500/5 blur-3xl rounded-full pointer-events-none" />
+      <ScreenshotFrame src="/screenshots/sdr-juridico.png" alt="SDR Jurídico Inteligente" color="from-indigo-400 to-blue-600" Icon={Scale} />
       <div className="relative grid lg:grid-cols-2 gap-0">
         {/* Left — Features */}
         <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-indigo-500/10">
@@ -665,6 +713,7 @@ function RadarCard() {
   return (
     <div className="relative rounded-3xl overflow-hidden border border-teal-500/20 bg-[#070f0e]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-teal-500/5 blur-3xl rounded-full pointer-events-none" />
+      <ScreenshotFrame src="/screenshots/radar-comercial.png" alt="Radar Comercial" color="from-teal-400 to-cyan-600" Icon={Crosshair} />
       <div className="relative grid lg:grid-cols-2 gap-0">
         {/* Left — Features */}
         <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-teal-500/10">
