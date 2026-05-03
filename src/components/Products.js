@@ -106,9 +106,9 @@ const radarFeatures = [
 ];
 
 const radarPlans = [
-  { name: "Starter", price: "R$297", detail: "500 leads/mês · 1 usuário",         instances: "Leads verificados + Filtros + Exportação",    highlight: false },
-  { name: "Growth",  price: "R$497", detail: "1.500 leads/mês · 3 usuários",      instances: "WhatsApp + E-mails validados + Automação",    highlight: true  },
-  { name: "Pro",     price: "R$997", detail: "5.000 leads/mês · 10 usuários",     instances: "IA scoring + Sequências multi-canal",         highlight: false },
+  { name: "Primeiros Passos", price: "R$719",   detail: "300 empresas/mês · 1 usuário",    instances: "Dados avançados + Filtros + Suporte básico",  highlight: false },
+  { name: "Iniciante",        price: "R$1.079", detail: "500 empresas/mês · 2 usuários",   instances: "Dados avançados + Filtros + Suporte básico",  highlight: true  },
+  { name: "Quero Expandir",   price: "R$1.379", detail: "1.000 empresas/mês · 3 usuários", instances: "Dados avançados + Filtros + Suporte avançado", highlight: false },
 ];
 
 /* ─── Shared animations ──────────────────────────────────────────────────── */
@@ -700,11 +700,11 @@ function RadarCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://www.radarcomercial.ia.br/register"
+              href="https://www.radarcomercial.ia.br/pricing"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
-              Testar 14 dias grátis <ArrowRight className="w-4 h-4" />
+              Assinar e prospectar agora <ArrowRight className="w-4 h-4" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
@@ -748,9 +748,9 @@ function RadarCard() {
             ))}
           </div>
           <div className="mt-6 p-4 rounded-xl bg-teal-500/5 border border-teal-500/15">
-            <p className="text-teal-300 text-sm font-medium mb-1">Trial gratuito · Acesso imediato</p>
+            <p className="text-teal-300 text-sm font-medium mb-1">Acesso imediato após assinatura</p>
             <p className="text-slate-400 text-xs">
-              Assine e acesse a plataforma na hora. Adicione onboarding guiado (R$297 taxa única) para ter setup completo com especialista — grátis no plano anual.
+              Escolha seu plano e acesse a plataforma na hora. Planos mensais, semestrais (−10%) e anuais (−20%) disponíveis.
             </p>
           </div>
 
@@ -760,7 +760,7 @@ function RadarCard() {
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
-            Ver simulador de preços <ArrowRight className="w-4 h-4" />
+            Ver planos e assinar <ArrowRight className="w-4 h-4" />
           </motion.a>
         </div>
       </div>
