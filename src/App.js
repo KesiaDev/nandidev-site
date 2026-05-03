@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Platforms from './components/Platforms';
 import AICapabilities from './components/AICapabilities';
 import Portfolio from './components/Portfolio';
 import Products from './components/Products';
@@ -20,7 +19,6 @@ function App() {
       <Portfolio />
       <Services />
       <AICapabilities />
-      <Platforms />
       <About />
       <CTA />
       <Footer />
