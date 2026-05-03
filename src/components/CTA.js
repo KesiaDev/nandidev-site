@@ -36,7 +36,7 @@ const CTA = () => {
   };
 
   const handleEmail = () => {
-    window.open('mailto:nandikesiadevnandi@gmail.com?subject=Solicitação de Orçamento', '_blank');
+    window.open('mailto:kesianandi@expertintegrado.com.br?subject=Solicitação de Orçamento', '_blank');
   };
 
 

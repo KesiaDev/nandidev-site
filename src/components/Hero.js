@@ -67,10 +67,10 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => scrollToSection('#portfolio')}
+              onClick={() => scrollToSection('#produtos')}
               className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold py-4 px-8 rounded-xl hover:from-amber-400 hover:to-orange-400 transition-all shadow-lg shadow-amber-500/25"
             >
-              Ver Portfólio
+              Ver Nossas Plataformas
               <ArrowRight className="w-5 h-5" />
             </motion.button>
             <motion.button
@@ -90,10 +90,10 @@ const Hero = () => {
             className="flex flex-wrap gap-8 justify-start text-slate-300 text-sm md:text-base"
           >
             <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-400" /> Sistemas LLM + RAG
+              <Zap className="w-4 h-4 text-amber-400" /> 6 Plataformas SaaS ativas
             </span>
             <span className="flex items-center gap-2">
-              <Target className="w-4 h-4 text-amber-400" /> Automação Multi-Agente
+              <Target className="w-4 h-4 text-amber-400" /> Clientes em todo o Brasil
             </span>
           </motion.div>
 

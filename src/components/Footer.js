@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   const handleEmail = () => {
-    window.open('mailto:nandikesiadevnandi@gmail.com', '_blank');
+    window.open('mailto:kesianandi@expertintegrado.com.br', '_blank');
   };
 
   const handlePhone = () => {
@@ -98,8 +98,7 @@ const Footer = () => {
               </motion.div>
               
               <p className="text-gray-400 leading-relaxed">
-                Transformamos ideias em experiências digitais incríveis. 
-                Desenvolvimento de sites, aplicativos e sistemas web personalizados.
+                Automação com IA para empresas que querem crescer sem contratar mais: SDR IA, Disparo WhatsApp, Atendimento Multi-Agentes, Prospecção B2B e muito mais.
               </p>
 
               {/* Social Links */}
@@ -190,7 +189,7 @@ const Footer = () => {
                   className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5" />
-                  <span>nandikesiadevnandi@gmail.com</span>
+                  <span>kesianandi@expertintegrado.com.br</span>
                 </motion.button>
                 
                 <div className="flex items-start space-x-3 text-gray-400">
@@ -206,7 +205,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400">
-              <span>© 2025 Nandi Dev. Todos os direitos reservados.</span>
+              <span>© 2026 NandiDev. Todos os direitos reservados.</span>
               <Heart className="w-4 h-4 text-red-500" />
             </div>
             
