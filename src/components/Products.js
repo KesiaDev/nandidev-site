@@ -318,7 +318,7 @@ function SocialCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://pronto-studio.lovable.app/#planos"
+              href="https://megaautomacao.lovable.app/#planos"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
@@ -326,7 +326,7 @@ function SocialCard() {
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://pronto-studio.lovable.app"
+              href="https://megaautomacao.lovable.app"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
@@ -374,7 +374,7 @@ function SocialCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://pronto-studio.lovable.app/#planos"
+            href="https://megaautomacao.lovable.app/#planos"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-violet-600 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
