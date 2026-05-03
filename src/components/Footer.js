@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   const handleEmail = () => {
-    window.open('mailto:kesianandi@expertintegrado.com.br', '_blank');
+    window.open('mailto:ianandidev@gmail.com', '_blank');
   };
 
   const handlePhone = () => {
@@ -189,7 +189,7 @@ const Footer = () => {
                   className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5" />
-                  <span>kesianandi@expertintegrado.com.br</span>
+                  <span>ianandidev@gmail.com</span>
                 </motion.button>
                 
                 <div className="flex items-start space-x-3 text-gray-400">
