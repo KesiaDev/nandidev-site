@@ -5,7 +5,7 @@ import {
   ArrowRight, CheckCircle, Star, ExternalLink,
   Headphones, Bot, ListFilter, FileText, Tag, Shield, Inbox, TrendingUp,
   Share2, CalendarDays, Wand2, Lightbulb, GalleryHorizontal, PieChart,
-  UserCheck, Clock, Mic, Target, Scale, Tag,
+  UserCheck, Clock, Mic, Target, Scale, Search, Database, Crosshair,
 } from 'lucide-react';
 
 /* ─── Disparo.AI data ────────────────────────────────────────────────────── */
@@ -94,6 +94,23 @@ const sdrJuridicoPlans = [
   { name: "Corporativo",price: "R$2,99", detail: "/lead · Escritórios grandes", instances: "Ilimitado + Ligação IA + Campanhas", highlight: false },
 ];
 
+/* ─── Radar Comercial data ───────────────────────────────────────────────── */
+
+const radarFeatures = [
+  { icon: Search,    label: "Prospecção B2B com IA",         desc: "Geração automática de leads qualificados todo mês com inteligência artificial" },
+  { icon: Database,  label: "Base de dados atualizada",      desc: "Milhões de CNPJs, telefones, e-mails e redes sociais verificados em tempo real" },
+  { icon: Crosshair, label: "Score e priorização IA",        desc: "Cada lead recebe um score de 0 a 100 para priorizar os de maior potencial de fechamento" },
+  { icon: ListFilter,label: "Filtros avançados de ICP",      desc: "Segmente por setor, tamanho, localização, faturamento e dezenas de outros critérios" },
+  { icon: BarChart3, label: "Dashboard e relatórios",        desc: "Pipeline visual de vendas, métricas de conversão e exportação completa de dados" },
+  { icon: Zap,       label: "Automação de sequências",       desc: "Sequências multi-canal automáticas via WhatsApp, e-mail e redes sociais nos planos Pro+" },
+];
+
+const radarPlans = [
+  { name: "Starter", price: "R$297", detail: "500 leads/mês · 1 usuário",         instances: "Leads verificados + Filtros + Exportação",    highlight: false },
+  { name: "Growth",  price: "R$497", detail: "1.500 leads/mês · 3 usuários",      instances: "WhatsApp + E-mails validados + Automação",    highlight: true  },
+  { name: "Pro",     price: "R$997", detail: "5.000 leads/mês · 10 usuários",     instances: "IA scoring + Sequências multi-canal",         highlight: false },
+];
+
 /* ─── Shared animations ──────────────────────────────────────────────────── */
 
 const container = {
@@ -113,6 +130,7 @@ const TABS = [
   { id: 'social',     label: 'Automação de Redes Sociais', accent: 'violet' },
   { id: 'sdr',        label: 'SDR IA Humanizada',          accent: 'orange' },
   { id: 'juridico',   label: 'SDR Jurídico',               accent: 'indigo' },
+  { id: 'radar',      label: 'Radar Comercial',            accent: 'teal'   },
 ];
 
 /* ─── Disparo.AI card ────────────────────────────────────────────────────── */
@@ -641,6 +659,115 @@ function SdrJuridicoCard() {
   );
 }
 
+/* ─── Radar Comercial card ───────────────────────────────────────────────── */
+
+function RadarCard() {
+  return (
+    <div className="relative rounded-3xl overflow-hidden border border-teal-500/20 bg-[#070f0e]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-teal-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="relative grid lg:grid-cols-2 gap-0">
+        {/* Left — Features */}
+        <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-teal-500/10">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
+              <Crosshair className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">Radar Comercial</h3>
+              <p className="text-slate-400 text-sm">AI-Powered B2B Prospecting Platform</p>
+            </div>
+          </div>
+
+          <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+            Plataforma de prospecção B2B com IA que gera leads qualificados automaticamente todo mês.
+            Encontre empresas, tome decisores e inicie abordagens — tudo em um só lugar.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {radarFeatures.map((f, i) => (
+              <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <f.icon className="w-4 h-4 text-teal-400" />
+                </div>
+                <div>
+                  <p className="text-white text-sm font-medium">{f.label}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <motion.a
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+              href="https://www.radarcomercial.ia.br/register"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+            >
+              Testar 14 dias grátis <ArrowRight className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+              href="https://www.radarcomercial.ia.br"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+            >
+              Conhecer a plataforma <ExternalLink className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </div>
+
+        {/* Right — Plans */}
+        <div className="p-8 md:p-12">
+          <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <Star className="w-4 h-4 text-teal-400" /> Planos disponíveis
+          </h4>
+          <div className="space-y-3">
+            {radarPlans.map((plan, i) => (
+              <div
+                key={i}
+                className={`flex items-center justify-between p-4 rounded-xl border transition-all ${
+                  plan.highlight ? "bg-teal-500/10 border-teal-500/30" : "bg-white/5 border-white/5"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <CheckCircle className={`w-4 h-4 shrink-0 ${plan.highlight ? "text-teal-400" : "text-slate-500"}`} />
+                  <div>
+                    <p className={`font-semibold text-sm ${plan.highlight ? "text-teal-400" : "text-white"}`}>
+                      Plano {plan.name}
+                      {plan.highlight && <span className="ml-2 text-xs bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded-full">Popular</span>}
+                    </p>
+                    <p className="text-slate-500 text-xs">{plan.detail}</p>
+                    <p className="text-slate-600 text-xs">{plan.instances}</p>
+                  </div>
+                </div>
+                <span className={`font-bold text-sm ${plan.highlight ? "text-teal-400" : "text-slate-300"}`}>
+                  {plan.price}<span className="text-xs font-normal text-slate-500">/mês</span>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 p-4 rounded-xl bg-teal-500/5 border border-teal-500/15">
+            <p className="text-teal-300 text-sm font-medium mb-1">Trial gratuito · Acesso imediato</p>
+            <p className="text-slate-400 text-xs">
+              Assine e acesse a plataforma na hora. Adicione onboarding guiado (R$297 taxa única) para ter setup completo com especialista — grátis no plano anual.
+            </p>
+          </div>
+
+          <motion.a
+            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+            href="https://www.radarcomercial.ia.br/pricing"
+            target="_blank" rel="noopener noreferrer"
+            className="mt-6 flex items-center justify-center gap-2 w-full bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+          >
+            Ver simulador de preços <ArrowRight className="w-4 h-4" />
+          </motion.a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main section ───────────────────────────────────────────────────────── */
 
 const Products = () => {
@@ -686,7 +813,9 @@ const Products = () => {
                 ? 'bg-violet-500/15 border-violet-500/40 text-violet-400'
                 : tab.accent === 'orange'
                 ? 'bg-orange-500/15 border-orange-500/40 text-orange-400'
-                : 'bg-indigo-500/15 border-indigo-500/40 text-indigo-400';
+                : tab.accent === 'indigo'
+                ? 'bg-indigo-500/15 border-indigo-500/40 text-indigo-400'
+                : 'bg-teal-500/15 border-teal-500/40 text-teal-400';
               return (
                 <button
                   key={tab.id}
@@ -702,9 +831,10 @@ const Products = () => {
                   {tab.id === 'social'      && <Share2         className="w-4 h-4" />}
                   {tab.id === 'sdr'         && <Bot            className="w-4 h-4" />}
                   {tab.id === 'juridico'    && <Scale          className="w-4 h-4" />}
+                  {tab.id === 'radar'       && <Crosshair      className="w-4 h-4" />}
                   {tab.label}
                   {isActive && (
-                    <span className={`w-1.5 h-1.5 rounded-full ${tab.accent === 'cyan' ? 'bg-cyan-400' : tab.accent === 'green' ? 'bg-green-400' : tab.accent === 'violet' ? 'bg-violet-400' : tab.accent === 'orange' ? 'bg-orange-400' : 'bg-indigo-400'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${tab.accent === 'cyan' ? 'bg-cyan-400' : tab.accent === 'green' ? 'bg-green-400' : tab.accent === 'violet' ? 'bg-violet-400' : tab.accent === 'orange' ? 'bg-orange-400' : tab.accent === 'indigo' ? 'bg-indigo-400' : 'bg-teal-400'}`} />
                   )}
                 </button>
               );
@@ -724,6 +854,7 @@ const Products = () => {
             {activeTab === 'social'      && <SocialCard />}
             {activeTab === 'sdr'         && <SdrCard />}
             {activeTab === 'juridico'    && <SdrJuridicoCard />}
+            {activeTab === 'radar'       && <RadarCard />}
           </motion.div>
 
           {/* Bottom CTA */}
