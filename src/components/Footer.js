@@ -17,11 +17,11 @@ const Footer = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
+    window.open('https://wa.me/5554996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   const handleInstagram = () => {
-    window.open('https://instagram.com/nandidev', '_blank');
+    window.open('https://instagram.com/ianandidev', '_blank');
   };
 
   const handleGithub = () => {
@@ -33,7 +33,7 @@ const Footer = () => {
   };
 
   const handlePhone = () => {
-    window.open('tel:+54996246565', '_blank');
+    window.open('tel:+5554996246565', '_blank');
   };
 
   const quickLinks = [
@@ -93,7 +93,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">Nandi Dev</h3>
-                  <p className="text-sm text-gray-400">Web & App Developer</p>
+                  <p className="text-sm text-gray-400">Tecnologia sob medida + IA</p>
                 </div>
               </motion.div>
               
@@ -181,7 +181,7 @@ const Footer = () => {
                   className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>+54 9 9962-46565</span>
+                  <span>+55 54 9 9624-6565</span>
                 </motion.button>
                 
                 <motion.button

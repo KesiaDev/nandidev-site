@@ -32,7 +32,7 @@ const CTA = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
+    window.open('https://wa.me/5554996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
   };
 
   const handleEmail = () => {
@@ -60,14 +60,13 @@ const CTA = () => {
           {/* Main CTA */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Ready to build{' '}
+              Pronto para construir{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                your AI system?
+                seu sistema de IA?
               </span>
             </h2>
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
-              Schedule a strategic call to map high-impact opportunities with LLMs, intelligent automation
-              and data-driven system architecture.
+              Agende uma conversa estratégica para mapear oportunidades de alto impacto com LLMs, automação inteligente e arquitetura de sistemas orientada a dados.
             </p>
 
             {/* Main CTA Button */}
@@ -94,7 +93,7 @@ const CTA = () => {
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">WhatsApp</h3>
-              <p className="text-gray-300 mb-4">Fast response for AI scoping and solution discovery</p>
+              <p className="text-gray-300 mb-4">Resposta rápida para tirar dúvidas e descobrir a solução certa para o seu negócio</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -114,7 +113,7 @@ const CTA = () => {
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">E-mail</h3>
-              <p className="text-gray-300 mb-4">Share your business context and technical requirements</p>
+              <p className="text-gray-300 mb-4">Envie o contexto do seu negócio e os requisitos do projeto por e-mail</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -130,15 +129,15 @@ const CTA = () => {
           {/* Process Steps */}
           <motion.div variants={itemVariants} className="text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-12">
-              How we execute
+              Como executamos
             </h3>
-            
+
             <div className="grid md:grid-cols-4 gap-8">
               {[
-                { step: "01", title: "Discovery", description: "Map business goals, constraints and AI opportunities" },
-                { step: "02", title: "Architecture", description: "Define LLM, agent and data architecture for your use case" },
-                { step: "03", title: "Build", description: "Implement and integrate production-ready intelligent workflows" },
-                { step: "04", title: "Scale", description: "Measure impact, optimize performance and expand adoption" }
+                { step: "01", title: "Diagnóstico", description: "Mapeamos objetivos, restrições e oportunidades de IA no seu negócio" },
+                { step: "02", title: "Arquitetura", description: "Definimos a arquitetura de LLM, agentes e dados para o seu caso de uso" },
+                { step: "03", title: "Construção", description: "Implementamos e integramos fluxos inteligentes prontos para produção" },
+                { step: "04", title: "Escala", description: "Medimos impacto, otimizamos performance e expandimos a adoção" }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -161,10 +160,10 @@ const CTA = () => {
             className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Move from idea to intelligent execution
+              Da ideia à execução inteligente
             </h3>
             <p className="text-gray-300 mb-8 text-lg">
-              The sooner we start, the faster your team operates with AI-driven efficiency and better decisions.
+              Quanto antes começarmos, mais rápido o seu time opera com eficiência orientada por IA e melhores decisões.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

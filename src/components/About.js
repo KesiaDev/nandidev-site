@@ -24,23 +24,23 @@ const About = () => {
   const highlights = [
     {
       icon: Briefcase,
-      title: "Business + AI Execution",
-      desc: "Leadership background in commercial operations combined with hands-on AI delivery for real business environments."
+      title: "Negócio + Execução em IA",
+      desc: "Experiência em liderança comercial combinada com entrega prática de projetos de IA para ambientes reais de negócio."
     },
     {
       icon: GraduationCap,
-      title: "Software & AI Engineering",
-      desc: "Software Engineering foundation with continuous specialization in LLM systems, prompt engineering and applied AI."
+      title: "Engenharia de Software & IA",
+      desc: "Base em Engenharia de Software com especialização contínua em sistemas LLM, engenharia de prompts e IA aplicada."
     },
     {
       icon: Users,
-      title: "People-Centered Adoption",
-      desc: "Experience in team development and change management to make AI adoption practical and sustainable."
+      title: "Adoção Centrada nas Pessoas",
+      desc: "Experiência em desenvolvimento de times e gestão de mudança para tornar a adoção de IA prática e sustentável."
     },
     {
       icon: Zap,
-      title: "Technical Differentiator",
-      desc: "Production-focused intelligent systems using LLMs, multi-agent architectures and data-driven automation."
+      title: "Diferencial Técnico",
+      desc: "Sistemas inteligentes focados em produção com LLMs, arquiteturas multi-agente e automação orientada a dados."
     }
   ];
 
@@ -62,10 +62,10 @@ const About = () => {
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              The Engineer behind <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">AI Systems</span>
+              A engenheira por trás dos <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Sistemas de IA</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Késia Nandi combines business leadership and software engineering to build intelligent systems with LLMs, multi-agent workflows and automation.
+              Késia Nandi une liderança empresarial e engenharia de software para construir sistemas inteligentes com LLMs, fluxos multi-agente e automação.
             </p>
           </motion.div>
 
@@ -88,16 +88,13 @@ const About = () => {
                 <span className="font-semibold">Trajetória</span>
               </div>
               <p className="text-slate-600 leading-relaxed">
-                With over a decade in commercial leadership at national companies such as Magazine Luiza and Cielo, she developed a strong
-                operational mindset to map bottlenecks, prioritize initiatives and drive measurable business outcomes.
+                Com mais de uma década em liderança comercial em empresas nacionais como Magazine Luiza e Cielo, desenvolveu uma mentalidade operacional sólida para mapear gargalos, priorizar iniciativas e gerar resultados mensuráveis para o negócio.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                After transitioning to Software Engineering, she specialized in applied AI and LLM-based products, working on intelligent
-                automation, AI assistants and data systems used in real commercial and operational workflows.
+                Após transição para Engenharia de Software, se especializou em IA aplicada e produtos baseados em LLMs, atuando em automação inteligente, assistentes de IA e sistemas de dados usados em operações comerciais reais.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                At NandiDev, she leads the design and delivery of production-ready AI systems, including LLM integrations, multi-agent
-                architectures, RAG pipelines and intelligent process automation for data-driven decision environments.
+                Na NandiDev, lidera o design e a entrega de sistemas de IA prontos para produção, incluindo integrações com LLMs, arquiteturas multi-agente, pipelines RAG e automação inteligente de processos para ambientes orientados a dados.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}

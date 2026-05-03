@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de solicitar um orçamento.', '_blank');
+    window.open('https://wa.me/5554996246565?text=Olá! Gostaria de solicitar um orçamento.', '_blank');
   };
 
   return (

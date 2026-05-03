@@ -108,7 +108,7 @@ const Services = () => {
   ];
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/54996246565?text=Olá! Gostaria de conhecer os serviços da NandiDev.', '_blank');
+    window.open('https://wa.me/5554996246565?text=Olá! Gostaria de conhecer os serviços da NandiDev.', '_blank');
   };
 
   return (

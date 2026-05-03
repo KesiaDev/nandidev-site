@@ -64,7 +64,7 @@ const GrowthSolutions = () => {
 
   const handleContact = () => {
     window.open(
-      'https://wa.me/54996246565?text=Quero saber mais sobre as soluções inteligentes da NandiDev.',
+      'https://wa.me/5554996246565?text=Quero saber mais sobre as soluções inteligentes da NandiDev.',
       '_blank'
     );
   };

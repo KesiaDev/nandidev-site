@@ -148,7 +148,7 @@ function DisparoCard() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">Disparo.AI</h3>
-              <p className="text-slate-400 text-sm">WhatsApp Automation Platform</p>
+              <p className="text-slate-400 text-sm">Plataforma de Automação para WhatsApp</p>
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -238,7 +238,7 @@ function MultiAgenteCard() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">Atendimento Multi-Agentes</h3>
-              <p className="text-slate-400 text-sm">Multi-Agent Customer Platform</p>
+              <p className="text-slate-400 text-sm">Plataforma de Atendimento Multi-Agentes</p>
             </div>
           </div>
 
@@ -347,7 +347,7 @@ function SocialCard() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">Automação de Redes Sociais</h3>
-              <p className="text-slate-400 text-sm">Social Media Automation Platform</p>
+              <p className="text-slate-400 text-sm">Plataforma de Automação de Redes Sociais</p>
             </div>
           </div>
 
@@ -456,7 +456,7 @@ function SdrCard() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">SDR IA Humanizada</h3>
-              <p className="text-slate-400 text-sm">AI-Powered Sales Development Representative</p>
+              <p className="text-slate-400 text-sm">Representante de Vendas com IA Ultra-Humanizada</p>
             </div>
           </div>
 
@@ -565,7 +565,7 @@ function SdrJuridicoCard() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">SDR Jurídico Inteligente</h3>
-              <p className="text-slate-400 text-sm">AI-Powered Lead Intelligence for Law Firms</p>
+              <p className="text-slate-400 text-sm">Inteligência de Leads com IA para Escritórios Jurídicos</p>
             </div>
           </div>
 
@@ -674,13 +674,13 @@ function RadarCard() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">Radar Comercial</h3>
-              <p className="text-slate-400 text-sm">AI-Powered B2B Prospecting Platform</p>
+              <p className="text-slate-400 text-sm">Plataforma de Prospecção B2B com Inteligência Artificial</p>
             </div>
           </div>
 
           <p className="text-slate-300 text-sm mb-6 leading-relaxed">
             Plataforma de prospecção B2B com IA que gera leads qualificados automaticamente todo mês.
-            Encontre empresas, tome decisores e inicie abordagens — tudo em um só lugar.
+            Encontre empresas, identifique decisores e inicie abordagens — tudo em um só lugar.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4">
