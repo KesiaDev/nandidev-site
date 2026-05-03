@@ -5,6 +5,7 @@ import {
   ArrowRight, CheckCircle, Star, ExternalLink,
   Headphones, Bot, ListFilter, FileText, Tag, Shield, Inbox, TrendingUp,
   Share2, CalendarDays, Wand2, Lightbulb, GalleryHorizontal, PieChart,
+  UserCheck, Clock, Mic, Target,
 } from 'lucide-react';
 
 /* ─── Disparo.AI data ────────────────────────────────────────────────────── */
@@ -59,6 +60,23 @@ const socialPlans = [
   { name: "Agência", price: "R$797", detail: "10 marcas · Posts ilimitados",instances: "Analytics + Suporte prioritário", highlight: false },
 ];
 
+/* ─── SDR Humanizada data ────────────────────────────────────────────────── */
+
+const sdrFeatures = [
+  { icon: Clock,       label: "Responde em segundos, 24/7",         desc: "Nenhum lead fica sem resposta, mesmo fora do horário comercial" },
+  { icon: Bot,         label: "8 camadas de humanização",           desc: "Voz, gatilhos, intenção contextual — o cliente não sabe que é IA" },
+  { icon: UserCheck,   label: "Qualificação automática",            desc: "Score, perfil e urgência definidos sem intervenção humana" },
+  { icon: CalendarDays,label: "Agendamento automático",             desc: "Integra ao calendário e agenda reuniões sem fricção" },
+  { icon: Mic,         label: "Voz clonada (ElevenLabs)",           desc: "SDR com voz natural da sua marca nos planos Gold e Black" },
+  { icon: Target,      label: "Prospecção Outbound",                desc: "Inicia contato com leads frios de forma humanizada e escalável" },
+];
+
+const sdrPlans = [
+  { name: "Silver", price: "R$1,49", detail: "/lead · a partir de 500/mês", instances: "WhatsApp + Qualificação + Agenda",  highlight: false },
+  { name: "Gold",   price: "R$1,99", detail: "/lead · plano mais popular",  instances: "Silver + Instagram + Voz + Outbound", highlight: true  },
+  { name: "Black",  price: "R$2,99", detail: "/lead · alto volume",         instances: "Gold + Telefonia IA + Dashboard RT", highlight: false },
+];
+
 /* ─── Shared animations ──────────────────────────────────────────────────── */
 
 const container = {
@@ -76,6 +94,7 @@ const TABS = [
   { id: 'disparo',    label: 'Disparo.AI',               accent: 'cyan'   },
   { id: 'multiagente',  label: 'Atendimento Multi-Agentes', accent: 'green'  },
   { id: 'social',     label: 'Automação de Redes Sociais', accent: 'violet' },
+  { id: 'sdr',        label: 'SDR IA Humanizada',          accent: 'orange' },
 ];
 
 /* ─── Disparo.AI card ────────────────────────────────────────────────────── */
@@ -386,6 +405,115 @@ function SocialCard() {
   );
 }
 
+/* ─── SDR IA Humanizada card ─────────────────────────────────────────────── */
+
+function SdrCard() {
+  return (
+    <div className="relative rounded-3xl overflow-hidden border border-orange-500/20 bg-[#130e05]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-orange-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="relative grid lg:grid-cols-2 gap-0">
+        {/* Left — Features */}
+        <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-orange-500/10">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+              <Bot className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">SDR IA Humanizada</h3>
+              <p className="text-slate-400 text-sm">AI-Powered Sales Development Representative</p>
+            </div>
+          </div>
+
+          <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+            Agente SDR com IA ultra-humanizada que atende, qualifica e agenda leads automaticamente.
+            Responde em segundos, 24h por dia — enquanto custa uma fração de um SDR humano.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {sdrFeatures.map((f, i) => (
+              <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <f.icon className="w-4 h-4 text-orange-400" />
+                </div>
+                <div>
+                  <p className="text-white text-sm font-medium">{f.label}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <motion.a
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+              href="https://human-hearted-ai.lovable.app/#planos"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+            >
+              Quero um SDR com IA <ArrowRight className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+              href="https://human-hearted-ai.lovable.app"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+            >
+              Conhecer a plataforma <ExternalLink className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </div>
+
+        {/* Right — Plans */}
+        <div className="p-8 md:p-12">
+          <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <Star className="w-4 h-4 text-orange-400" /> Planos disponíveis
+          </h4>
+          <div className="space-y-3">
+            {sdrPlans.map((plan, i) => (
+              <div
+                key={i}
+                className={`flex items-center justify-between p-4 rounded-xl border transition-all ${
+                  plan.highlight ? "bg-orange-500/10 border-orange-500/30" : "bg-white/5 border-white/5"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <CheckCircle className={`w-4 h-4 shrink-0 ${plan.highlight ? "text-orange-400" : "text-slate-500"}`} />
+                  <div>
+                    <p className={`font-semibold text-sm ${plan.highlight ? "text-orange-400" : "text-white"}`}>
+                      Plano {plan.name}
+                      {plan.highlight && <span className="ml-2 text-xs bg-orange-500/20 text-orange-300 px-2 py-0.5 rounded-full">Popular</span>}
+                    </p>
+                    <p className="text-slate-500 text-xs">{plan.detail}</p>
+                    <p className="text-slate-600 text-xs">{plan.instances}</p>
+                  </div>
+                </div>
+                <span className={`font-bold text-sm ${plan.highlight ? "text-orange-400" : "text-slate-300"}`}>
+                  {plan.price}<span className="text-xs font-normal text-slate-500">/lead</span>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 p-4 rounded-xl bg-orange-500/5 border border-orange-500/15">
+            <p className="text-orange-300 text-sm font-medium mb-1">Simulador de orçamento incluso</p>
+            <p className="text-slate-400 text-xs">
+              Configure agentes, volume de leads e tipo de contrato. Gere uma proposta personalizada em segundos com implementação inclusa.
+            </p>
+          </div>
+
+          <motion.a
+            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+            href="https://human-hearted-ai.lovable.app/#planos"
+            target="_blank" rel="noopener noreferrer"
+            className="mt-6 flex items-center justify-center gap-2 w-full bg-orange-500 hover:bg-orange-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+          >
+            Fazer um orçamento <ArrowRight className="w-4 h-4" />
+          </motion.a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main section ───────────────────────────────────────────────────────── */
 
 const Products = () => {
@@ -427,7 +555,9 @@ const Products = () => {
                 ? 'bg-cyan-500/15 border-cyan-500/40 text-cyan-400'
                 : tab.accent === 'green'
                 ? 'bg-green-500/15 border-green-500/40 text-green-400'
-                : 'bg-violet-500/15 border-violet-500/40 text-violet-400';
+                : tab.accent === 'violet'
+                ? 'bg-violet-500/15 border-violet-500/40 text-violet-400'
+                : 'bg-orange-500/15 border-orange-500/40 text-orange-400';
               return (
                 <button
                   key={tab.id}
@@ -441,9 +571,10 @@ const Products = () => {
                   {tab.id === 'disparo'    && <MessageCircle className="w-4 h-4" />}
                   {tab.id === 'multiagente' && <Headphones    className="w-4 h-4" />}
                   {tab.id === 'social'      && <Share2         className="w-4 h-4" />}
+                  {tab.id === 'sdr'         && <Bot            className="w-4 h-4" />}
                   {tab.label}
                   {isActive && (
-                    <span className={`w-1.5 h-1.5 rounded-full ${tab.accent === 'cyan' ? 'bg-cyan-400' : tab.accent === 'green' ? 'bg-green-400' : 'bg-violet-400'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${tab.accent === 'cyan' ? 'bg-cyan-400' : tab.accent === 'green' ? 'bg-green-400' : tab.accent === 'violet' ? 'bg-violet-400' : 'bg-orange-400'}`} />
                   )}
                 </button>
               );
@@ -461,6 +592,7 @@ const Products = () => {
             {activeTab === 'disparo'     && <DisparoCard />}
             {activeTab === 'multiagente' && <MultiAgenteCard />}
             {activeTab === 'social'      && <SocialCard />}
+            {activeTab === 'sdr'         && <SdrCard />}
           </motion.div>
 
           {/* Bottom CTA */}
