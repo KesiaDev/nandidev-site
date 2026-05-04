@@ -1,122 +1,198 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Target } from 'lucide-react';
+import {
+  ArrowRight, Sparkles, CheckCircle, Zap,
+  MessageCircle, Headphones, Share2, Bot, Scale, Crosshair,
+} from 'lucide-react';
+
+const products = [
+  { icon: MessageCircle, name: 'Disparo.AI',       metric: 'Disparos em massa no WhatsApp',  color: 'cyan'   },
+  { icon: Headphones,    name: 'Multi-Agentes',     metric: 'CS omnichannel + IA nativa',     color: 'green'  },
+  { icon: Share2,        name: 'NandiFlow Social',  metric: 'Automação de redes sociais',     color: 'violet' },
+  { icon: Bot,           name: 'SDR Humanizada',    metric: 'Prospecção e qualificação 24/7', color: 'orange' },
+  { icon: Scale,         name: 'SDR Jurídico',      metric: 'Captação para escritórios',      color: 'indigo' },
+  { icon: Crosshair,     name: 'Radar Comercial',   metric: 'Prospecção B2B com IA',          color: 'teal'   },
+];
+
+const colors = {
+  cyan:   { card: 'bg-cyan-500/10 border-cyan-500/20',     icon: 'text-cyan-400',   dot: 'bg-cyan-400'   },
+  green:  { card: 'bg-green-500/10 border-green-500/20',   icon: 'text-green-400',  dot: 'bg-green-400'  },
+  violet: { card: 'bg-violet-500/10 border-violet-500/20', icon: 'text-violet-400', dot: 'bg-violet-400' },
+  orange: { card: 'bg-orange-500/10 border-orange-500/20', icon: 'text-orange-400', dot: 'bg-orange-400' },
+  indigo: { card: 'bg-indigo-500/10 border-indigo-500/20', icon: 'text-indigo-400', dot: 'bg-indigo-400' },
+  teal:   { card: 'bg-teal-500/10 border-teal-500/20',     icon: 'text-teal-400',   dot: 'bg-teal-400'   },
+};
+
+const gridContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
+};
+const cardAnim = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
 
 const Hero = () => {
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (href) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/5554996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.', '_blank');
+    window.open(
+      'https://wa.me/5554996246565?text=Olá! Gostaria de uma apresentação comercial da NandiDev.',
+      '_blank'
+    );
   };
 
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background - imagem full width, posicionada para mostrar o rosto */}
-      <div
-        className="absolute inset-0 w-full bg-cover"
-        style={{
-          backgroundImage: 'url(/logo/kesia-nandi.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top'
-        }}
-        aria-hidden="true"
-      />
+    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#060b16]">
 
-      {/* Overlay em gradiente: mais escuro à esquerda (zona do texto), transição suave para foto à direita */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.2) 100%)'
-        }}
-        aria-hidden="true"
-      />
+      {/* Background glow blobs */}
+      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-amber-500/6 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-[560px] h-[560px] bg-cyan-500/6 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-indigo-500/4 blur-[160px] rounded-full pointer-events-none" />
 
-      {/* Conteúdo alinhado com a logo do header (mesmo container) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex justify-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6 lg:space-y-8 text-left max-w-xl"
-        >
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+          {/* ─── Left — copy ─── */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-slate-200 text-base font-medium"
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8 order-2 lg:order-1"
           >
-            <Sparkles className="w-5 h-5 text-amber-400" />
-            Sistemas de IA prontos para produção
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium"
+            >
+              <Sparkles className="w-4 h-4" />
+              6 Plataformas SaaS · Prontas para usar agora
+            </motion.div>
+
+            {/* Headline */}
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                Automatize, venda{' '}
+                <br className="hidden lg:block" />e atenda mais —{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+                  com IA real
+                </span>
+              </h1>
+              <p className="text-lg text-slate-400 leading-relaxed max-w-lg">
+                A NandiDev constrói plataformas SaaS com inteligência artificial para empresas que querem escalar atendimento, vendas e marketing sem contratar mais pessoas.
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => scrollTo('#produtos')}
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg shadow-amber-500/20"
+              >
+                Ver Nossas Plataformas
+                <ArrowRight className="w-5 h-5" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleWhatsApp}
+                className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold py-4 px-8 rounded-xl transition-all"
+              >
+                Agendar Apresentação
+              </motion.button>
+            </div>
+
+            {/* Trust signals */}
+            <div className="flex flex-wrap gap-5 text-slate-400 text-sm">
+              {['Pronto para produção', 'Suporte em português', 'Clientes em todo o Brasil'].map((t) => (
+                <span key={t} className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                  {t}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-            IA, Automação e Tecnologia para{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-              empresas que querem crescer de verdade
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-            Nossas automações com IA já eliminaram centenas de horas de trabalho manual para nossos clientes — integrando LLMs, arquiteturas multi-agente e pipelines RAG para escalar operações e melhorar a qualidade das decisões.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-start">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => scrollToSection('#produtos')}
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold py-4 px-8 rounded-xl hover:from-amber-400 hover:to-orange-400 transition-all shadow-lg shadow-amber-500/25"
+          {/* ─── Right — product grid ─── */}
+          <div className="order-1 lg:order-2">
+            <motion.div
+              variants={gridContainer}
+              initial="hidden"
+              animate="visible"
+              className="grid grid-cols-2 gap-3 sm:gap-4"
             >
-              Ver Nossas Plataformas
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleWhatsApp}
-              className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all"
+              {products.map((p, i) => {
+                const c = colors[p.color];
+                return (
+                  <motion.div
+                    key={i}
+                    variants={cardAnim}
+                    whileHover={{ y: -5, scale: 1.025 }}
+                    transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                    className={`relative p-4 sm:p-5 rounded-2xl border ${c.card} backdrop-blur-sm cursor-default select-none`}
+                  >
+                    {/* Header row */}
+                    <div className="flex items-start justify-between mb-3">
+                      <div className={`w-10 h-10 rounded-xl ${c.card} flex items-center justify-center`}>
+                        <p.icon className={`w-5 h-5 ${c.icon}`} />
+                      </div>
+                      {/* Live dot */}
+                      <span className="flex items-center gap-1 mt-1">
+                        <span className={`w-1.5 h-1.5 rounded-full ${c.dot} animate-pulse`} />
+                        <span className="text-slate-500 text-[10px]">ativo</span>
+                      </span>
+                    </div>
+                    <p className="text-white text-sm font-semibold leading-snug mb-1">{p.name}</p>
+                    <p className="text-slate-500 text-xs leading-snug">{p.metric}</p>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+
+            {/* Bottom stat bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75 }}
+              className="mt-4 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between"
             >
-              Agendar Apresentação
-            </motion.button>
+              <div className="flex items-center gap-2.5">
+                <Zap className="w-4 h-4 text-amber-400 shrink-0" />
+                <span className="text-white text-sm font-semibold">6 plataformas</span>
+                <span className="text-slate-500 text-xs hidden sm:inline">prontas para assinar</span>
+              </div>
+              <button
+                onClick={() => scrollTo('#produtos')}
+                className="flex items-center gap-1 text-amber-400 text-xs font-medium hover:text-amber-300 transition-colors"
+              >
+                Explorar tudo <ArrowRight className="w-3 h-3" />
+              </button>
+            </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-wrap gap-8 justify-start text-slate-300 text-sm md:text-base"
-          >
-            <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-400" /> 6 Plataformas SaaS ativas
-            </span>
-            <span className="flex items-center gap-2">
-              <Target className="w-4 h-4 text-amber-400" /> Clientes em todo o Brasil
-            </span>
-          </motion.div>
-
-          {/* Nome e cargo discretos */}
-          <p className="text-slate-400 text-sm pt-2">
-            Késia Nandi — CEO & Fundadora
-          </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 1.1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2"
+          className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2"
         >
-          <motion.div className="w-1 h-2 bg-white/60 rounded-full" />
+          <motion.div className="w-1 h-2 bg-white/40 rounded-full" />
         </motion.div>
       </motion.div>
     </section>
