@@ -310,7 +310,7 @@ function MultiAgenteCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://app.nandiflow.com.br"
+              href="https://wa.me/5554996246565?text=Quero contratar o Atendimento Multi-Agentes da NandiDev! Podem me enviar os detalhes e link de pagamento?"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
@@ -365,7 +365,7 @@ function MultiAgenteCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://app.nandiflow.com.br"
+            href="https://wa.me/5554996246565?text=Quero contratar o Atendimento Multi-Agentes da NandiDev! Podem me enviar os detalhes e link de pagamento?"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
