@@ -8,7 +8,7 @@ import {
 const products = [
   { icon: MessageCircle, name: 'Disparo.AI',       metric: 'Disparos em massa no WhatsApp',  color: 'cyan'   },
   { icon: Headphones,    name: 'Multi-Agentes',     metric: 'CS omnichannel + IA nativa',     color: 'green'  },
-  { icon: Share2,        name: 'NandiFlow Social',  metric: 'Automação de redes sociais',     color: 'violet' },
+  { icon: Share2,        name: 'Automação de Redes Sociais', metric: 'Agendamento e publicação com IA', color: 'violet' },
   { icon: Bot,           name: 'SDR Humanizada',    metric: 'Prospecção e qualificação 24/7', color: 'orange' },
   { icon: Scale,         name: 'SDR Jurídico',      metric: 'Captação para escritórios',      color: 'indigo' },
   { icon: Crosshair,     name: 'Radar Comercial',   metric: 'Prospecção B2B com IA',          color: 'teal'   },
