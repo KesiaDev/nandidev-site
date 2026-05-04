@@ -15,12 +15,12 @@ const products = [
 ];
 
 const colors = {
-  cyan:   { card: 'bg-cyan-500/10 border-cyan-500/20',     icon: 'text-cyan-400',   dot: 'bg-cyan-400'   },
-  green:  { card: 'bg-green-500/10 border-green-500/20',   icon: 'text-green-400',  dot: 'bg-green-400'  },
-  violet: { card: 'bg-violet-500/10 border-violet-500/20', icon: 'text-violet-400', dot: 'bg-violet-400' },
-  orange: { card: 'bg-orange-500/10 border-orange-500/20', icon: 'text-orange-400', dot: 'bg-orange-400' },
-  indigo: { card: 'bg-indigo-500/10 border-indigo-500/20', icon: 'text-indigo-400', dot: 'bg-indigo-400' },
-  teal:   { card: 'bg-teal-500/10 border-teal-500/20',     icon: 'text-teal-400',   dot: 'bg-teal-400'   },
+  cyan:   { card: 'bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border-cyan-500/30',     iconBg: 'bg-cyan-500/20 border border-cyan-500/30',     icon: 'text-cyan-400',   dot: 'bg-cyan-400',   accent: 'bg-cyan-400',   shadow: 'rgba(6,182,212,0.20)'   },
+  green:  { card: 'bg-gradient-to-br from-green-500/20 to-green-500/5 border-green-500/30',   iconBg: 'bg-green-500/20 border border-green-500/30',   icon: 'text-green-400',  dot: 'bg-green-400',  accent: 'bg-green-400',  shadow: 'rgba(34,197,94,0.20)'   },
+  violet: { card: 'bg-gradient-to-br from-violet-500/20 to-violet-500/5 border-violet-500/30', iconBg: 'bg-violet-500/20 border border-violet-500/30', icon: 'text-violet-400', dot: 'bg-violet-400', accent: 'bg-violet-400', shadow: 'rgba(139,92,246,0.20)'  },
+  orange: { card: 'bg-gradient-to-br from-orange-500/20 to-orange-500/5 border-orange-500/30', iconBg: 'bg-orange-500/20 border border-orange-500/30', icon: 'text-orange-400', dot: 'bg-orange-400', accent: 'bg-orange-400', shadow: 'rgba(249,115,22,0.20)'  },
+  indigo: { card: 'bg-gradient-to-br from-indigo-500/20 to-indigo-500/5 border-indigo-500/30', iconBg: 'bg-indigo-500/20 border border-indigo-500/30', icon: 'text-indigo-400', dot: 'bg-indigo-400', accent: 'bg-indigo-400', shadow: 'rgba(99,102,241,0.20)'  },
+  teal:   { card: 'bg-gradient-to-br from-teal-500/20 to-teal-500/5 border-teal-500/30',     iconBg: 'bg-teal-500/20 border border-teal-500/30',     icon: 'text-teal-400',   dot: 'bg-teal-400',   accent: 'bg-teal-400',   shadow: 'rgba(20,184,166,0.20)'  },
 };
 
 const gridContainer = {
@@ -134,23 +134,26 @@ const Hero = () => {
                   <motion.div
                     key={i}
                     variants={cardAnim}
-                    whileHover={{ y: -5, scale: 1.025 }}
-                    transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-                    className={`relative p-4 sm:p-5 rounded-2xl border ${c.card} backdrop-blur-sm cursor-default select-none`}
+                    whileHover={{ y: -6, scale: 1.03, boxShadow: `0 12px 36px ${c.shadow}` }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className={`relative p-4 sm:p-5 rounded-2xl border ${c.card} backdrop-blur-sm cursor-default select-none overflow-hidden`}
                   >
+                    {/* Top accent strip */}
+                    <div className={`absolute top-0 left-0 right-0 h-[2px] ${c.accent}`} />
+
                     {/* Header row */}
-                    <div className="flex items-start justify-between mb-3">
-                      <div className={`w-10 h-10 rounded-xl ${c.card} flex items-center justify-center`}>
+                    <div className="flex items-start justify-between mb-3 mt-1">
+                      <div className={`w-11 h-11 rounded-xl ${c.iconBg} flex items-center justify-center`}>
                         <p.icon className={`w-5 h-5 ${c.icon}`} />
                       </div>
                       {/* Live dot */}
-                      <span className="flex items-center gap-1 mt-1">
-                        <span className={`w-1.5 h-1.5 rounded-full ${c.dot} animate-pulse`} />
-                        <span className="text-slate-500 text-[10px]">ativo</span>
+                      <span className="flex items-center gap-1.5 mt-1">
+                        <span className={`w-2 h-2 rounded-full ${c.dot} animate-pulse`} />
+                        <span className="text-slate-500 text-[10px] font-medium">ativo</span>
                       </span>
                     </div>
                     <p className="text-white text-sm font-semibold leading-snug mb-1">{p.name}</p>
-                    <p className="text-slate-500 text-xs leading-snug">{p.metric}</p>
+                    <p className="text-slate-400 text-xs leading-snug">{p.metric}</p>
                   </motion.div>
                 );
               })}
@@ -161,7 +164,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 }}
-              className="mt-4 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between"
+              className="mt-4 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500/8 to-white/5 border border-amber-500/20 flex items-center justify-between"
             >
               <div className="flex items-center gap-2.5">
                 <Zap className="w-4 h-4 text-amber-400 shrink-0" />
