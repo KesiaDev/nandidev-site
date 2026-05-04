@@ -310,19 +310,19 @@ function MultiAgenteCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Quero contratar o Atendimento Multi-Agentes da NandiDev! Podem me enviar os detalhes e link de pagamento?"
+              href="https://multiagentesplataforma.lovable.app/#planos"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
-              Quero melhorar meu atendimento <ArrowRight className="w-4 h-4" />
+              Ver planos e preços <ArrowRight className="w-4 h-4" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Olá! Tenho interesse no Atendimento Multi-Agentes."
+              href="https://multiagentesplataforma.lovable.app/auth"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
-              Falar com especialista <MessageCircle className="w-4 h-4" />
+              Acessar plataforma <ExternalLink className="w-4 h-4" />
             </motion.a>
           </div>
         </div>
@@ -365,7 +365,7 @@ function MultiAgenteCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://wa.me/5554996246565?text=Quero contratar o Atendimento Multi-Agentes da NandiDev! Podem me enviar os detalhes e link de pagamento?"
+            href="https://multiagentesplataforma.lovable.app/#planos"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
@@ -419,19 +419,19 @@ function SocialCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Quero contratar a Automação de Redes Sociais da NandiDev! Podem me enviar os detalhes e link de pagamento?"
+              href="https://megaautomacao.lovable.app/#planos"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
-              Quero automatizar minhas redes <ArrowRight className="w-4 h-4" />
+              Ver planos e preços <ArrowRight className="w-4 h-4" />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Olá! Tenho interesse na Automação de Redes Sociais da NandiDev."
+              href="https://megaautomacao.lovable.app/login"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
-              Falar com especialista <MessageCircle className="w-4 h-4" />
+              Acessar plataforma <ExternalLink className="w-4 h-4" />
             </motion.a>
           </div>
         </div>
@@ -475,7 +475,7 @@ function SocialCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://wa.me/5554996246565?text=Quero contratar a Automação de Redes Sociais da NandiDev! Podem me enviar os detalhes e link de pagamento?"
+            href="https://megaautomacao.lovable.app/#planos"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-violet-600 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
