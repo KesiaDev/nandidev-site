@@ -310,7 +310,7 @@ function MultiAgenteCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Olá! Tenho interesse no Atendimento Multi-Agentes."
+              href="https://app.nandiflow.com.br"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
@@ -365,7 +365,7 @@ function MultiAgenteCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://wa.me/5554996246565?text=Olá! Tenho interesse no Atendimento Multi-Agentes."
+            href="https://app.nandiflow.com.br"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
@@ -419,7 +419,7 @@ function SocialCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Olá! Tenho interesse na Automação de Redes Sociais."
+              href="https://wa.me/5554996246565?text=Quero contratar a Automação de Redes Sociais da NandiDev! Podem me enviar os detalhes e link de pagamento?"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
@@ -427,7 +427,7 @@ function SocialCard() {
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Olá! Tenho interesse na Automação de Redes Sociais."
+              href="https://wa.me/5554996246565?text=Olá! Tenho interesse na Automação de Redes Sociais da NandiDev."
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-6 rounded-xl transition-colors"
             >
@@ -475,7 +475,7 @@ function SocialCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://wa.me/5554996246565?text=Olá! Tenho interesse na Automação de Redes Sociais."
+            href="https://wa.me/5554996246565?text=Quero contratar a Automação de Redes Sociais da NandiDev! Podem me enviar os detalhes e link de pagamento?"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-violet-600 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
@@ -529,7 +529,7 @@ function SdrCard() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <motion.a
               whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5554996246565?text=Olá! Tenho interesse no SDR IA Humanizada."
+              href="https://human-hearted-ai.lovable.app"
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
             >
@@ -585,7 +585,7 @@ function SdrCard() {
 
           <motion.a
             whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            href="https://wa.me/5554996246565?text=Olá! Tenho interesse no SDR IA Humanizada."
+            href="https://human-hearted-ai.lovable.app"
             target="_blank" rel="noopener noreferrer"
             className="mt-6 flex items-center justify-center gap-2 w-full bg-orange-500 hover:bg-orange-400 text-white font-bold py-3 px-6 rounded-xl transition-colors"
           >
