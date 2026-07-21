@@ -42,7 +42,8 @@ const Services = () => {
         "Eficiência operacional em escala"
       ],
       color: "from-violet-500 to-blue-600",
-      highlight: true
+      highlight: true,
+      bento: 'wide'
     },
     {
       icon: GraduationCap,
@@ -131,47 +132,57 @@ const Services = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -6 }}
-                className={`relative bg-white/5 backdrop-blur-sm rounded-2xl border hover:border-white/20 transition-all overflow-hidden ${
-                  service.highlight ? 'border-violet-500/30 ring-1 ring-violet-500/20' : 'border-white/10'
-                }`}
-              >
-                <div className={`h-28 bg-gradient-to-r ${service.color} flex items-center justify-center`}>
-                  <service.icon className="w-12 h-12 text-white" />
-                  {service.highlight && (
-                    <span className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/20 text-white text-xs font-medium">
-                      Destaque
-                    </span>
-                  )}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:grid-flow-dense gap-6">
+            {services.map((service, index) => {
+              const cardInner = (
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={{ y: -6 }}
+                  className={`relative h-full bg-white/5 backdrop-blur-sm rounded-2xl border hover:border-white/20 transition-all overflow-hidden ${
+                    service.bento === 'wide' ? '' : service.highlight ? 'border-violet-500/30 ring-1 ring-violet-500/20' : 'border-white/10'
+                  }`}
+                >
+                  <div className={`h-28 bg-gradient-to-r ${service.color} flex items-center justify-center`}>
+                    <service.icon className="w-12 h-12 text-white" />
+                    {service.highlight && (
+                      <span className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/20 text-white text-xs font-medium">
+                        Destaque
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
+                    <p className="text-slate-400 text-sm mb-4 leading-relaxed">{service.description}</p>
+                    <ul className={`gap-2 mb-5 ${service.bento === 'wide' ? 'grid sm:grid-cols-2 space-y-0' : 'space-y-2'}`}>
+                      {service.features.map((f, i) => (
+                        <li key={i} className="flex items-center text-sm text-slate-400">
+                          <CheckCircle className="w-4 h-4 text-cyan-400 mr-2 flex-shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={handleWhatsApp}
+                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-colors"
+                    >
+                      Conversar
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.button>
+                  </div>
+                </motion.div>
+              );
+
+              // The bento-wide highlight card gets an animated gradient-border ring
+              return service.bento === 'wide' ? (
+                <div key={index} className="lg:col-span-2 gradient-border rounded-2xl p-[1.5px]">
+                  {cardInner}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
-                  <p className="text-slate-400 text-sm mb-4 leading-relaxed">{service.description}</p>
-                  <ul className="space-y-2 mb-5">
-                    {service.features.map((f, i) => (
-                      <li key={i} className="flex items-center text-sm text-slate-400">
-                        <CheckCircle className="w-4 h-4 text-cyan-400 mr-2 flex-shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleWhatsApp}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-colors"
-                  >
-                    Conversar
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
+              ) : (
+                <React.Fragment key={index}>{cardInner}</React.Fragment>
+              );
+            })}
           </div>
 
           <motion.div

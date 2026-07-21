@@ -57,7 +57,7 @@ const Header = () => {
             <img
               src="/logo/nandidev-logo-full.png"
               alt="NandiDev Logo"
-              className="h-12 w-auto"
+              className="h-20 w-auto"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'flex';

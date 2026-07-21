@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
+import AuroraBackground from './effects/AuroraBackground';
 
 const CTA = () => {
   const ref = useRef(null);
@@ -42,12 +43,8 @@ const CTA = () => {
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-secondary/10 rounded-full blur-3xl"></div>
-      </div>
+      {/* Animated aurora background */}
+      <AuroraBackground variant="cta" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -74,7 +71,7 @@ const CTA = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleWhatsApp}
-              className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 text-white font-bold py-6 px-12 rounded-2xl shadow-xl shadow-blue-500/25 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 transition-all flex items-center space-x-3 mx-auto text-xl"
+              className="gradient-border bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 text-white font-bold py-6 px-12 rounded-2xl shadow-xl shadow-blue-500/25 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 transition-all flex items-center space-x-3 mx-auto text-xl"
             >
               <MessageCircle className="w-6 h-6" />
               <span>Agendar Apresentação</span>

@@ -4,6 +4,10 @@ import {
   ArrowRight, Sparkles, CheckCircle, Zap,
   MessageCircle, Headphones, Share2, Bot, Scale, Crosshair,
 } from 'lucide-react';
+import AuroraBackground from './effects/AuroraBackground';
+import ParticleNetwork from './effects/ParticleNetwork';
+import Spotlight from './effects/Spotlight';
+import MagneticButton from './effects/MagneticButton';
 
 const products = [
   { icon: MessageCircle, name: 'Disparo.AI',       metric: 'Disparos em massa no WhatsApp',  color: 'cyan'   },
@@ -48,11 +52,11 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#060b16]">
 
-      {/* Background glow blobs */}
-      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-violet-500/8 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-[560px] h-[560px] bg-cyan-500/8 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-blue-500/5 blur-[160px] rounded-full pointer-events-none" />
+      {/* Animated aurora mesh + neural particle network + cursor spotlight */}
+      <AuroraBackground variant="hero" />
+      <ParticleNetwork density={45} />
       <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <Spotlight size={550} color="rgba(124,58,237,0.16)" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
@@ -80,7 +84,7 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
                 Automatize, venda{' '}
                 <br className="hidden lg:block" />e atenda mais —{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">
+                <span className="text-shimmer">
                   com IA real
                 </span>
               </h1>
@@ -91,23 +95,19 @@ const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+              <MagneticButton
                 onClick={() => scrollTo('#produtos')}
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-500/20"
+                className="gradient-border inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-500/20"
               >
                 Ver Nossas Plataformas
                 <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+              </MagneticButton>
+              <MagneticButton
                 onClick={handleWhatsApp}
                 className="inline-flex items-center justify-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold py-4 px-8 rounded-xl transition-all"
               >
                 Agendar Apresentação
-              </motion.button>
+              </MagneticButton>
             </div>
 
             {/* Trust signals */}
@@ -132,29 +132,34 @@ const Hero = () => {
               {products.map((p, i) => {
                 const c = colors[p.color];
                 return (
-                  <motion.div
-                    key={i}
-                    variants={cardAnim}
-                    whileHover={{ y: -6, scale: 1.03, boxShadow: `0 12px 36px ${c.shadow}` }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                    className={`relative p-4 sm:p-5 rounded-2xl border ${c.card} backdrop-blur-sm cursor-default select-none overflow-hidden`}
-                  >
-                    {/* Top accent strip */}
-                    <div className={`absolute top-0 left-0 right-0 h-[2px] ${c.accent}`} />
+                  <motion.div key={i} variants={cardAnim}>
+                    <div
+                      className="animate-float"
+                      style={{ animationDelay: `${(i % 3) * 0.6}s`, animationDuration: `${4.5 + (i % 3) * 0.5}s` }}
+                    >
+                      <motion.div
+                        whileHover={{ y: -6, scale: 1.03, boxShadow: `0 12px 36px ${c.shadow}` }}
+                        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                        className={`relative p-4 sm:p-5 rounded-2xl border ${c.card} backdrop-blur-sm cursor-default select-none overflow-hidden`}
+                      >
+                        {/* Top accent strip */}
+                        <div className={`absolute top-0 left-0 right-0 h-[2px] ${c.accent}`} />
 
-                    {/* Header row */}
-                    <div className="flex items-start justify-between mb-3 mt-1">
-                      <div className={`w-11 h-11 rounded-xl ${c.iconBg} flex items-center justify-center`}>
-                        <p.icon className={`w-5 h-5 ${c.icon}`} />
-                      </div>
-                      {/* Live dot */}
-                      <span className="flex items-center gap-1.5 mt-1">
-                        <span className={`w-2 h-2 rounded-full ${c.dot} animate-pulse`} />
-                        <span className="text-slate-500 text-[10px] font-medium">ativo</span>
-                      </span>
+                        {/* Header row */}
+                        <div className="flex items-start justify-between mb-3 mt-1">
+                          <div className={`w-11 h-11 rounded-xl ${c.iconBg} flex items-center justify-center`}>
+                            <p.icon className={`w-5 h-5 ${c.icon}`} />
+                          </div>
+                          {/* Live dot */}
+                          <span className="flex items-center gap-1.5 mt-1">
+                            <span className={`w-2 h-2 rounded-full ${c.dot} animate-pulse`} />
+                            <span className="text-slate-500 text-[10px] font-medium">ativo</span>
+                          </span>
+                        </div>
+                        <p className="text-white text-sm font-semibold leading-snug mb-1">{p.name}</p>
+                        <p className="text-slate-400 text-xs leading-snug">{p.metric}</p>
+                      </motion.div>
                     </div>
-                    <p className="text-white text-sm font-semibold leading-snug mb-1">{p.name}</p>
-                    <p className="text-slate-400 text-xs leading-snug">{p.metric}</p>
                   </motion.div>
                 );
               })}

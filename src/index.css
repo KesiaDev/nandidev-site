@@ -106,3 +106,76 @@ html {
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* ─── Aurora drifting blobs (used by AuroraBackground.js) ────────────── */
+@keyframes auroraDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(6%, 8%) scale(1.08); }
+  66%      { transform: translate(-4%, 4%) scale(0.96); }
+}
+@keyframes auroraDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-8%, -5%) scale(0.94); }
+  66%      { transform: translate(5%, -8%) scale(1.06); }
+}
+@keyframes auroraDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-6%, 6%) scale(1.1); }
+}
+.aurora-drift-1 { animation: auroraDrift1 22s ease-in-out infinite; }
+.aurora-drift-2 { animation: auroraDrift2 26s ease-in-out infinite; }
+.aurora-drift-3 { animation: auroraDrift3 30s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-drift-1, .aurora-drift-2, .aurora-drift-3 { animation: none; }
+}
+
+/* ─── Film-grain overlay — adds premium depth over flat dark sections ── */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.05;
+}
+
+/* ─── Shimmering gradient text — animated sheen across the headline ──── */
+@keyframes textShimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #a78bfa 0%, #60a5fa 25%, #22d3ee 50%, #60a5fa 75%, #a78bfa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer { animation: none; }
+}
+
+/* ─── Animated gradient border — rotating conic-gradient ring ─────────── */
+@keyframes borderRotate {
+  to { --border-angle: 360deg; }
+}
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.gradient-border {
+  position: relative;
+  z-index: 0;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(from var(--border-angle), #7c3aed, #2563eb, #22d3ee, #f97316, #7c3aed);
+  animation: borderRotate 5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border::before { animation: none; }
+}
