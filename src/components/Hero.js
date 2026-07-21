@@ -8,6 +8,7 @@ import AuroraBackground from './effects/AuroraBackground';
 import ParticleNetwork from './effects/ParticleNetwork';
 import Spotlight from './effects/Spotlight';
 import MagneticButton from './effects/MagneticButton';
+import NeuralCore from './effects/NeuralCore';
 
 const products = [
   { icon: MessageCircle, name: 'Disparo.AI',       metric: 'Disparos em massa no WhatsApp',  color: 'cyan'   },
@@ -121,8 +122,13 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* ─── Right — product grid ─── */}
-          <div className="order-1 lg:order-2">
+          {/* ─── Right — neural core + product grid ─── */}
+          <div className="relative order-1 lg:order-2">
+            {/* Glowing AI core — animated centerpiece, echoes the logo's connected nodes */}
+            <div className="absolute inset-0 flex items-center justify-center -z-10 scale-125 opacity-90">
+              <NeuralCore size={520} />
+            </div>
+
             <motion.div
               variants={gridContainer}
               initial="hidden"

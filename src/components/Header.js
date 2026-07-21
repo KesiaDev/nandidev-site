@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
+import MagneticButton from './effects/MagneticButton';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-5">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.02 }}
@@ -57,7 +58,7 @@ const Header = () => {
             <img
               src="/logo/nandidev-logo-full.png"
               alt="NandiDev Logo"
-              className="h-20 w-auto"
+              className="h-16 md:h-20 w-auto"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'flex';
@@ -69,29 +70,28 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-9">
             {menuItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="font-medium transition-colors duration-300 text-slate-300 hover:text-white"
+                className="relative py-1 font-medium text-[15px] tracking-wide transition-colors duration-300 text-slate-300 hover:text-white group"
               >
                 {item.name}
+                <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-violet-400 to-cyan-400 transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <MagneticButton
               onClick={handleWhatsApp}
-              className="flex items-center space-x-2 font-semibold py-2.5 px-5 rounded-xl transition-all bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white shadow-lg shadow-violet-500/20"
+              className="gradient-border flex items-center space-x-2 font-semibold py-3 px-6 rounded-full transition-all bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white shadow-lg shadow-violet-500/20"
             >
               <Phone size={18} />
               <span>Agendar Apresentação</span>
-            </motion.button>
+            </MagneticButton>
           </div>
 
           {/* Mobile Menu Button */}
