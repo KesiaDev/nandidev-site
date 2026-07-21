@@ -49,7 +49,7 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-5">
+        <div className="flex justify-between items-center py-2">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.02 }}
@@ -58,7 +58,7 @@ const Header = () => {
             <img
               src="/logo/nandidev-logo-full.png"
               alt="NandiDev Logo"
-              className="h-16 md:h-20 w-auto"
+              className="h-24 md:h-32 w-auto"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'flex';
