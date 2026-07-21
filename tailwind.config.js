@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#007BFF',
-        secondary: '#FF5722',
-        accent: '#4CAF50',
+        primary: '#7c3aed',
+        secondary: '#f97316',
+        accent: '#22d3ee',
       },
       fontFamily: {
         'sans': ['Poppins', 'Inter', 'Nunito', 'sans-serif'],

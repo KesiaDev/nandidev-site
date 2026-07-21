@@ -42,8 +42,10 @@ const AICapabilities = () => {
   ];
 
   return (
-    <section id="ai-capabilities" className="py-20 lg:py-28 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="ai-capabilities" className="relative py-20 lg:py-28 bg-[#080d1a] overflow-hidden">
+      <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-violet-500/6 blur-[160px] rounded-full pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
@@ -52,10 +54,10 @@ const AICapabilities = () => {
           className="space-y-14"
         >
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Capacidades de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">IA</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Capacidades de <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">IA</span>
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-400">
               Capacidades técnicas que usamos para projetar sistemas inteligentes prontos para produção em operações reais de negócio.
             </p>
           </div>
@@ -68,13 +70,13 @@ const AICapabilities = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
                 transition={{ delay: index * 0.08, duration: 0.45 }}
                 whileHover={{ y: -4 }}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all p-6"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/20 transition-all p-6"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-amber-600" />
+                <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-violet-300" />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>

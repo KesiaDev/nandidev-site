@@ -78,22 +78,18 @@ const Footer = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center space-x-3"
               >
-                <img 
-                  src="/logo/logo.png" 
-                  alt="Nandi Dev Logo" 
-                  className="h-12 w-auto"
+                <img
+                  src="/logo/nandidev-logo-full.png"
+                  alt="NandiDev Logo"
+                  className="h-14 w-auto"
                   onError={(e) => {
                     // Fallback caso a logo não seja encontrada
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div className="w-12 h-12 bg-gradient-to-r from-primary via-accent to-secondary rounded-lg flex items-center justify-center" style={{display: 'none'}}>
+                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-400 rounded-lg flex items-center justify-center" style={{display: 'none'}}>
                   <span className="text-white font-bold text-xl">N</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">Nandi Dev</h3>
-                  <p className="text-sm text-gray-400">Tecnologia sob medida + IA</p>
                 </div>
               </motion.div>
               

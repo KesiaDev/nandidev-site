@@ -61,7 +61,7 @@ const CTA = () => {
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Pronto para construir{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">
                 seu sistema de IA?
               </span>
             </h2>
@@ -74,7 +74,7 @@ const CTA = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleWhatsApp}
-              className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold py-6 px-12 rounded-2xl shadow-xl shadow-amber-500/25 hover:from-amber-400 hover:to-orange-400 transition-all flex items-center space-x-3 mx-auto text-xl"
+              className="bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 text-white font-bold py-6 px-12 rounded-2xl shadow-xl shadow-blue-500/25 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 transition-all flex items-center space-x-3 mx-auto text-xl"
             >
               <MessageCircle className="w-6 h-6" />
               <span>Agendar Apresentação</span>

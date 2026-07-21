@@ -50,8 +50,10 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-slate-50">
-      <div className="max-w-6xl xl:max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
+    <section id="about" className="relative py-20 lg:py-28 bg-[#080d1a] overflow-hidden">
+      <div className="absolute top-1/4 -left-48 w-[480px] h-[480px] bg-violet-500/6 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-48 w-[480px] h-[480px] bg-cyan-500/6 blur-[140px] rounded-full pointer-events-none" />
+      <div className="relative z-10 max-w-6xl xl:max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -61,10 +63,10 @@ const About = () => {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              A engenheira por trás dos <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Sistemas de IA</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              A engenheira por trás dos <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">Sistemas de IA</span>
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-400">
               Késia Nandi une liderança empresarial e engenharia de software para construir sistemas inteligentes com LLMs, fluxos multi-agente e automação.
             </p>
           </motion.div>
@@ -73,34 +75,34 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
             <motion.div variants={itemVariants} className="flex justify-center lg:justify-end">
               <div className="relative">
-                <div className="absolute -inset-2 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-2xl blur-xl" />
+                <div className="absolute -inset-2 bg-gradient-to-br from-violet-500/25 to-cyan-500/20 rounded-2xl blur-xl" />
                 <img
                   src="/logo/kesia-nandi-about.png"
                   alt="Késia Nandi"
-                  className="relative w-full max-w-sm rounded-2xl shadow-xl object-cover aspect-[3/4] object-center"
+                  className="relative w-full max-w-sm rounded-2xl shadow-xl object-cover aspect-[3/4] object-center border border-white/10"
                 />
               </div>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-6">
-              <div className="flex items-center gap-2 text-amber-600">
+              <div className="flex items-center gap-2 text-cyan-400">
                 <Sparkles className="w-5 h-5" />
                 <span className="font-semibold">Trajetória</span>
               </div>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-400 leading-relaxed">
                 Com mais de uma década em liderança comercial em empresas nacionais como Magazine Luiza e Cielo, desenvolveu uma mentalidade operacional sólida para mapear gargalos, priorizar iniciativas e gerar resultados mensuráveis para o negócio.
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-400 leading-relaxed">
                 Após transição para Engenharia de Software, se especializou em IA aplicada e produtos baseados em LLMs, atuando em automação inteligente, assistentes de IA e sistemas de dados usados em operações comerciais reais.
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-400 leading-relaxed">
                 Na NandiDev, lidera o design e a entrega de sistemas de IA prontos para produção, incluindo integrações com LLMs, arquiteturas multi-agente, pipelines RAG e automação inteligente de processos para ambientes orientados a dados.
               </p>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={scrollToContact}
-                className="btn-primary"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-lg shadow-violet-500/20"
               >
                 Falar com a Késia
               </motion.button>
@@ -113,13 +115,13 @@ const About = () => {
               <motion.div
                 key={i}
                 whileHover={{ y: -4 }}
-                className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all"
+                className="bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-4">
-                  <h.icon className="w-6 h-6 text-amber-600" />
+                <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-4">
+                  <h.icon className="w-6 h-6 text-violet-300" />
                 </div>
-                <h3 className="font-semibold text-slate-900 mb-2">{h.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{h.desc}</p>
+                <h3 className="font-semibold text-white mb-2">{h.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{h.desc}</p>
               </motion.div>
             ))}
           </motion.div>

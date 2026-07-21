@@ -49,9 +49,10 @@ const Hero = () => {
     <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#060b16]">
 
       {/* Background glow blobs */}
-      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-amber-500/6 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-[560px] h-[560px] bg-cyan-500/6 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-indigo-500/4 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-violet-500/8 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-[560px] h-[560px] bg-cyan-500/8 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-blue-500/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-grid pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
@@ -68,7 +69,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm font-medium"
             >
               <Sparkles className="w-4 h-4" />
               6 Plataformas SaaS · Prontas para usar agora
@@ -79,7 +80,7 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
                 Automatize, venda{' '}
                 <br className="hidden lg:block" />e atenda mais —{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">
                   com IA real
                 </span>
               </h1>
@@ -94,7 +95,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollTo('#produtos')}
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg shadow-amber-500/20"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-500/20"
               >
                 Ver Nossas Plataformas
                 <ArrowRight className="w-5 h-5" />
@@ -113,7 +114,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-5 text-slate-400 text-sm">
               {['Pronto para produção', 'Suporte em português', 'Clientes em todo o Brasil'].map((t) => (
                 <span key={t} className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0" />
                   {t}
                 </span>
               ))}
@@ -164,16 +165,16 @@ const Hero = () => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 }}
-              className="mt-4 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500/8 to-white/5 border border-amber-500/20 flex items-center justify-between"
+              className="mt-4 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-violet-500/10 to-cyan-500/5 border border-violet-500/20 flex items-center justify-between"
             >
               <div className="flex items-center gap-2.5">
-                <Zap className="w-4 h-4 text-amber-400 shrink-0" />
+                <Zap className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span className="text-white text-sm font-semibold">6 plataformas</span>
                 <span className="text-slate-500 text-xs hidden sm:inline">prontas para assinar</span>
               </div>
               <button
                 onClick={() => scrollTo('#produtos')}
-                className="flex items-center gap-1 text-amber-400 text-xs font-medium hover:text-amber-300 transition-colors"
+                className="flex items-center gap-1 text-cyan-400 text-xs font-medium hover:text-cyan-300 transition-colors"
               >
                 Explorar tudo <ArrowRight className="w-3 h-3" />
               </button>

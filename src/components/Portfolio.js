@@ -119,8 +119,8 @@ const Portfolio = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <div className="absolute top-1/3 -left-64 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-1/3 -right-64 w-[500px] h-[500px] bg-amber-500/5 blur-[120px] rounded-full" />
+        <div className="absolute top-1/3 -left-64 w-[500px] h-[500px] bg-violet-500/6 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/3 -right-64 w-[500px] h-[500px] bg-cyan-500/6 blur-[120px] rounded-full" />
       </div>
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
@@ -132,12 +132,12 @@ const Portfolio = () => {
           transition={{ duration: 0.6 }}
           className="text-center space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm font-medium">
             Portfólio
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white">
             Projetos que{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">
               geram resultado
             </span>
           </h2>
@@ -253,7 +253,7 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/8 to-orange-500/5 p-10 space-y-4"
+          className="text-center rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 to-cyan-500/5 p-10 space-y-4"
         >
           <h3 className="text-2xl font-bold text-white">Gostou do que viu?</h3>
           <p className="text-slate-400 max-w-md mx-auto">
@@ -266,7 +266,7 @@ const Portfolio = () => {
               const el = document.querySelector('#contact');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-semibold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-amber-500/20"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-500 hover:from-violet-500 hover:via-blue-500 hover:to-cyan-400 text-white font-semibold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-blue-500/20"
           >
             Iniciar Projeto
             <ExternalLink className="w-4 h-4" />

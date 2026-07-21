@@ -41,7 +41,7 @@ const Services = () => {
         "Automação inteligente de processos",
         "Eficiência operacional em escala"
       ],
-      color: "from-amber-500 to-orange-500",
+      color: "from-violet-500 to-blue-600",
       highlight: true
     },
     {
@@ -112,8 +112,9 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-20 lg:py-28 bg-[#0a0f1e] overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[140px] rounded-full pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -122,10 +123,10 @@ const Services = () => {
           className="space-y-16"
         >
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Serviços de Tecnologia e IA da <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">NandiDev</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Serviços de Tecnologia e IA da <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">NandiDev</span>
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-400">
               De integração com LLMs a sistemas multi-agente e pipelines RAG, construímos soluções inteligentes sob medida para o seu negócio.
             </p>
           </motion.div>
@@ -136,8 +137,8 @@ const Services = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -6 }}
-                className={`relative bg-white rounded-2xl border shadow-sm hover:shadow-lg transition-all overflow-hidden ${
-                  service.highlight ? 'border-amber-200 ring-1 ring-amber-100' : 'border-slate-100'
+                className={`relative bg-white/5 backdrop-blur-sm rounded-2xl border hover:border-white/20 transition-all overflow-hidden ${
+                  service.highlight ? 'border-violet-500/30 ring-1 ring-violet-500/20' : 'border-white/10'
                 }`}
               >
                 <div className={`h-28 bg-gradient-to-r ${service.color} flex items-center justify-center`}>
@@ -149,12 +150,12 @@ const Services = () => {
                   )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{service.title}</h3>
-                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{service.description}</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
+                  <p className="text-slate-400 text-sm mb-4 leading-relaxed">{service.description}</p>
                   <ul className="space-y-2 mb-5">
                     {service.features.map((f, i) => (
-                      <li key={i} className="flex items-center text-sm text-slate-600">
-                        <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" />
+                      <li key={i} className="flex items-center text-sm text-slate-400">
+                        <CheckCircle className="w-4 h-4 text-cyan-400 mr-2 flex-shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -163,7 +164,7 @@ const Services = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleWhatsApp}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-colors"
                   >
                     Conversar
                     <ArrowRight className="w-4 h-4" />
@@ -175,20 +176,20 @@ const Services = () => {
 
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 text-center text-white"
+            className="rounded-2xl border border-violet-500/20 bg-gradient-to-r from-violet-500/10 via-blue-500/10 to-cyan-500/10 p-8 md:p-12 text-center text-white"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-3">
               Pronto para a virada de chave?
             </h3>
             <p className="text-slate-300 mb-6 max-w-xl mx-auto">
-              Agende uma apresentação comercial e veja como podemos ajudar sua empresa 
+              Agende uma apresentação comercial e veja como podemos ajudar sua empresa
               a automatizar processos e capacitar seu time com IA.
             </p>
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleWhatsApp}
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold py-4 px-8 rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-xl transition-colors"
             >
               Agendar Apresentação
               <ArrowRight className="w-5 h-5" />

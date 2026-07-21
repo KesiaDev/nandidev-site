@@ -98,9 +98,9 @@ const socialFeatures = [
 ];
 
 const socialPlans = [
-  { name: "Criador", price: "R$197", detail: "1 marca · 30 posts/mês",    instances: "Agendamento + Galeria",           highlight: false },
-  { name: "Pro",     price: "R$397", detail: "3 marcas · Posts ilimitados", instances: "Autopilot IA + Insights",         highlight: true  },
-  { name: "Agência", price: "R$797", detail: "10 marcas · Posts ilimitados",instances: "Analytics + Suporte prioritário", highlight: false },
+  { name: "Criador", price: "R$297", detail: "1 marca · 30 posts/mês",    instances: "Agendamento + Galeria",           highlight: false },
+  { name: "Pro",     price: "R$597", detail: "3 marcas · Posts ilimitados", instances: "Autopilot IA + Insights",         highlight: true  },
+  { name: "Agência", price: "R$997", detail: "10 marcas · Posts ilimitados",instances: "Analytics + Suporte prioritário", highlight: false },
 ];
 
 /* ─── SDR Humanizada data ────────────────────────────────────────────────── */
@@ -841,7 +841,7 @@ const Products = () => {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Conheça nossas{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">
                 plataformas
               </span>
             </h2>
